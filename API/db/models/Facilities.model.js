@@ -9,16 +9,16 @@ const FacilitiesSchema = new mongoose.Schema({
     },
     location:{
         type: Array,
-        required: true
-    },/*
+        required: false
+    }, //remove when finished testing
     _organizationID:{
         type: mongoose.SchemaTypes.ObjectId,
-        required: true,
+        required: false,
         ref: "Organizations"
-    },*/
+    },
     _damageAssessmentsID:{
         type: mongoose.Types.ObjectId,
-        required: true,
+        required: false,
         ref: 'DamageAssessments'
     }
 })

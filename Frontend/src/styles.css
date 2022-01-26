@@ -4,14 +4,26 @@ html, body {height: 100%}
 
 body {
     margin: 0;
-    font-family: ROboto;
+    font-family: Roboto;
     background-color: ghostwhite;
 }
-
+/*
 .sect{
     display: block;
-    margin-left: auto;
+    margin-top: auto;
+    margin-left: 100px;
     margin-right: auto;
     width: 850px;
     background-color: white;
-}
+}*/
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/*
+.sidenavtry {
+    position: fixed;
+    top: -5;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+  }*/
