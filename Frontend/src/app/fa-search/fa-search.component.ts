@@ -11,7 +11,7 @@ export class FASearchComponent implements OnInit {
 
   OrganizationName : string = "TestOrg";
   FacilityName : string = "TestFac";
-  FacilityLocation : Array = ["101.01","202.02"];
+  FacilityLocation : Array<number> = [101.01,202.02];
 
   ngOnInit(): void {
   }
