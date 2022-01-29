@@ -1,7 +1,10 @@
 <div>
     <mat-toolbar class = "menu" color="primary">
+        
         <div>
-            <a mat-button href="">Log Out</a>
+            <a mat-button href="">Back</a>
+            <span class = "NavSpacer">Damage Assessment Tool</span>        
+            <a mat-button href="">Logout</a>
         </div>
     </mat-toolbar>
 </div>
@@ -23,29 +26,27 @@
             <div class="sect">
                 <h1>Test Data Route</h1>
             </div>
-            <div class = "inputData">
-                <form>
-                    <label for="orgName">Name of Organization Associated:</label>
-                    <br>
-                    <textarea id="orgName" name="orgName" rows="1" cols="70"></textarea>
-                    <br>
-
-                    <label for="facName">Name of Facility Being Investigated:</label>
-                    <br>
-                    <textarea id="facName" name="facName" rows="1" cols="70"></textarea>
-                    <br>
-
-                    <label for="facLocationx">Location of Facility Being Investigated:</label>
-                    <br>
-                    <textarea id="facLocationx" name="facLocationx" rows="1" cols="10"></textarea>
-                    <br>
-                </form>
-            </div>
-            <div id="submit">               
-                <form>
-                    <input type="submit" value="submit report">
-                </form>
-            </div>
+            <mat-card>
+                <mat-card-header>Organization</mat-card-header>
+                <mat-card-content>
+                    <div> 
+                        <mat-form-field>
+                            <mat-label>Enter Organization</mat-label>
+                            <input 
+                                    matInput type= "string"
+                                    [(ngModel)] = OrganizationName
+                                    required>
+                            <br>
+                            <mat-label>Enter Facilities</mat-label>
+                            <input 
+                                matInput type= "string"
+                                [(ngModel)] = FacilityName
+                                required>
+                            <br>
+                        </mat-form-field>
+                    </div>
+                </mat-card-content>
+            </mat-card>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
