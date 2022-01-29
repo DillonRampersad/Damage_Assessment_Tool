@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FADAFormComponent } from './fa-daform/fa-daform.component';
 import { FaDaWebformComponent } from './fa-da-webform/fa-da-webform.component';
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FADashbooardComponent } from './fa-dashbooard/fa-dashbooard.component';
 import { FASearchComponent } from './fa-search/fa-search.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +29,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    //BrowserAnimationsModule,
+    BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatCardModule,
