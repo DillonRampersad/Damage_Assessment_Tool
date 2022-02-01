@@ -47,7 +47,33 @@
                                         [(ngModel)] = FacilityName
                                         required>
                         </mat-form-field>
+                        <br>
+                            <mat-form-field>
+                                <mat-label>Enter Facility Location</mat-label>
+                                <input  
+                                        placeholder="--"
+                                        matInput type= "Array"
+                                        [(ngModel)] = FacilityLocation
+                                        required>
+                        </mat-form-field>
+                        <button mat-raised-button (click)="onAdd()" color="primary">Add</button>
                     </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-header>Get Requests</mat-card-header>
+                <mat-card-content>
+                    <mat-accordion multiple="true">
+                        <mat-expansion-panel *ngFor="let OrgFacs of orgFac">
+                            <mat-expansion-panel-header>
+                                {{OrgFacs.OrganizationName}}
+                                {{OrgFacs.FacilityName}}
+                            </mat-expansion-panel-header>
+                            OrganizationName : {{OrgFacs.OrganizationName}} <br>
+                            FacilityName : {{OrgFacs.FacilityName}} <br>
+                            FacilityLocation : {{OrgFacs.FacilityLocation}} <br>
+                        </mat-expansion-panel>
+                    </mat-accordion>
                 </mat-card-content>
             </mat-card>
         </mat-sidenav-content>
