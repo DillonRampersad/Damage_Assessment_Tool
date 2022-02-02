@@ -33,29 +33,30 @@
                         <mat-form-field>
                             <mat-label>Enter Organization</mat-label>
                             <input  
-                                    placeholder="--"
-                                    matInput type= "string"
-                                    [(ngModel)] = OrganizationName
-                                    required>
-                            </mat-form-field>
+                                placeholder="--"
+                                matInput type= "string"
+                                [(ngModel)] = OrganizationName
+                                required>
+                        </mat-form-field>
                             <br>
-                            <mat-form-field>
-                                <mat-label>Enter Facility</mat-label>
-                                <input  
-                                        placeholder="--"
-                                        matInput type= "string"
-                                        [(ngModel)] = FacilityName
-                                        required>
+                        <mat-form-field>
+                            <mat-label>Enter Facility</mat-label>
+                            <input  
+                                placeholder="--"
+                                matInput type= "string"
+                                [(ngModel)] = FacilityName
+                                required>
                         </mat-form-field>
                         <br>
-                            <mat-form-field>
-                                <mat-label>Enter Facility Location</mat-label>
-                                <input  
-                                        placeholder="--"
-                                        matInput type= "Array"
-                                        [(ngModel)] = FacilityLocation
-                                        required>
+                        <mat-form-field>
+                        <mat-label>Enter Facility Location</mat-label>
+                        <input  
+                                placeholder="--"
+                                matInput type= "Array"
+                                [(ngModel)] = FacilityLocation
+                                required>
                         </mat-form-field>
+                        <br>
                         <button mat-raised-button (click)="onAdd()" color="primary">Add</button>
                     </div>
                 </mat-card-content>
@@ -69,9 +70,12 @@
                                 {{OrgFacs.OrganizationName}}
                                 {{OrgFacs.FacilityName}}
                             </mat-expansion-panel-header>
-                            OrganizationName : {{OrgFacs.OrganizationName}} <br>
-                            FacilityName : {{OrgFacs.FacilityName}} <br>
-                            FacilityLocation : {{OrgFacs.FacilityLocation}} <br>
+                            OrganizationName : {{OrgFacs.OrganizationName}} 
+                            <br>
+                            FacilityName : {{OrgFacs.FacilityName}} 
+                            <br>
+                            FacilityLocation : {{OrgFacs.FacilityLocation}} 
+                            <br>
                         </mat-expansion-panel>
                     </mat-accordion>
                 </mat-card-content>

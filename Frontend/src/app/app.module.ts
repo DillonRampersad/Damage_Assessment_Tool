@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +38,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonModule
     
   ],
   providers: [],
