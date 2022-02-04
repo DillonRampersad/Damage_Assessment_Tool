@@ -26,58 +26,15 @@
         </mat-sidenav>
         <mat-sidenav-content>
             <div class="sect">
-                <h1>Test Data Route</h1>
+                <h1>Search</h1>
             </div>
             <mat-card>
-                <mat-card-header>Organization</mat-card-header>
-                <mat-card-content>
-                    <div> 
-                        <mat-form-field>
-                            <mat-label>Enter Organization</mat-label>
-                            <input  
-                                placeholder="--"
-                                matInput type= "string"
-                                [(ngModel)] = OrganizationName
-                                required>
-                        </mat-form-field>
-                            <br>
-                        <mat-form-field>
-                            <mat-label>Enter Facility</mat-label>
-                            <input  
-                                placeholder="--"
-                                matInput type= "string"
-                                [(ngModel)] = FacilityName
-                                required>
-                        </mat-form-field>
-                        <br>
-                        <mat-form-field>
-                        <mat-label>Enter Facility Location</mat-label>
-                        <input  
-                                placeholder="--"
-                                matInput type= "Array"
-                                [(ngModel)] = FacilityLocation
-                                required>
-                        </mat-form-field>
-                        <br>
-                        <button mat-raised-button (click)="onAdd()" color="primary">Add</button>
-                    </div>
-                </mat-card-content>
-            </mat-card>
-            <mat-card>
-                <mat-card-header>Get Requests</mat-card-header>
+                <mat-card-header>Reports</mat-card-header>
                 <mat-card-content>
                     <mat-accordion multiple="true">
-                        <mat-expansion-panel *ngFor="let OrgFacs of orgFac">
-                            <mat-expansion-panel-header>
-                                {{OrgFacs.OrganizationName}}
-                                {{OrgFacs.FacilityName}}
+                        <mat-expansion-panel *ngFor="">
+                            <mat-expansion-panel-header>  
                             </mat-expansion-panel-header>
-                            OrganizationName : {{OrgFacs.OrganizationName}} 
-                            <br>
-                            FacilityName : {{OrgFacs.FacilityName}} 
-                            <br>
-                            FacilityLocation : {{OrgFacs.FacilityLocation}} 
-                            <br>
                         </mat-expansion-panel>
                     </mat-accordion>
                 </mat-card-content>

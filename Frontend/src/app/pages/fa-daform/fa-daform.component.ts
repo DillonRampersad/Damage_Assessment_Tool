@@ -18,8 +18,14 @@ export class FADAFormComponent implements OnInit {
     })
   }
 
+  createDamageAssessmentReport(assessmentDescription: string, author: string, reportDateTime: Date){
+    this.damageAssessmentReportService.createDAReport("New Report","Dillon", new Date(2020, 9, 10)).subscribe((response : any)=>{
+      console.log(response);
+  })
+  }
+
   ngOnInit(): void {
   }
 
-}
+  }
 
