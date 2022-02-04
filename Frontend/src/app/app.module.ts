@@ -8,23 +8,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FADAFormComponent } from './fa-daform/fa-daform.component';
-import { FaDaWebformComponent } from './fa-da-webform/fa-da-webform.component';
+import { FADAFormComponent } from './pages/fa-daform/fa-daform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FADashbooardComponent } from './fa-dashbooard/fa-dashbooard.component';
-import { FASearchComponent } from './fa-search/fa-search.component';
+import { FADashbooardComponent } from './pages/fa-dashbooard/fa-dashbooard.component';
+import { FASearchComponent } from './pages/fa-search/fa-search.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { LandingComponent } from './pages/landing/landing.component';
 @NgModule({
   declarations: [
     AppComponent,
     FADAFormComponent,
-    FaDaWebformComponent,
     FADashbooardComponent,
-    FASearchComponent
+    FASearchComponent,
+    LandingComponent
     
   ],
   imports: [
@@ -39,7 +39,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     MatInputModule,
     MatExpansionModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
     
   ],
   providers: [],

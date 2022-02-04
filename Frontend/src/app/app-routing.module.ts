@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FaDaWebformComponent } from './fa-da-webform/fa-da-webform.component';
-import { FADAFormComponent } from './fa-daform/fa-daform.component';
-import { FADashbooardComponent } from './fa-dashbooard/fa-dashbooard.component';
-import { FASearchComponent } from './fa-search/fa-search.component';
+import { FADAFormComponent } from './pages/fa-daform/fa-daform.component';
+import { FADashbooardComponent } from './pages/fa-dashbooard/fa-dashbooard.component';
+import { FASearchComponent } from './pages/fa-search/fa-search.component';
+import { LandingComponent } from './pages/landing/landing.component';
 
 
 
 
 const routes: Routes = [
-  {path: "" , component: FADashbooardComponent},
+  {path: "" , component: LandingComponent},
+  {path: "fa-dashboard" , component: FADashbooardComponent},
   {path: "fa-daform" , component: FADAFormComponent},
-  {path: "fa-daform/fa-da-webform" , component: FaDaWebformComponent},
-  {path: "fa-search" , component: FASearchComponent}
+  {path: "fa-search" , component: FASearchComponent},
+  
     
 ];
 
