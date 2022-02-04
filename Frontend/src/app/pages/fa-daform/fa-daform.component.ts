@@ -18,8 +18,10 @@ export class FADAFormComponent implements OnInit {
     })
   }
 
-  createDamageAssessmentReport(assessmentDescription: string, author: string, reportDateTime: Date){
-    this.damageAssessmentReportService.createDAReport("New Report","Dillon", new Date(2020, 9, 10)).subscribe((response : any)=>{
+  createDamageAssessmentReport(assessmentDescription: string, author: string, reportDateString: string){
+
+    const reportDateTime = new Date(reportDateString); // Here you should have your date ready to be used as you wish
+    this.damageAssessmentReportService.createDAReport(assessmentDescription,author, reportDateTime).subscribe((response : any)=>{
       console.log(response);
   })
   }
