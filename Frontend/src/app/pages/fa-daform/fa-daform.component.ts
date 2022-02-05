@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DamageAssessmentReportService } from 'src/app/damage-assessment-report.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fa-daform',
@@ -8,24 +9,23 @@ import { DamageAssessmentReportService } from 'src/app/damage-assessment-report.
 })
 export class FADAFormComponent implements OnInit {
 
-  constructor(private damageAssessmentReportService : DamageAssessmentReportService) { }
+
+  constructor(private damageAssessmentReportService : DamageAssessmentReportService, private router: Router) { }
   
   //assessmentDescription: string, author: string, reportDateTime: Date
-  createNewDAReport(){
-    this.damageAssessmentReportService.createDAReport("New Report","Dillon", new Date(2020, 9, 10)).subscribe((response : any)=>{
-      console.log(response);
-
-    })
-  }
+  
 
   createDamageAssessmentReport(assessmentDescription: string, author: string, reportDateString: string){
 
     const reportDateTime = new Date(reportDateString); // Here you should have your date ready to be used as you wish
     this.damageAssessmentReportService.createDAReport(assessmentDescription,author, reportDateTime).subscribe((response : any)=>{
       console.log(response);
+      //navigate to /damageAssessments/damageAssessments._id
+      this.router.navigateByUrl(`detailed-daforms/${response._id}`)
   })
   }
 
+  
   ngOnInit(): void {
   }
 

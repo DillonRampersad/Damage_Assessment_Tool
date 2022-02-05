@@ -12,4 +12,8 @@ export class DamageAssessmentReportService {
     //send web req to create DA report
     return this.webReqService.post('DamageAssessments', {assessmentDescription, author, reportDateTime})
   }
+
+  getDAReport(){
+    return this.webReqService.get('DamageAssessments');
+  }
 }
