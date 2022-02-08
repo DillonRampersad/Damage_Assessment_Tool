@@ -8,19 +8,11 @@ const DisastersSchema = new mongoose.Schema({
         trim: true
     },
     threatLevel:{
-        type: Number,
-        required: true
-    },
-    surroundingDamage:{
         type: String,
         required: true,
         minlength:1,
         trim: true
-    },/*
-    _eventID:{
-        type: mongoose.Types.ObjectId,
-        required: false
-    },*/
+    },
     _damageAssessmentsID:{
         type: mongoose.Types.ObjectId,
         required: true,

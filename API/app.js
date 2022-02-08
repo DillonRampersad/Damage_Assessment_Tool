@@ -23,12 +23,10 @@ app.use((req, res, next) => {
 });
 
 //Import Routers
-const organizationsRouter = require('./routers/OrganizationsRouters')
 const DamageAssessmentsRoute = require('./routers/DamageAssessmentsRoutes')
 const EventsRouter = require('./routers/EventsRouters')
 
 //Register Router
-app.use(organizationsRouter)
 app.use(DamageAssessmentsRoute)
 app.use(EventsRouter)
 

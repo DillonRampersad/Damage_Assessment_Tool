@@ -17,7 +17,7 @@ export class FADAFormComponent implements OnInit {
 
   createDamageAssessmentReport(assessmentDescription: string, author: string, reportDateString: string){
 
-    const reportDateTime = new Date(reportDateString); // Here you should have your date ready to be used as you wish
+    const reportDateTime = new Date(reportDateString);
     this.damageAssessmentReportService.createDAReport(assessmentDescription,author, reportDateTime).subscribe((response : any)=>{
       console.log(response);
       //navigate to /damageAssessments/damageAssessments._id

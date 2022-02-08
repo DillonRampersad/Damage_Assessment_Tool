@@ -14,14 +14,16 @@ const EventsSchema = new mongoose.Schema({
     },
     area:{
         type: String,
-        required: true,
+        required: false,
         minlength:1,
         trim: true
-    },/*
-    _disasterID:{
-        type: mongoose.Types.ObjectId,
-        required: false
-    },*/
+    },
+    surroundingDamage:{
+        type: String,
+        required: false,
+        minlength:1,
+        trim: true
+    },
     _damageAssessmentsID:{
         type: mongoose.Types.ObjectId,
         required: true,

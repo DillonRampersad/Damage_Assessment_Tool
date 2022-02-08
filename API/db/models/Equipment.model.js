@@ -25,21 +25,15 @@ const EquipmentSchema = new mongoose.Schema({
         minlength:1,
         trim: true
     },
-    cost:{
-        type: Number,
-        required: false
+    equipmentDamage:{
+        type: String,
+        required: false,
+        minlength:1,
+        trim: true
     },
-    location:{
-        type: Array,
-        required: true,
-    },/*
-    _facilityID:{
-        type: mongoose.Types.ObjectId,
-        required: true
-    },*/
     _damageAssessmentsID:{
         type: mongoose.Types.ObjectId,
-        required: false,
+        required: true,
         ref: 'DamageAssessments'
     }
 })

@@ -7,18 +7,19 @@ const FacilitiesSchema = new mongoose.Schema({
         minlength:1,
         trim: true
     },
+    facilityDamage:{
+        type: String,
+        required: false,
+        minlength:1,
+        trim: true
+    },
     location:{
         type: Array,
         required: false
-    }, //remove when finished testing
-    _organizationID:{
-        type: mongoose.SchemaTypes.ObjectId,
-        required: false,
-        ref: "Organizations"
     },
     _damageAssessmentsID:{
         type: mongoose.Types.ObjectId,
-        required: false,
+        required: true,
         ref: 'DamageAssessments'
     }
 })

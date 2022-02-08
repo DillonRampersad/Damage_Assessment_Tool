@@ -207,6 +207,7 @@ exports.damageAssessmentFacilities_post = (req,res) => {
     //create a facilities from a specific Damage Assessment and save to the database.
     let newFacility = new Facilities({
         facilityName: req.body.facilityName,
+        facilityDamage: req.body.facilityDamage,
         location: req.body.location,
         _damageAssessmentsID: req.params.damageAssessmentsID
     });
@@ -223,6 +224,7 @@ exports.damageAssessmentEvents_post = (req,res) => {
         eventName: req.body.eventName,
         eventDate: req.body.eventDate,
         area: req.body.area,
+        surroundingDamage: req.body.surroundingDamage,
         _damageAssessmentsID: req.params.damageAssessmentsID
     });
     newEvent.save().then((EventDoc) => {
@@ -237,7 +239,6 @@ exports.damageAssessmentDisasters_post = (req,res) => {
     let newDisaster = new Disasters({
         disasterNature: req.body.disasterNature,
         threatLevel: req.body.threatLevel,
-        surroundingDamage: req.body.surroundingDamage,
         _damageAssessmentsID: req.params.damageAssessmentsID
     });
     newDisaster.save().then((DisasterDoc) => {
@@ -253,9 +254,8 @@ exports.damageAssessmentEquipment_post = (req,res) => {
         equipmentName: req.body.equipmentName,
         equipmentType: req.body.equipmentType,
         modelNumber: req.body.modelNumber,
-        manufacturer: req.body.area,
-        cost: req.body.facilityName,
-        location: req.body.location,
+        manufacturer: req.body.manufacturer,
+        equipmentDamage: req.body.equipmentDamage,
         _damageAssessmentsID: req.params.damageAssessmentsID
     });
     newEquipment.save().then((EquipmentDoc) => {
