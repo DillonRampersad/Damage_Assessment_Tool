@@ -33,7 +33,7 @@ const EquipmentSchema = new mongoose.Schema({
     },
     _damageAssessmentsID:{
         type: mongoose.Types.ObjectId,
-        required: true,
+        required: false,
         ref: 'DamageAssessments'
     }
 })

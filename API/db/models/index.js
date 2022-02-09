@@ -11,6 +11,7 @@ const { Messages } = require('./Messages.model');
 const { MoCReports } = require('./MoCReports.model');
 const { Organizations } = require('./Organizations.model');
 const { TwitterPosts } = require('./TwitterPosts.model');
+const { DamageAssessmentForm } = require('./DamageAssessmentForm.model');
 
 module.exports = {
     Administrators,
@@ -25,5 +26,6 @@ module.exports = {
     Messages,
     MoCReports,
     Organizations,
-    TwitterPosts
+    TwitterPosts,
+    DamageAssessmentForm
 }

@@ -6,6 +6,7 @@ const Events = require('../db/models/Events.model');
 const Equipment = require('../db/models/Equipment.model');
 const Disasters = require('../db/models/Disasters.model');
 const Organizations = require('../db/models/Organizations.model');
+const DamageAssessmentForm = require('../db/models/DamageAssessmentForm.model');
 
 
 /*GET CONTROLLERS*/
@@ -407,3 +408,77 @@ exports.damageAssessmentEquipment_delete = (req,res) => {
         res.send(removedEquipmentDoc)
     })
 };
+
+//Damage Assessment Form Get
+exports.damageAssessmentForm_get_all = (req, res) => {
+    //return an array of all the damage assessments made that is stored on the database.
+   DamageAssessmentForm.find({})
+   .then((damageAssessment) => {
+       res.send(damageAssessment);
+   }).catch((e) => {
+       res.send(e);
+   });
+};
+
+exports.damageAssessmentForm_get_one = (req,res) => {
+    //return an array of all the damage assessments made that is stored on the database.
+   DamageAssessmentForm.findOne({
+       _id: req.params.damageAssessmentsID
+    })
+   //.populate('_damageAssessmentsID1').exec()
+   .then((damageAssessment) => {
+       res.send(damageAssessment);
+   }).catch((e) => {
+       res.send(e);
+   });
+};
+
+
+//Damage Assessment Form Post
+exports.damageAssessmentForm_post = (req,res) => {
+    //create a damage assessment report and save to the database
+    let newDamageAssessmentForm = new DamageAssessmentForm({
+        author1: req.body.author1,
+        organizationName1: req.body.organizationName1,
+        facilityName1: req.body.facilityName1,
+        facilityDamage1: req.body.facilityDamage1,
+        location1: req.body.location1,
+        eventName1: req.body.eventName1,
+        eventDate1: req.body.eventDate1,
+        area1: req.body.area1,
+        surroundingDamage1: req.body.surroundingDamage1,
+        disasterNature1: req.body.disasterNature1,
+        threatLevel1: req.body.threatLevel1,
+        equipmentName1: req.body.equipmentName1,
+        equipmentType1: req.body.equipmentType1,
+        modelNumber1: req.body.modelNumber1,
+        manufacturer1: req.body.manufacturer1,
+        equipmentDamage1: req.body.equipmentDamage1
+    });
+    newDamageAssessmentForm.save().then((DamageAssessmentFormDoc) => {
+        //the full Damage Assessment document is returned (including id)
+        res.send(DamageAssessmentFormDoc);
+    })
+ };
+
+
+ //Damage Assessment Form Update
+ exports.damageAssessmentForm_update = (req,res) => {
+    //update the Organization specified
+    DamageAssessmentForm.findOneAndUpdate({_id: req.params.id},{
+        $set: req.body
+    }).then(() => {
+        res.send({'message' : "Updated Successfully"});
+    });
+ };
+
+
+//Damage Assessment Form Delete
+exports.damageAssessmentForm_delete = (req,res) => {
+    //delete the Organization specified
+    DamageAssessmentForm.findOneAndRemove({
+        _id: req.params.id
+    }).then((removeDamageAssessmentFormDoc) => {
+        res.send(removeDamageAssessmentFormDoc);
+    })
+ };
