@@ -10,14 +10,14 @@ import { LandingComponent } from './pages/landing/landing.component';
 
 
 const routes: Routes = [
+  {path: "detailed-daforms/:detailedDAFormId" , component: DetailedDaformComponent},
   {path: "" , redirectTo: "landing", pathMatch: 'full'},
   {path: "detailed-daform" , redirectTo: "detailed-daforms", pathMatch: 'full'},
   {path: "landing" , component: LandingComponent},
   {path: "fa-dashboard" , component: FADashbooardComponent},
   {path: "fa-daform" , component: FADAFormComponent},
   {path: "fa-search" , component: FASearchComponent},
-  {path: "detailed-daforms" , component: DetailedDaformComponent},
-  {path: "detailed-daforms/:detailedDAFormId" , component: DetailedDaformComponent}
+  {path: "detailed-daforms" , component: DetailedDaformComponent}
   
     
 ];

@@ -72,7 +72,7 @@ const DamageAssessmentFormSchema = new mongoose.Schema({
     },
     equipmentType1:{
         type: String,
-        required: Facilities,
+        required: true,
         minlength:1,
         trim: true
     },

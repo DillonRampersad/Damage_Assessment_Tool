@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DamageAssessmentReportService } from 'src/app/damage-assessment-report.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OrganizationsInt } from 'src/app/models/organizations.interface';
+import { FacilitiesInt } from 'src/app/models/facilities.interface';
+import { EventsInt } from 'src/app/models/events.interface';
+import { DisastersInt } from 'src/app/models/disasters.interface';
+import { EquipmentInt } from 'src/app/models/equipment.interface';
 
 @Component({
   selector: 'app-detailed-daform',
@@ -10,8 +15,12 @@ import { Router } from '@angular/router';
 export class DetailedDaformComponent implements OnInit {
 
   damageAssessments: any;
+  detailedDAFormId: string;
 
-  constructor(private damageAssessmentReportService: DamageAssessmentReportService, private router: Router) { }
+  constructor(
+    private damageAssessmentReportService: DamageAssessmentReportService, 
+    private router: Router, 
+    private readonly activatedRoute: ActivatedRoute) { }
 
   createDamageAssessmentReportDetails(organizationName: string, facilityName: string, facilityDamage: string, 
     eventName: string, eventDateString: string, area: string, surroundingDamage: string, disasterNature: string, 
@@ -20,19 +29,22 @@ export class DetailedDaformComponent implements OnInit {
 
     const eventDate = new Date(eventDateString);
 
-    this.damageAssessmentReportService.createDAReportDetailsOrganizations(organizationName).subscribe((responseOrg : any)=>{
+    //const id = this.activatedRoute.snapshot.paramMap.get('detailedDAFormId') as string;
+    //console.log(this.activatedRoute.snapshot.paramMap);
+
+    this.damageAssessmentReportService.createDAReportDetailsOrganizations(organizationName, this.detailedDAFormId).subscribe((responseOrg : OrganizationsInt)=>{
       console.log(responseOrg);      
     })
-    this.damageAssessmentReportService.createDAReportDetailsFacilities(facilityName, facilityDamage).subscribe((responseFac : any)=>{
+    this.damageAssessmentReportService.createDAReportDetailsFacilities(facilityName, facilityDamage, this.detailedDAFormId).subscribe((responseFac : FacilitiesInt)=>{
       console.log(responseFac);      
     })
-    this.damageAssessmentReportService.createDAReportDetailsEvents(eventName, eventDate, area, surroundingDamage).subscribe((responseEve : any)=>{
+    this.damageAssessmentReportService.createDAReportDetailsEvents(eventName, eventDate, area, surroundingDamage, this.detailedDAFormId).subscribe((responseEve : EventsInt)=>{
       console.log(responseEve);      
     })
-    this.damageAssessmentReportService.createDAReportDetailsDisasters(disasterNature, threatLevel).subscribe((responseDis : any)=>{
+    this.damageAssessmentReportService.createDAReportDetailsDisasters(disasterNature, threatLevel, this.detailedDAFormId).subscribe((responseDis : DisastersInt)=>{
       console.log(responseDis);      
     })
-    this.damageAssessmentReportService.createDAReportDetailsEquipment(equipmentName, equipmentType, modelNumber, manufacturer, equipmentDamage).subscribe((responseEqu : any)=>{
+    this.damageAssessmentReportService.createDAReportDetailsEquipment(equipmentName, equipmentType, modelNumber, manufacturer, equipmentDamage, this.detailedDAFormId).subscribe((responseEqu : EquipmentInt)=>{
       console.log(responseEqu);      
     })
 
@@ -41,13 +53,7 @@ export class DetailedDaformComponent implements OnInit {
   }
 
   ngOnInit() {
-  //  this.route.params.subscribe(
-  //    (params: Params)=>{
-  //      console.log(params);
-  //    }
-  //  )
-  //  this.damageAssessmentReportService.getDAReport().subscribe((damageAssessments: any)=> {
-  //      console.log(damageAssessments);
-  //  });
+
+    this.detailedDAFormId = this.activatedRoute.snapshot.paramMap.get('detailedDAFormId') as string;
   }
 }

@@ -7,7 +7,7 @@ const Events = require('../db/models/Events.model');
 const Equipment = require('../db/models/Equipment.model');
 const Disasters = require('../db/models/Disasters.model');
 const Organizations = require('../db/models/Organizations.model');
-const DamageAssessmentForm = require('../db/model/DamageAssessmentForm.model')
+const DamageAssessmentForm = require('../db/models/DamageAssessmentForm.model');
 
 const router = new express.Router();
 
@@ -82,8 +82,8 @@ router.delete('/DamageAssessments/:damageAssessmentsID/Equipment/:id', DamageAss
 
 
 //Get for Damage Assessment Form
-router.get('/DamageAssessmentForm', DamageAssessmentFormController.damageAssessmentForm_get_all)
-router.get('/DamageAssessmentForm/:damageAssessmentFormID', DamageAssessmentFormController.damageAssessmentForm_get_one)
+router.get('/DamageAssessmentForm', DamageAssessmentController.damageAssessmentForm_get_all)
+router.get('/DamageAssessmentForm/:damageAssessmentFormID', DamageAssessmentController.damageAssessmentForm_get_one)
 //Post for Damage Assessment Form
 router.post('/DamageAssessmentForm', DamageAssessmentController.damageAssessmentForm_post);
 //Patch for Damage Assessment Form

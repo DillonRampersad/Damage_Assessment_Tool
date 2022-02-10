@@ -192,6 +192,7 @@ exports.damageAssessment_post = (req,res) => {
 
 
 exports.damageAssessmentOrganizations_post = (req,res) => {
+    console.log(req)
     //create a Organization report from a specific Damage Assessment and save to the database.
     let newOrganization = new Organizations({
         organizationName: req.body.organizationName,
