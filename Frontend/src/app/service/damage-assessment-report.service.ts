@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { WebRequestService } from './web-request.service';
 
 @Injectable({
@@ -8,7 +7,6 @@ import { WebRequestService } from './web-request.service';
 export class DamageAssessmentReportService {
 
   constructor(
-    private readonly activatedRoute: ActivatedRoute,
     private webReqService: WebRequestService
   ) { }
 
@@ -44,6 +42,11 @@ export class DamageAssessmentReportService {
 
   getDAReport(){
     return this.webReqService.get('DamageAssessments');
+  }
+
+  getDAReportDetailsOrganizations(OrgDetId: string){
+    //send web req to create DA report
+    return this.webReqService.get(`DamageAssessments/${ OrgDetId }/Organizations`);
   }
 
   deleteDAReport(DAReportID: string){

@@ -13,16 +13,16 @@ const MoCReportSchema = new mongoose.Schema({
     },
     MoCReportDateTime:{
         type: Date,
-        required: true,
+        required: false,
         default: Date.now
     },
     MoCDisasterLocation:{
         type: Array,
-        required: true,
+        required: false,
     },
     _membersofCommunitiesID:{
         type: mongoose.Types.ObjectId,
-        required: true
+        required: false
     }
 })
 

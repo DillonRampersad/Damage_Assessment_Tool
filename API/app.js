@@ -25,10 +25,12 @@ app.use((req, res, next) => {
 //Import Routers
 const DamageAssessmentsRoute = require('./routers/DamageAssessmentsRoutes')
 const EventsRouter = require('./routers/EventsRouters')
+const MOCReportRoute = require('./routers/MOCReport.Routes')
 
 //Register Router
 app.use(DamageAssessmentsRoute)
 app.use(EventsRouter)
+app.use(MOCReportRoute);
 
 //Error Handling
 app.use((req, res, next) => {

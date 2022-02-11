@@ -20,6 +20,10 @@ import { FASearchComponent } from './pages/fa-search/fa-search.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './pages/landing/landing.component';
 import { DetailedDaformComponent } from './pages/detailed-daform/detailed-daform.component';
+import { DetailedDaformViewComponent } from './pages/detailed-daform-view/detailed-daform-view.component';
+import { MocReportComponent } from './pages/moc-report/moc-report.component';
+import { MocReportsViewComponent } from './pages/moc-reports-view/moc-reports-view.component';
+import { MessageBoardComponent } from './pages/message-board/message-board.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,11 @@ import { DetailedDaformComponent } from './pages/detailed-daform/detailed-daform
     FADashbooardComponent,
     FASearchComponent,
     LandingComponent,
-    DetailedDaformComponent
+    DetailedDaformComponent,
+    DetailedDaformViewComponent,
+    MocReportComponent,
+    MocReportsViewComponent,
+    MessageBoardComponent
     
   ],
   imports: [

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DamageAssessmentReportService } from 'src/app/damage-assessment-report.service';
+import { DamageAssessmentReportService } from 'src/app/service/damage-assessment-report.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrganizationsInt } from 'src/app/models/organizations.interface';
 import { FacilitiesInt } from 'src/app/models/facilities.interface';

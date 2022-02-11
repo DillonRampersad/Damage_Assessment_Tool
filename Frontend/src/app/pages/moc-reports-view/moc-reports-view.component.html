@@ -26,14 +26,14 @@
         </mat-sidenav>
         <mat-sidenav-content>
             <div class="sect">
-                <h1>Damage Assessment Reports</h1>
+                <h1>Members of Communities Reports</h1>
             </div>
             <mat-card>
                 <mat-card-content>
                     <mat-accordion multiple="true">
-                        <mat-expansion-panel *ngFor="let report of reports">
+                        <mat-expansion-panel *ngFor="let mocreport of mocreports">
                             <mat-expansion-panel-header> 
-                                {{report.assessmentDescription}} &nbsp;|&nbsp; {{report.author}} &nbsp;|&nbsp; {{report.reportDateTime}}
+                                {{mocreport.facilityName}}  {{mocreport.MoCReportDateTime}}  {{mocreport.MoCDescription}}
                             </mat-expansion-panel-header>
                             <button mat-raised-button>View</button>
                             &nbsp;

@@ -2,12 +2,24 @@
     <mat-toolbar class = "menu" color="primary">
         
         <div class="centerNavBar">
-            <a mat-button href="fa-dashboard">Back</a>
-            &nbsp;
-            <span class="headSpacer">Damage Assessment Tool</span>        
-            &nbsp;
-            <a mat-button href="">Logout</a>
+            <span class="headSpacer">Damage Assessment Tool</span>
         </div>
+        
     </mat-toolbar>
+    <div>
+        <button mat-raised-button (click)="onClickFA()">Field Agent</button> 
+    </div>
+    <br>
+    <div>
+        <button mat-raised-button (click)="onClickDA()">Disaster Manager</button> 
+    </div>
+    <br>
+    <div>
+        <button mat-raised-button (click)="onClickA()">Administrator</button> 
+    </div>
+    <br>
+    <div>
+        <button mat-raised-button (click)="onClickMB()">Message Board</button> 
+    </div>
 </div>
 
