@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const MoCReportSchema = new mongoose.Schema({
     facilityName:{
         type: String,
-        required: true,
+        required: false,
         minlength:1,
         trim: true
     },
@@ -19,6 +19,10 @@ const MoCReportSchema = new mongoose.Schema({
     MoCDisasterLocation:{
         type: Array,
         required: false,
+    },
+    mocImage:{
+        type: String,
+        required: false
     },
     _membersofCommunitiesID:{
         type: mongoose.Types.ObjectId,

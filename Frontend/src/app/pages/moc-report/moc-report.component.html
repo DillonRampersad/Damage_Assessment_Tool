@@ -30,7 +30,6 @@
                         <mat-form-field>
                             <input
                                 #MOCDateInput
-                                placeholder="."
                                 matInput type= "Date"
                                 required>
                                 
@@ -53,6 +52,19 @@
                                 matInput type= "string"
                                 required>
                         </mat-form-field>
+                        <br>
+                        <br>
+                        
+                        <mat-label>Upload Image</mat-label><br>
+                        
+                        <input  
+                            style="display: none;"
+                            #ImageInput
+                            type= "file"
+                            (change)="onFileSelected($event)"
+                            required>
+                            <button mat-raised-button type="button" (click)="ImageInput.click()">Upload An Image</button>        
+                        <br>
                         <br>
                     </div>
                     <div>

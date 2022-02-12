@@ -4,4 +4,5 @@ export interface MOCReport{
     MoCDescription: string;
     MoCReportDateTime: Date;
     MoCDisasterLocation: Array<number>;
+    MOCImagePath: string;
 }

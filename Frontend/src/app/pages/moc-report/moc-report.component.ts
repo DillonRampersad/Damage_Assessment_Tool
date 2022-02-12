@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+
 import { MOCReport } from 'src/app/models/mocreport.interface';
 
 import { MOCReportService } from 'src/app/service/mocreport.service';
@@ -11,10 +14,23 @@ import { MOCReportService } from 'src/app/service/mocreport.service';
 })
 export class MocReportComponent implements OnInit {
 
-  constructor(private mocreportservice : MOCReportService, private router : Router) { }
+  form:FormGroup;
+  imageData: string;
+
+  constructor(private mocreportservice : MOCReportService, private router : Router, private http: HttpClient) { }
+  
+  selectedFile = null;
+  onFileSelected(event){
+    this.selectedFile = event.target.files[0]
+  }
 
   createMOCForm(facilityName: string, MoCDescription: string, MoCReportDateTimeString: string){
-
+    const formData = new FormData();
+    formData.append('mocImage', this.selectedFile);
+    this.http.post<any>('http://localhost:3000/MOCReport', formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
     const MoCReportDateTime = new Date(MoCReportDateTimeString);
     //const MoCDisasterLocation = Array[MoCDisasterLocationArray];
     this.mocreportservice.createMOCReport(facilityName, MoCDescription, MoCReportDateTime).subscribe((report : MOCReport)=>{
@@ -25,6 +41,11 @@ export class MocReportComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      image: new FormControl(null)
+    });
   }
+
+  
 
 }

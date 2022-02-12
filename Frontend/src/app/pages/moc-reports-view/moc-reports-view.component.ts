@@ -13,6 +13,8 @@ export class MocReportsViewComponent implements OnInit {
 
   mocreports : MOCReport[]
 
+  imageData: string;
+  
   ngOnInit(): void {
   
   this.mocreportservice.getMOCReport().subscribe((mocReport: MOCReport[])=>{

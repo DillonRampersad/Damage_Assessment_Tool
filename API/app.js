@@ -7,6 +7,7 @@ const res = require('express/lib/response');
 
 
 /*Load Middleware*/
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
