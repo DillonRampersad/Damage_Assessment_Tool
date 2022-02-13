@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~leaflet/dist/leaflet.css";
+
 
 html, body {height: 100%}
 
@@ -7,8 +9,6 @@ body {
     font-family: Roboto;
     background-color: ghostwhite;
 }
-
-
 
 .sect{
     display: block;
@@ -20,15 +20,6 @@ body {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-/*
-.sidenavtry {
-    position: fixed;
-    top: -5;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #eee;
-  }*/
 
 .centerNavBar {
     margin: auto;
@@ -41,3 +32,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-left: 100px;
     margin-right: 100px;
 }
+
+/*map*/
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 50px;
+}
+
+.map-frame {
+    border: 2px solid black;
+    height: 100%;
+    width: 50%;
+}
+
+#map {
+    height: 100%;
+}
+
+

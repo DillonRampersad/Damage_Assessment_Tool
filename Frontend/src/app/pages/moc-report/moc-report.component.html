@@ -1,5 +1,6 @@
-<div>
-    <mat-toolbar class = "menu" color="primary">
+<div class="container">
+    <!--Navbar-->
+    <mat-toolbar color="primary">
         
         <div class="centerNavBar">
             <a mat-button href="fa-dashboard">Back</a>
@@ -12,27 +13,25 @@
 </div>
 
 <div>
-    <mat-sidenav-container>
+    <mat-sidenav-container class="MainContainter">
+        <!--SideNav-->
         <mat-sidenav mode="side" opened>
             <div>
                 <a mat-button href="">Message Board</a>
             </div>
         </mat-sidenav>
-        <mat-sidenav-content>
-            <div class="sect">
-                <h1>Make a Report</h1>
-            </div>
+        <mat-sidenav-content class="MainContent">
             <mat-card>
-                <mat-card-header>Create report:</mat-card-header>
+                <mat-card-header class="sect">Create report:</mat-card-header>
                 <br><br>
                 <mat-card-content>
+                    <!--Div for form-->
                     <div> 
                         <mat-form-field>
                             <input
                                 #MOCDateInput
                                 matInput type= "Date"
                                 required>
-                                
                         </mat-form-field>
                             <br>
                         <mat-form-field>
@@ -54,23 +53,31 @@
                         </mat-form-field>
                         <br>
                         <br>
-                        
-                        <mat-label>Upload Image</mat-label><br>
-                        
+                    </div>
+                    <!--Div for Map-->
+                    
+                    <div class="MOCMap">
+                        <div class="map-container">
+                            <div class="map-frame">
+                                <div id="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--Div for buttons-->
+                    <div>   
                         <input  
                             style="display: none;"
                             #ImageInput
                             type= "file"
-                            (change)="onFileSelected($event)"
-                            required>
-                            <button mat-raised-button type="button" (click)="ImageInput.click()">Upload An Image</button>        
+                            (change)="onFileSelected($event)">
                         <br>
                         <br>
-                    </div>
-                    <div>
+                        <button mat-raised-button type="button" (click)="ImageInput.click()">Upload An Image</button>
+                        &nbsp;
                         <button mat-raised-button 
                         type="submit" 
-                        (click)="createMOCForm(MOCFacilityInput.value, DescriptionInput.value, MOCDateInput.value)" color="primary">Create</button> 
+                        (click)="createMOCForm(MOCFacilityInput.value, DescriptionInput.value, MOCDateInput.value)" color="primary">Submit Report</button> 
                     </div>
                 </mat-card-content>
             </mat-card>

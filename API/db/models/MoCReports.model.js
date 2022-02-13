@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const MoCReportSchema = new mongoose.Schema({
     facilityName:{
         type: String,
-        required: false,
+        required: true,
         minlength:1,
         trim: true
     },
     MoCDescription:{
         type: String,
-        required: false
+        required: true
     },
     MoCReportDateTime:{
         type: Date,
@@ -18,6 +18,7 @@ const MoCReportSchema = new mongoose.Schema({
     },
     MoCDisasterLocation:{
         type: Array,
+        index: '2d',
         required: false,
     },
     mocImage:{

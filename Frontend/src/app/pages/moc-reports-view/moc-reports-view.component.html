@@ -33,11 +33,11 @@
                     <mat-accordion multiple="true">
                         <mat-expansion-panel *ngFor="let mocreport of mocreports">
                             <mat-expansion-panel-header >
-                                <span class="mocreportspacerleft">{{mocreport.facilityName}} </span> 
+                                <span>{{mocreport.facilityName}} </span> 
                                 <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                <span class="mocreportspacermiddle">{{mocreport.MoCReportDateTime}}</span> 
+                                <span>{{mocreport.MoCReportDateTime}}</span> 
                             </mat-expansion-panel-header>
-                            <span class="mocreportspacerright">{{mocreport.MoCDescription}}</span>
+                            <span>{{mocreport.MoCDescription}}</span>
                             
                             <button mat-raised-button>View</button>
                             &nbsp;
