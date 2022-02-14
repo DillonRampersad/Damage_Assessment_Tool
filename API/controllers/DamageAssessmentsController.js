@@ -410,6 +410,8 @@ exports.damageAssessmentEquipment_delete = (req,res) => {
     })
 };
 
+
+
 //Damage Assessment Form Get
 exports.damageAssessmentForm_get_all = (req, res) => {
     //return an array of all the damage assessments made that is stored on the database.

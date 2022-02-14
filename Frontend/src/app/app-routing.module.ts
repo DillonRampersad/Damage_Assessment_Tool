@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DetailedDaformViewComponent } from './pages/detailed-daform-view/detailed-daform-view.component';
-import { DetailedDaformComponent } from './pages/detailed-daform/detailed-daform.component';
-import { FADAFormComponent } from './pages/fa-daform/fa-daform.component';
+import { DAFormOneCollectionComponent } from './pages/daform-one-collection/daform-one-collection.component';
+import { DetailedDaformComponent } from './pages/to remove/detailed-daform/detailed-daform.component';
 import { FADashbooardComponent } from './pages/fa-dashbooard/fa-dashbooard.component';
-import { FASearchComponent } from './pages/fa-search/fa-search.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { MessageBoardComponent } from './pages/message-board/message-board.component';
 import { MocReportComponent } from './pages/moc-report/moc-report.component';
 import { MocReportsViewComponent } from './pages/moc-reports-view/moc-reports-view.component';
+import { ViewDaformComponent } from './pages/view-daform/view-daform.component';
+import { FADAFormComponent } from './pages/to remove/fa-daform/fa-daform.component';
+import { FASearchComponent } from './pages/to remove/fa-search/fa-search.component';
+import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-view/detailed-daform-view.component';
 
 
 
@@ -24,7 +26,9 @@ const routes: Routes = [
   {path: "detailed-daform-view" , component: DetailedDaformViewComponent},
   {path: "moc-report" , component: MocReportComponent},
   {path: "moc-report-view" , component: MocReportsViewComponent},
-  {path: "message-board" , component: MessageBoardComponent}
+  {path: "message-board" , component: MessageBoardComponent},
+  {path: "daform", component: DAFormOneCollectionComponent},
+  {path: "view-daform", component: ViewDaformComponent}
 ];
 
 @NgModule({

@@ -11,20 +11,26 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FADAFormComponent } from './pages/fa-daform/fa-daform.component';
+import { FADAFormComponent } from './pages/to remove/fa-daform/fa-daform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FADashbooardComponent } from './pages/fa-dashbooard/fa-dashbooard.component';
-import { FASearchComponent } from './pages/fa-search/fa-search.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './pages/landing/landing.component';
-import { DetailedDaformComponent } from './pages/detailed-daform/detailed-daform.component';
-import { DetailedDaformViewComponent } from './pages/detailed-daform-view/detailed-daform-view.component';
+import { DetailedDaformComponent } from './pages/to remove/detailed-daform/detailed-daform.component';
 import { MocReportComponent } from './pages/moc-report/moc-report.component';
 import { MocReportsViewComponent } from './pages/moc-reports-view/moc-reports-view.component';
 import { MessageBoardComponent } from './pages/message-board/message-board.component';
+import { DAFormOneCollectionComponent } from './pages/daform-one-collection/daform-one-collection.component';
+import { ViewDaformComponent } from './pages/view-daform/view-daform.component';
+import { FASearchComponent } from './pages/to remove/fa-search/fa-search.component';
+import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-view/detailed-daform-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +42,9 @@ import { MessageBoardComponent } from './pages/message-board/message-board.compo
     DetailedDaformViewComponent,
     MocReportComponent,
     MocReportsViewComponent,
-    MessageBoardComponent
+    MessageBoardComponent,
+    DAFormOneCollectionComponent,
+    ViewDaformComponent
     
   ],
   imports: [
@@ -54,7 +62,10 @@ import { MessageBoardComponent } from './pages/message-board/message-board.compo
     MatButtonModule,
     HttpClientModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatStepperModule,
+    MatTableModule,
+    MatIconModule
     
   ],
   providers: [],

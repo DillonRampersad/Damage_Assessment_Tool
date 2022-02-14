@@ -54,8 +54,12 @@
                         <br>
                         <br>
                     </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-title>Map</mat-card-title>
+                <mat-card-content>
                     <!--Div for Map-->
-                    
                     <div class="MOCMap">
                         <div class="map-container">
                             <div class="map-frame">
@@ -63,7 +67,10 @@
                             </div>
                         </div>
                     </div>
-                    
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-actions>
                     <!--Div for buttons-->
                     <div>   
                         <input  
@@ -79,7 +86,7 @@
                         type="submit" 
                         (click)="createMOCForm(MOCFacilityInput.value, DescriptionInput.value, MOCDateInput.value)" color="primary">Submit Report</button> 
                     </div>
-                </mat-card-content>
+                </mat-card-actions>
             </mat-card>
         </mat-sidenav-content>
     </mat-sidenav-container>

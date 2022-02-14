@@ -1,0 +1,328 @@
+<div>
+  <mat-toolbar class="menu" color="primary">
+    <div class="centerNavBar">
+      <a mat-button href="fa-dashboard">Back</a>
+      &nbsp;
+      <span class="headSpacer">Damage Assessment Tool</span>
+      &nbsp;
+      <a mat-button href="">Logout</a>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+      <div>
+        <a mat-button href="fa-dashboard">Dashboard</a>
+      </div>
+      <div>
+        <a mat-button href="daform">Report</a>
+      </div>
+      <div>
+        <a mat-button href="fa-search">Stored Data</a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-card>
+        <mat-card-header>Report</mat-card-header>
+        <br /><br />
+        <mat-card-content>
+          <div>
+            <button
+              mat-raised-button
+              (click)="isLinear = !isLinear"
+              id="toggle-linear"
+            >
+              {{ !isLinear ? "Enable linear mode" : "Disable linear mode" }}
+            </button>
+            <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+              
+                <mat-step [stepControl]="firstFormGroup">
+                <form [formGroup]="firstFormGroup">
+                  <ng-template matStepLabel>Author</ng-template>
+                  <br />
+                  <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input
+                      matInput
+                      #AuthorNameInput
+                      placeholder="Last name, First name"
+                      formControlName="firstCtrl"
+                      required
+                    />
+                  </mat-form-field>
+                  <div>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <mat-step [stepControl]="secondFormGroup">
+                <form [formGroup]="secondFormGroup">
+                  <ng-template matStepLabel>Event</ng-template>
+                  <br />
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Name of Event</mat-label>
+                      <input
+                        matInput
+                        #EventNameInput
+                        formControlName="secondCtrl"
+                        placeholder="Event Name"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label></mat-label>
+                      <input
+                        matInput
+                        #EventDateInput
+                        type="Date"
+                        formControlName="secondCtrl"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Area of Event</mat-label>
+                      <input
+                        matInput
+                        #EventAreaInput
+                        formControlName="secondCtrl"
+                        placeholder="Area"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <mat-step [stepControl]="twopointfiveFormGroup">
+                <form [formGroup]="twopointfiveFormGroup">
+                  <ng-template matStepLabel>Location</ng-template>
+                  <br />
+                  <!--Div for Map-->
+                    <div class="MOCMap">
+                        <div class="map-container">
+                            <div class="map-frame">
+                                <div id="map"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <mat-step [stepControl]="thirdFormGroup">
+                <form [formGroup]="thirdFormGroup">
+                  <ng-template matStepLabel>Organization</ng-template>
+                  <br />
+                  <mat-form-field appearance="fill">
+                    <mat-label>Name of Organization</mat-label>
+                    <input
+                      matInput
+                      #OrganizationNameInput
+                      formControlName="thirdCtrl"
+                      placeholder="Organization Name"
+                      required
+                    />
+                  </mat-form-field>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <mat-step [stepControl]="fourthFormGroup">
+                <form [formGroup]="fourthFormGroup">
+                  <ng-template matStepLabel>Disaster</ng-template>
+                  <br />
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Type of Disaster</mat-label>
+                      <input
+                        matInput
+                        #DisasterNatureInput
+                        formControlName="fourthCtrl"
+                        placeholder="Disaster"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Threat Level</mat-label>
+                      <input
+                        matInput
+                        #ThreatLevelInput
+                        formControlName="fourthCtrl"
+                        placeholder="Warning"
+                        required
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Damage Done to the Surrounding Environment</mat-label>
+                      <input
+                        matInput
+                        #SurroundingDamageInput
+                        formControlName="fourthCtrl"
+                        placeholder="Damage Description"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <mat-step [stepControl]="fifthFormGroup">
+                <form [formGroup]="fifthFormGroup">
+                  <ng-template matStepLabel>Facility</ng-template>
+                  <br />
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Facility Being Investigated</mat-label>
+                      <input
+                        matInput
+                        #FacilityNameInput
+                        formControlName="fifthCtrl"
+                        placeholder="Facility Name"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Damage Done to Facility Infrastructure</mat-label>
+                      <input
+                        matInput
+                        #FacilityDamageInput
+                        formControlName="fifthCtrl"
+                        placeholder="Damage Description"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <mat-step [stepControl]="sixthFormGroup">
+                <form [formGroup]="sixthFormGroup">
+                  <ng-template matStepLabel>Equipment</ng-template>
+                  <br />
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Name of Equipment</mat-label>
+                      <input
+                        matInput
+                        #EquipmentNameInput
+                        formControlName="sixthCtrl"
+                        placeholder="Equipment Name"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Type of Equipment</mat-label>
+                      <input
+                        matInput
+                        #EquipmentTypeInput
+                        formControlName="sixthCtrl"
+                        placeholder="Equipment Type"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Equipment Model Number</mat-label>
+                      <input
+                        matInput
+                        #ModelNoInput
+                        formControlName="sixthCtrl"
+                        placeholder="Model No."
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Manufacturer of Equipment</mat-label>
+                      <input
+                        matInput
+                        #ManufacturerInput
+                        formControlName="sixthCtrl"
+                        placeholder="Manufacturer"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Damage Done to the Equipment</mat-label>
+                      <input
+                        matInput
+                        #EquipmentDamageInput
+                        formControlName="sixthCtrl"
+                        placeholder="Damage Description"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                  </div>
+                </form>
+              </mat-step>
+
+              <mat-step>
+                <ng-template matStepLabel>Submit</ng-template>
+                <p>Review form and submit.</p>
+                <div>
+                  <button mat-button matStepperPrevious>Back</button>
+                  <button mat-button (click)="stepper.reset()">Reset</button>
+                  <button mat-raised-button color="primary"
+                  (click)="
+                  createDamageAssessmentForm(
+                  AuthorNameInput.value,
+                  OrganizationNameInput.value,
+                  FacilityNameInput.value,
+                  FacilityDamageInput.value,
+                  EventNameInput.value,
+                  EventDateInput.value,
+                  EventAreaInput.value,
+                  SurroundingDamageInput.value,
+                  DisasterNatureInput.value,
+                  ThreatLevelInput.value,
+                  EquipmentNameInput.value,
+                  EquipmentTypeInput.value,
+                  ModelNoInput.value,
+                  ManufacturerInput.value,
+                  EquipmentDamageInput.value
+                )
+                  ">Submit</button>
+                </div>
+              </mat-step>
+            </mat-stepper>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

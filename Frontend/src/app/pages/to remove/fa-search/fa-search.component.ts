@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { OrganizationsInt } from 'src/app/models/organizations.interface';
+import { Report } from 'src/app/models/report.interface';
 import { DamageAssessmentReportService } from 'src/app/service/damage-assessment-report.service';
-import { OrganizationsInt } from '../../models/organizations.interface';
-import { Report } from '../../models/report.interface';
 
 @Component({
   selector: 'app-fa-search',
@@ -45,7 +45,7 @@ organizations: OrganizationsInt[] = [
       console.log(this.orgID);
     //navigate to /damageAssessments/damageAssessments._id
     this.router.navigate(['/detailed-daforms-view', this.orgID])
-})
+  })
  }
 
   ngOnInit(): void {

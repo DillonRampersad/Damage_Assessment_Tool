@@ -27,7 +27,7 @@ const DamageAssessmentFormSchema = new mongoose.Schema({
     },
     location1:{
         type: Array,
-        required: true
+        required: false
     },
     eventName1:{
         type: String,
