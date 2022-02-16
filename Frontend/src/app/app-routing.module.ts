@@ -12,29 +12,41 @@ import { FADAFormComponent } from './pages/to remove/fa-daform/fa-daform.compone
 import { FASearchComponent } from './pages/to remove/fa-search/fa-search.component';
 import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-view/detailed-daform-view.component';
 import { ViewFullDaformComponent } from './pages/view-full-daform/view-full-daform.component';
-
-
+import { DmDashboardComponent } from './pages/dm-dashboard/dm-dashboard.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
-  {path: "detailed-daforms/:detailedDAFormId" , component: DetailedDaformComponent},
-  {path: "" , redirectTo: "landing", pathMatch: 'full'},
-  {path: "detailed-daform" , redirectTo: "detailed-daforms", pathMatch: 'full'},
-  {path: "landing" , component: LandingComponent},
-  {path: "fa-dashboard" , component: FADashbooardComponent},
-  {path: "fa-daform" , component: FADAFormComponent},
-  {path: "fa-search" , component: FASearchComponent},
-  {path: "detailed-daforms" , component: DetailedDaformComponent},
-  {path: "detailed-daform-view" , component: DetailedDaformViewComponent},
-  {path: "moc-report" , component: MocReportComponent},
-  {path: "moc-report-view" , component: MocReportsViewComponent},
-  {path: "message-board" , component: MessageBoardComponent},
-  {path: "daform", component: DAFormOneCollectionComponent},
-  {path: "view-daform", component: ViewDaformComponent},
-  {path: "view-full-daform/:viewfulldaformid", component: ViewFullDaformComponent}
+  {
+    path: 'detailed-daforms/:detailedDAFormId',
+    component: DetailedDaformComponent,
+  },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  {
+    path: 'detailed-daform',
+    redirectTo: 'detailed-daforms',
+    pathMatch: 'full',
+  },
+  { path: 'landing', component: LandingComponent },
+  { path: 'fa-dashboard', component: FADashbooardComponent },
+  { path: 'fa-daform', component: FADAFormComponent },
+  { path: 'fa-search', component: FASearchComponent },
+  { path: 'detailed-daforms', component: DetailedDaformComponent },
+  { path: 'detailed-daform-view', component: DetailedDaformViewComponent },
+  { path: 'moc-report', component: MocReportComponent },
+  { path: 'moc-report-view', component: MocReportsViewComponent },
+  { path: 'message-board', component: MessageBoardComponent },
+  { path: 'daform', component: DAFormOneCollectionComponent },
+  { path: 'view-daform', component: ViewDaformComponent },
+  {
+    path: 'view-full-daform/:viewfulldaformid',
+    component: ViewFullDaformComponent,
+  },
+  { path: 'dm-dashboard', component: DmDashboardComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -17,10 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
-
-
-
-
+////////////////////////////////////////////////////////////////////////////////
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FADAFormComponent } from './pages/to remove/fa-daform/fa-daform.component';
@@ -37,6 +34,8 @@ import { ViewDaformComponent } from './pages/view-daform/view-daform.component';
 import { FASearchComponent } from './pages/to remove/fa-search/fa-search.component';
 import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-view/detailed-daform-view.component';
 import { ViewFullDaformComponent } from './pages/view-full-daform/view-full-daform.component';
+import { DmDashboardComponent } from './pages/dm-dashboard/dm-dashboard.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +50,9 @@ import { ViewFullDaformComponent } from './pages/view-full-daform/view-full-dafo
     MessageBoardComponent,
     DAFormOneCollectionComponent,
     ViewDaformComponent,
-    ViewFullDaformComponent
+    ViewFullDaformComponent,
+    DmDashboardComponent,
+    AdminDashboardComponent
     
   ],
   imports: [

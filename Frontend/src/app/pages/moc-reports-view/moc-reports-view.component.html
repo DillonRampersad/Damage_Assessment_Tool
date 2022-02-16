@@ -1,53 +1,80 @@
 <div>
-    <mat-toolbar class = "menu" color="primary">
-        
-        <div class="centerNavBar">
-            <a mat-button href="fa-dashboard">Back</a>
-            &nbsp;
-            <span class="headSpacer">Damage Assessment Tool</span>        
-            &nbsp;
-            <a mat-button href="">Logout</a>
-        </div>
-    </mat-toolbar>
+  <mat-toolbar class="menu" color="primary">
+    <div class="centerNavBar">
+      <a mat-button href="fa-dashboard">Back</a>
+      &nbsp;
+      <span class="headSpacer">Damage Assessment Tool</span>
+      &nbsp;
+      <a mat-button href="">Logout</a>
+    </div>
+  </mat-toolbar>
 </div>
 
 <div>
-    <mat-sidenav-container>
-        <mat-sidenav mode="side" opened>
-            <div>
-                <a mat-button href="fa-dashboard">Dashboard</a>
-            </div>
-            <div>
-                <a mat-button href="fa-daform">Report</a>
-            </div>
-            <div>
-                <a mat-button href="fa-search">Stored Data</a>
-            </div>
-        </mat-sidenav>
-        <mat-sidenav-content>
-            <div class="sect">
-                <h1>Members of Communities Reports</h1>
-            </div>
-            <mat-card>
-                <mat-card-content>
-                    <mat-accordion multiple="true">
-                        <mat-expansion-panel *ngFor="let mocreport of mocreports">
-                            <mat-expansion-panel-header >
-                                <span>{{mocreport.facilityName}} </span> 
-                                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                <span>{{mocreport.MoCReportDateTime}}</span> 
-                            </mat-expansion-panel-header>
-                            <span>{{mocreport.MoCDescription}}</span>
-                            
-                            <button mat-raised-button>View</button>
-                            &nbsp;
-                            <button mat-raised-button 
-                            color="warn">Delete</button>
-                        </mat-expansion-panel>
-                        <br>
-                    </mat-accordion>
-                </mat-card-content>
-            </mat-card>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+      <div>
+        <a mat-button href="fa-dashboard">Dashboard</a>
+      </div>
+      <div>
+        <a mat-button href="daform">Report</a>
+      </div>
+      <div>
+        <a mat-button href="view-daform">Stored Data</a>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <br />
+      <div class="example-action-buttons">
+        <button mat-button (click)="accordion.openAll()">Expand All</button>
+        <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+      </div>
+      <br />
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel
+          [expanded]="step === 0"
+          (opened)="setStep(0)"
+          hideToggle
+          *ngFor="let mocreport of mocreports"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ mocreport.facilityName }}
+            </mat-panel-title>
+            <mat-panel-description>
+              {{ mocreport.facilityName }}
+              <h3>status</h3>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          Author:
+          <br />
+          <br />
+          Date: {{ mocreport.MoCReportDateTime | date: "shortDate" }}
+          <br />
+          <br />
+          Description: {{ mocreport.MoCDescription }}
+          <br />
+          <br />
+          Location:
+          <mat-action-row>
+            <button
+              mat-button
+              color="basic"
+              [routerLink]="['/moc-report', mocreport._id]"
+            >
+              Update Status
+            </button>
+            <button
+              mat-raised-button
+              color="warn"
+              [routerLink]="['/moc-report-view', mocreport._id]"
+            >
+              Delete
+            </button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
