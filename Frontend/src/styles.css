@@ -42,13 +42,15 @@ body {
 
 /*map*/
 .map-container {
-    margin: 10px;
+    width: 300px;
+    padding: 1px;
+    margin: 20px;;
 }
 
 .map-frame {
     border: 2px solid black;
-    height: 100%;
-    width: 50%;
+    height: 350px;
+    width: 400px;
 }
 
 #map {

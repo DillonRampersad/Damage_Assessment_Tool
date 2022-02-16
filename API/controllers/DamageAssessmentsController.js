@@ -426,15 +426,16 @@ exports.damageAssessmentForm_get_all = (req, res) => {
 exports.damageAssessmentForm_get_one = (req,res) => {
     //return an array of all the damage assessments made that is stored on the database.
    DamageAssessmentForm.findOne({
-       _id: req.params.damageAssessmentsID
+       _id: req.params.damageAssessmentFormID
     })
-   //.populate('_damageAssessmentsID1').exec()
    .then((damageAssessment) => {
        res.send(damageAssessment);
    }).catch((e) => {
        res.send(e);
    });
 };
+
+
 
 
 //Damage Assessment Form Post

@@ -14,6 +14,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatGridListModule } from '@angular/material/grid-list';
+
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +36,7 @@ import { DAFormOneCollectionComponent } from './pages/daform-one-collection/dafo
 import { ViewDaformComponent } from './pages/view-daform/view-daform.component';
 import { FASearchComponent } from './pages/to remove/fa-search/fa-search.component';
 import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-view/detailed-daform-view.component';
+import { ViewFullDaformComponent } from './pages/view-full-daform/view-full-daform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +50,8 @@ import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-v
     MocReportsViewComponent,
     MessageBoardComponent,
     DAFormOneCollectionComponent,
-    ViewDaformComponent
+    ViewDaformComponent,
+    ViewFullDaformComponent
     
   ],
   imports: [
@@ -65,7 +72,10 @@ import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-v
     ReactiveFormsModule,
     MatStepperModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatDividerModule,
+    MatGridListModule
     
   ],
   providers: [],

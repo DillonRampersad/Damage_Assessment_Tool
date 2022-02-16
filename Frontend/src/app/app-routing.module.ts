@@ -11,6 +11,7 @@ import { ViewDaformComponent } from './pages/view-daform/view-daform.component';
 import { FADAFormComponent } from './pages/to remove/fa-daform/fa-daform.component';
 import { FASearchComponent } from './pages/to remove/fa-search/fa-search.component';
 import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-view/detailed-daform-view.component';
+import { ViewFullDaformComponent } from './pages/view-full-daform/view-full-daform.component';
 
 
 
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: "moc-report-view" , component: MocReportsViewComponent},
   {path: "message-board" , component: MessageBoardComponent},
   {path: "daform", component: DAFormOneCollectionComponent},
-  {path: "view-daform", component: ViewDaformComponent}
+  {path: "view-daform", component: ViewDaformComponent},
+  {path: "view-full-daform/:viewfulldaformid", component: ViewFullDaformComponent}
 ];
 
 @NgModule({

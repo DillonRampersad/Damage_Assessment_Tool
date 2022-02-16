@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { WebRequestService } from './web-request.service';
 
 @Injectable({
@@ -49,6 +50,11 @@ export class DamageAssessmentReportService {
 
   getDAForm(){
     return this.webReqService.get('DamageAssessmentForm');
+  }
+
+  getOneDAForm(getDAId: any):Observable<any>
+  {
+    return this.webReqService.get(`DamageAssessmentForm/${getDAId}`);
   }
 
   deleteDAForm(DAFormID: string){

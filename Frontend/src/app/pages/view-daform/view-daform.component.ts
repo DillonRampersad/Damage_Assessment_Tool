@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DamageAssessmentReportService } from 'src/app/service/damage-assessment-report.service';
 import { DAForm } from 'src/app/models/daform.interface';
 import { MatAccordion } from '@angular/material/expansion';
-
+import { ActivatedRoute, Router, Params } from '@angular/router';
 @Component({
   selector: 'app-view-daform',
   templateUrl: './view-daform.component.html',
@@ -10,8 +10,8 @@ import { MatAccordion } from '@angular/material/expansion';
 })
 export class ViewDaformComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
-  constructor(private damageAssessmentService: DamageAssessmentReportService) {}
-  //daform : DAForm[]
+  constructor(private damageAssessmentService: DamageAssessmentReportService, private router: Router, private route: ActivatedRoute) {}
+
 
   daform: DAForm[] = [
     {
@@ -31,7 +31,7 @@ export class ViewDaformComponent implements OnInit {
       modelNumber1: 'Test Model No',
       manufacturer1: 'Test Manufacturer',
       equipmentDamage1: 'Test Equipment Damage',
-    },
+    }
   ];
 
   step = 0;
@@ -46,11 +46,14 @@ export class ViewDaformComponent implements OnInit {
 
   prevStep() {
     this.step--;
-  }
+  } 
+
+
   
   ngOnInit(): void {
     this.damageAssessmentService.getDAForm().subscribe((form: DAForm[]) => {
       this.daform = form;
     });
+    
   }
 }
