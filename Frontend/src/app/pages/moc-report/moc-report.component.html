@@ -75,6 +75,7 @@
               style="display: none"
               #ImageInput
               type="file"
+              multiple
               (change)="onFileSelected($event)"
             />
             <button
@@ -82,7 +83,7 @@
               type="button"
               (click)="ImageInput.click()"
             >
-              Upload An Image
+              Upload Images
             </button>
             &nbsp;
             <button

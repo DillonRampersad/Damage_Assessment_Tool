@@ -30,25 +30,24 @@ exports.MOCReport_get_one = (req, res) => {
 //Damage Assessment Form Post
 exports.MOCReport_post = (req, res, next) => {
   //create a damage assessment report and save to the database
-  //const file = req.file
-  //console.log(file.filename);
-  //if(!file){
-  //    const error = new Error('Please upload an image')
-  //    error.httpStatusCode = 400
-  //    return next (error)
-  //}
-  //res.send(file)
+  const mocImage = req.file;
+  console.log(mocImage.filename);
+  if(!mocImage){
+      const error = new Error('Please upload an image')
+      error.httpStatusCode = 400
+      return next (error)
+  }
+  //var path = req.files.map(mocImage => file.path)
   let newMOCReport = new MOCReport({
     facilityName: req.body.facilityName,
     MoCDescription: req.body.MoCDescription,
     MoCReportDateTime: req.body.MoCReportDateTime,
     MoCDisasterLocation: req.body.MoCDisasterLocation,
-    //mocImage: req.file.path
+    mocImage: req.file.path
   });
   newMOCReport.save().then((MOCReportDoc) => {
     //the full Damage Assessment document is returned (including id)
     res.send(MOCReportDoc);
-    console.log(req.body.facilityName);
   });
 };
 

@@ -8,9 +8,9 @@ export class MOCReportService {
 
   constructor(private webReqService: WebRequestService) { }
 
-  createMOCReport(facilityName: string, MoCDescription: string, MoCReportDateTime: Date){
+  createMOCReport(facilityName: string, MoCDescription: string, MoCReportDateTime: Date, mocImage: FormData){
     //send web req to create DA report
-    return this.webReqService.post('MOCReport', {facilityName, MoCDescription, MoCReportDateTime})
+    return this.webReqService.post('MOCReport', {facilityName, MoCDescription, MoCReportDateTime, mocImage})
   }
 
   getMOCReport(){

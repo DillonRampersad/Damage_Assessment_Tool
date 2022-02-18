@@ -37,9 +37,7 @@ const storage = multer.diskStorage({
 router.get('/MOCReport', MOCReportController.MOCReport_get_all)
 router.get('/MOCReport/:mocreportID', MOCReportController.MOCReport_get_one)
 //Post for Damage Assessment Form
-router.post('/MOCReport', 
-//upload.single('mocImage'), 
-MOCReportController.MOCReport_post);
+router.post('/MOCReport', upload.single('mocImage'), MOCReportController.MOCReport_post);
 //Patch for Damage Assessment Form
 router.patch('/MOCReport/:id', MOCReportController.MOCReport_update);
 //Delete for Damage Assessment Form

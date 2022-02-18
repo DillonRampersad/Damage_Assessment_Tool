@@ -38,6 +38,7 @@ export class MocReportComponent implements OnInit, AfterViewInit {
 
   form: FormGroup;
   imageData: string;
+  multipleImages=[];
 
   constructor(
     private mocreportservice: MOCReportService,
@@ -61,7 +62,7 @@ export class MocReportComponent implements OnInit, AfterViewInit {
 
   selectedFile = null;
   onFileSelected(event) {
-    this.selectedFile = event.target.files[0];
+    this.multipleImages = event.target.files;
   }
 
   createMOCForm(
@@ -70,16 +71,18 @@ export class MocReportComponent implements OnInit, AfterViewInit {
     MoCReportDateTimeString: string
   ) {
     //IMAGE POST
-    //const formData = new FormData();
-    //formData.append('mocImage', this.selectedFile);
-    //this.http.post<any>('http://localhost:3000/MOCReport', formData).subscribe;
-    //((picture: any)=>{
+    const formData = new FormData();
+    //this.http.post<any>('http://localhost:3000/MOCReport', mocImage).subscribe;
+    //(picture: any) => {
     //  console.log(picture);
-    //}
+    //};
+    for (let img of this.multipleImages){
+      formData.append('mocImage', img);
+    }
     const MoCReportDateTime = new Date(MoCReportDateTimeString);
     //const MoCDisasterLocation = Array[MoCDisasterLocationArray];
     this.mocreportservice
-      .createMOCReport(facilityName, MoCDescription, MoCReportDateTime)
+      .createMOCReport(facilityName, MoCDescription, MoCReportDateTime, formData)
       .subscribe((report: MOCReport) => {
         console.log(report);
         this.router.navigate(['/message-board']);
