@@ -26,31 +26,37 @@
         <mat-card-content>
           <!--Div for form-->
           <div>
-            <mat-form-field>
-              <input #MOCDateInput matInput type="Date" required />
-            </mat-form-field>
-            <br />
-            <mat-form-field>
-              <mat-label>Comment</mat-label>
-              <input
-                #DescriptionInput
-                placeholder="--"
-                matInput
-                type="string"
-                required
-              />
-            </mat-form-field>
-            <br />
-            <mat-form-field>
-              <mat-label>Facility In Question</mat-label>
-              <input
-                #MOCFacilityInput
-                placeholder="--"
-                matInput
-                type="string"
-                required
-              />
-            </mat-form-field>
+            <form>
+              <mat-form-field>
+                <input 
+                #MOCDateInput
+                matInput 
+                type="Date" 
+                required />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Comment</mat-label>
+                <input
+                  #DescriptionInput
+                  placeholder="--"
+                  matInput
+                  type="string"
+                  required
+                />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Facility In Question</mat-label>
+                <input
+                  #MOCFacilityInput
+                  placeholder="--"
+                  matInput
+                  type="string"
+                  required
+                />
+              </mat-form-field>
+            </form>
           </div>
         </mat-card-content>
       </mat-card>
@@ -75,7 +81,6 @@
               style="display: none"
               #ImageInput
               type="file"
-              multiple
               (change)="onFileSelected($event)"
             />
             <button

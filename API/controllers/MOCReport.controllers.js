@@ -31,7 +31,7 @@ exports.MOCReport_get_one = (req, res) => {
 exports.MOCReport_post = (req, res, next) => {
   //create a damage assessment report and save to the database
   const mocImage = req.file;
-  console.log(mocImage.filename);
+  //console.log(mocImage.filename);
   if(!mocImage){
       const error = new Error('Please upload an image')
       error.httpStatusCode = 400

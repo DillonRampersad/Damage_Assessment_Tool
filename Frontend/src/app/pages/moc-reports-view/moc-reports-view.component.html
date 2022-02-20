@@ -44,7 +44,7 @@
             </mat-panel-title>
             <mat-panel-description>
               {{ mocreport.facilityName }}
-              <h3>status</h3>
+              <h3>status: </h3>
             </mat-panel-description>
           </mat-expansion-panel-header>
           Author:
@@ -60,7 +60,8 @@
           <br />
           <br />
           Images:
-          <img src="{{ mocreport.mocImage }}" />
+          <br/>
+          <img class="styleImage" src="{{ mocreport.mocImage }}" />
           <mat-action-row>
             <button
               mat-button
