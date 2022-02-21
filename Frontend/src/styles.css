@@ -46,12 +46,14 @@ body {
   width: 300px;
   padding: 1px;
   margin: 20px;
+  text-align: center;
 }
 
 .map-frame {
   border: 2px solid black;
   height: 350px;
   width: 400px;
+  text-align: center;
 }
 
 #map {
@@ -70,4 +72,18 @@ body {
 
 .example-headers-align .mat-form-field + .mat-form-field {
   margin-left: 8px;
+}
+
+mat-card-content{
+  text-align: center;
+  width: auto;
+}
+
+mat-card{
+  text-align: center;
+  width: auto;
+}
+
+mat-form-field{
+  width: 700px;
 }

@@ -19,17 +19,31 @@ export class MOCReportService {
   constructor(private webReqService: WebRequestService, private http: HttpClient) { }
 
   getMOCForm() {
-    this.http
-      .get<{ MocReports: MOCReport[] }>(this.url)
-      .pipe(
-        map((MocReportsData) => {
-          return MocReportsData.MocReports;
-        })
-      )
-      .subscribe((MocReports) => {
-        this.MocReports = MocReports;
-        this.MocReports$.next(this.MocReports);
-      });
+    return this.http.get<any>("http://localhost:3000/MOCReport")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  postMOCForm(data: any){
+    return this.http.post<any>("http://localhost:3000/MOCReport", data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  updateMOCForm(data: any, id: string){
+    return this.http.put<any>("http://localhost:3000/MOCReport"+id, data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  deleteMOCForm(id: number){
+    return this.http.delete<any>("http://localhost:3000/MOCReport"+id)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
   }
 
   getMOCFormStream() {
@@ -38,7 +52,7 @@ export class MOCReportService {
 
 
   ///////////////////////////////////////////
-  createMOCReport(facilityName: string, MoCDescription: string, MoCReportDateTime: Date, mocImage: any){
+  createMOCReport(facilityName: string, MoCDescription: string, MoCReportDateTime: Date, mocImage: File){
     //send web req to create DA report
     return this.webReqService.post('MOCReport', {facilityName, MoCDescription, MoCReportDateTime, mocImage})
   }

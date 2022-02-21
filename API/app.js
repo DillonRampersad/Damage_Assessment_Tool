@@ -27,11 +27,13 @@ app.use((req, res, next) => {
 const DamageAssessmentsRoute = require('./routers/DamageAssessmentsRoutes')
 const EventsRouter = require('./routers/EventsRouters')
 const MOCReportRoute = require('./routers/MOCReport.Routes')
+const FieldAgentRoute = require('./routers/FieldAgents.Routes')
 
 //Register Router
-app.use(DamageAssessmentsRoute)
-app.use(EventsRouter)
+app.use(DamageAssessmentsRoute);
+app.use(EventsRouter);
 app.use(MOCReportRoute);
+app.use(FieldAgentRoute);
 
 //Error Handling
 app.use((req, res, next) => {
@@ -46,6 +48,14 @@ app.use((error, req, res, next) => {
             message: error.message
         }
     });
+});
+
+app.use((err, req, res, next) => {
+    if (err.name === 'ValidationError') {
+        var valErrors = [];
+        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
+        res.status(422).send(valErrors)
+    }
 });
 
 //Listening to the server on port 3000
