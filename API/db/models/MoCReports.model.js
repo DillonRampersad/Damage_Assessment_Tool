@@ -22,11 +22,7 @@ const MoCReportSchema = new mongoose.Schema({
         required: false,
     },
     mocImage:{
-        type: String,
-        required: false
-    },
-    _membersofCommunitiesID:{
-        type: mongoose.Types.ObjectId,
+        type: [String],
         required: false
     }
 })

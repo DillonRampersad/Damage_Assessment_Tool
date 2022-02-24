@@ -26,21 +26,24 @@
         <mat-card-content class="centerAlign">
           <!--Div for form-->
           <div>
-            <form>
+            <form [formGroup]="form" (submit)="addMOCForm()">
               <mat-form-field class="formwidth">
-                <input 
-                #MOCDateInput
-                matInput 
-                type="Date" 
-                required />
+                <input
+                  matInput
+                  class="form-control"
+                  formControlName="MoCReportDateTime"
+                  type="Date"
+                  required
+                />
               </mat-form-field>
               <br />
               <mat-form-field>
                 <mat-label>Comment</mat-label>
                 <input
-                  #DescriptionInput
                   placeholder="--"
                   matInput
+                  formControlName="MoCDescription"
+                  class="form-control"
                   type="string"
                   required
                 />
@@ -49,64 +52,42 @@
               <mat-form-field>
                 <mat-label>Facility In Question</mat-label>
                 <input
-                  #MOCFacilityInput
                   placeholder="--"
                   matInput
+                  formControlName="facilityName"
+                  class="form-control"
                   type="string"
                   required
                 />
               </mat-form-field>
+              <mat-card class="centerAlign">
+                <mat-card-actions>
+                  <!--Div for buttons-->
+                  <div>
+                    <input
+                      style="display: none"
+                      #ImageInput
+                      type="file"
+                      (change)="onFileSelected($event)"
+                    />
+
+                    <button
+                      mat-raised-button
+                      type="button"
+                      (click)="ImageInput.click()"
+                    >
+                      Upload Images
+                    </button>
+                    &nbsp;
+                    <button mat-raised-button color="primary" type="submit">
+                      Add
+                    </button>
+                  </div>
+                </mat-card-actions>
+              </mat-card>
             </form>
           </div>
         </mat-card-content>
-      </mat-card>
-      <mat-card>
-        <mat-card-content class="centerAlign">
-          <!--Div for Map-->
-          <h3>Select Location</h3>
-          <div class="MOCMap">
-            <div class="map-container">
-              <div class="map-frame">
-                <div id="map"></div>
-              </div>
-            </div>
-          </div>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="centerAlign">
-        <mat-card-actions>
-          <!--Div for buttons-->
-          <div>
-            <input
-              style="display: none"
-              #ImageInput
-              type="file"
-              (change)="onFileSelected($event)"
-            />
-            <button
-              mat-raised-button
-              type="button"
-              (click)="ImageInput.click()"
-            >
-              Upload Images
-            </button>
-            &nbsp;
-            <button
-              mat-raised-button
-              type="submit"
-              (click)="
-                createMOCForm(
-                  MOCFacilityInput.value,
-                  DescriptionInput.value,
-                  MOCDateInput.value
-                )
-              "
-              color="primary"
-            >
-              Submit Report
-            </button>
-          </div>
-        </mat-card-actions>
       </mat-card>
     </mat-sidenav-content>
   </mat-sidenav-container>

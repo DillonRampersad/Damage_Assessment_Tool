@@ -87,3 +87,22 @@ mat-card{
 mat-form-field{
   width: 700px;
 }
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+
+a:hover {
+  background-color: #6a3db8d5;
+  width : 130px;
+}
+
+mat-sidenav-container{
+  width: auto;
+  height: auto;
+}
+
+mat-sidenav{
+  text-align: center;
+}

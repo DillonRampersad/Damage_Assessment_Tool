@@ -3,6 +3,6 @@ export interface MOCReport{
     facilityName: string;
     MoCDescription: string;
     MoCReportDateTime: Date;
-    MoCDisasterLocation: Array<number>;
-    mocImage: File;
+    //MoCDisasterLocation: Array<number>;
+    mocImage: string;
 }

@@ -1,9 +1,12 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+} from '@angular/forms';
 
 import { HttpClient } from '@angular/common/http';
-import { MOCReport } from 'src/app/models/mocreport.interface';
 
 import { MOCReportService } from 'src/app/service/mocreport.service';
 
@@ -15,10 +18,9 @@ import { MOCReportService } from 'src/app/service/mocreport.service';
   templateUrl: './moc-report.component.html',
   styleUrls: ['./moc-report.component.css'],
 })
-export class MocReportComponent implements OnInit
-//, AfterViewInit 
-{
- /*
+//, AfterViewInit
+export class MocReportComponent implements OnInit {
+  /*
   private map;
   private initMap(): void {
     this.map = L.map('map', {
@@ -39,9 +41,9 @@ export class MocReportComponent implements OnInit
     tiles.addTo(this.map);
   }
 */
-  form : FormGroup;
-  mocReport: MOCReport;
-  imageData;
+  image: any;
+  Image = [];
+  imageData: any;
 
   constructor(
     private mocreportservice: MOCReportService,
@@ -49,15 +51,14 @@ export class MocReportComponent implements OnInit
     private router: Router,
     private fb: FormBuilder,
     private http: HttpClient
-  ) {
-    //this.form = this.fb.group({
-    //  facilityName: [''],
-    //  MoCDescription: [''],
-    //  MoCReportDateTime: [''],
-    //  mocImage: [null]
-    //})
-  }
-/*
+  ) {}
+  form = new FormGroup({
+    facilityName: new FormControl(''),
+    MoCDescription: new FormControl(''),
+    MoCReportDateTime: new FormControl(''),
+  });
+
+  /*
   ngAfterViewInit(): void {
     this.initMap();
     this.mapService.getMarkers(this.map);
@@ -73,46 +74,42 @@ export class MocReportComponent implements OnInit
 
   // this.map.on('click', this.onMapClick);
 
+  onFileSelected(event: any) {
+    const file = (event.target as HTMLInputElement).files;
+    this.form.patchValue({ Image: file });
+    const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg'];
 
-  onFileSelected(event) {
-    //const file = (event.target as HTMLInputElement).files[0];
-    //this.form.patchValue({ mocImage: file });
-    //const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
-    //if (file && allowedMimeTypes.includes(file.type)) {
-    // const reader = new FileReader();
-    //  reader.onload = () => {
-    //    this.imageData = reader.result as string;
-    //  };
-    //  reader.readAsDataURL(file);
-    //}
-    console.log("Select Image")
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.imageData = file;
+    {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageData = reader.result as string;
+      };
+      if (file) {
+        reader.readAsDataURL(file[0]);
+      }
     }
-    //const file = (event.target as HTMLInputElement).files[0];
-    //this.form.patchValue({
-    //  mocImage: file
-    //});
-    //this.form.get('mocImage').updateValueAndValidity()
+    console.log(event.target.files[0]);
+    const Image = event.target.files[0];
+    this.image = Image;
+  }
+
+  addMOCForm() {
+    console.log('adding');
+    //this.mocreportservice.addMOCReport(this.facilityName, this.MoCDescription, this.MoCReportDateTime, this.mocImage);
+    const formData = new FormData();
+    formData.append('facilityName', this.form.value.facilityName);
+    formData.append('MoCDescription', this.form.value.MoCDescription);
+    formData.append(
+      'MoCReportDateTimeString',
+      this.form.value.MoCReportDateTimeString
+    );
+    formData.append('mocImage', this.image);
+    this.mocreportservice.postMOCForm(formData).subscribe((d) => {
+      console.log(d);
+    });
+    this.router.navigate(['/message-board']);
   }
   /*
-  submitForm(MoCReportDateTimeString:string) {
-    var formData: any = new FormData();
-    const MoCReportDateTime = new Date(MoCReportDateTimeString);
-    formData.append("facilityName", this.form.get('facilityName').value);
-    formData.append("MOCDescription", this.form.get('MOCDescription').value);
-    formData.append("MoCReportDateTime", this.form.get('MoCReportDateTime').value);
-    formData.append("mocImage", this.form.get('mocImage').value);
-    this.http.post('http://localhost:3000/MOCReport', formData).subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    )
-  }
-  */
-  
-  
-
   createMOCForm(
     facilityName: string,
     MoCDescription: string,
@@ -121,7 +118,7 @@ export class MocReportComponent implements OnInit
     //IMAGE POST
     const formData = new FormData();
 
-    formData.append('mocImage', this.imageData);
+    formData.append('mocImage', this.Image);
 
 
     const MoCReportDateTime = new Date(MoCReportDateTimeString);
@@ -131,23 +128,13 @@ export class MocReportComponent implements OnInit
         facilityName,
         MoCDescription,
         MoCReportDateTime,
-        this.imageData
+        this.Image
       )
       .subscribe((report: MOCReport) => {
         console.log(report);
         this.router.navigate(['/message-board']);
       });
   }
-
-  ngOnInit(): void {
-    //this.form = this.formBuilder.group({
-    //  facilityName: [''],
-    //  MoCDescription: [''],
-    //  MoCReportDateTime: [''],
-    //  mocImage: ['']
-    //});
-    
-  }
+*/
+  ngOnInit(): void {}
 }
-
-

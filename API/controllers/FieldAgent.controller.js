@@ -20,7 +20,7 @@ exports.FieldAgents_post = (req, res, next) => {
         res.send(FieldAgentDoc);
     else {
         if (err.code == 11000)
-            res.status(422).send(['Email Address Is Already In Use.']);
+            res.status(422). send(['Email Address Is Already In Use.']);
         else
             return next(err);
     }

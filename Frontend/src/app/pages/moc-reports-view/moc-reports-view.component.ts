@@ -40,20 +40,14 @@ export class MocReportsViewComponent implements OnInit
 
 
   ngOnInit(): void {
-    this.mocreportservice.getMOCReport().subscribe((mocReport: MOCReport[]) => {
+    this.mocreportservice.getMOCForm().subscribe((mocReport: MOCReport[]) => {
       this.mocreports = mocReport;
     });
-
-    //this.mocreportservice.getMOCForm();
-    //this.MOCReportSubscription = this.mocreportservice
-    //  .getMOCFormStream()
-    //  .subscribe((mocreports: MOCReport[]) => {
-    //    this.mocreports = mocreports;
-    //  });
   }
-  //ngOnDestroy(): void {
-  //  this.MOCReportSubscription.unsubscribe();
-  //}
+
+  ngOnDestroy(){
+    this.MOCReportSubscription.unsubscribe();
+  }
   
   
 }

@@ -3,9 +3,9 @@ const mongoose = require ('mongoose');
 const router = new express.Router();
 const multer = require('multer');
 
-const MOCReport = require('../db/models/MOCReports.model');
+const DAEquipment = require('../db/models/DAEquipment.model');
 
-const MOCReportController = require('../controllers/MOCReport.controllers');
+const DAEquipmentController = require('../controllers/DAEquipment.controller');
 
 //multer image storage
 const storage = multer.diskStorage({
@@ -34,14 +34,14 @@ const storage = multer.diskStorage({
 
   
 //Get for Damage Assessment Form
-router.get('/MOCReport', MOCReportController.MOCReport_get_all)
-router.get('/MOCReport/:mocreportID', MOCReportController.MOCReport_get_one)
+router.get('/DAEquipment', DAEquipmentController.DAEquipment_get_all)
+router.get('/DAEquipment/:DAEquipmentID', DAEquipmentController.DAEquipment_get_one)
 //Post for Damage Assessment Form
-router.post('/MOCReport', upload.array('mocImage'), MOCReportController.MOCReport_post);
+router.post('/DAEquipment', upload.array('equImage'), DAEquipmentController.DAEquipment_post);
 //Patch for Damage Assessment Form
-router.patch('/MOCReport/:id', MOCReportController.MOCReport_update);
+router.patch('/DAEquipment/:id', DAEquipmentController.DAEquipment_update);
 //Delete for Damage Assessment Form
-router.delete('/MOCReport/:id', MOCReportController.MOCReport_delete);
+router.delete('/DAEquipment/:id', DAEquipmentController.DAEquipment_delete);
 
 
 module.exports = router;

@@ -17,42 +17,40 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 ////////////////////////////////////////////////////////////////////////////////
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FADAFormComponent } from './pages/to remove/fa-daform/fa-daform.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FADashbooardComponent } from './pages/fa-dashbooard/fa-dashbooard.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingComponent } from './pages/landing/landing.component';
-import { DetailedDaformComponent } from './pages/to remove/detailed-daform/detailed-daform.component';
 import { MocReportComponent } from './pages/moc-report/moc-report.component';
 import { MocReportsViewComponent } from './pages/moc-reports-view/moc-reports-view.component';
 import { MessageBoardComponent } from './pages/message-board/message-board.component';
-import { DAFormOneCollectionComponent } from './pages/daform-one-collection/daform-one-collection.component';
-import { ViewDaformComponent } from './pages/view-daform/view-daform.component';
-import { FASearchComponent } from './pages/to remove/fa-search/fa-search.component';
-import { DetailedDaformViewComponent } from './pages/to remove/detailed-daform-view/detailed-daform-view.component';
-import { ViewFullDaformComponent } from './pages/view-full-daform/view-full-daform.component';
 import { DmDashboardComponent } from './pages/dm-dashboard/dm-dashboard.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { DaformFacComponent } from './pages/daform-fac/daform-fac.component';
+import { DaformFacViewComponent } from './pages/daform-fac-view/daform-fac-view.component';
+import { DaformEquComponent } from './pages/daform-equ/daform-equ.component';
+import { DaformEquViewComponent } from './pages/daform-equ-view/daform-equ-view.component';
+import { DaformFacViewFullComponent } from './pages/daform-fac-view-full/daform-fac-view-full.component';
 @NgModule({
   declarations: [
     AppComponent,
-    FADAFormComponent,
     FADashbooardComponent,
-    FASearchComponent,
     LandingComponent,
-    DetailedDaformComponent,
-    DetailedDaformViewComponent,
     MocReportComponent,
     MocReportsViewComponent,
     MessageBoardComponent,
-    DAFormOneCollectionComponent,
-    ViewDaformComponent,
-    ViewFullDaformComponent,
     DmDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    DaformFacComponent,
+    DaformFacViewComponent,
+    DaformEquComponent,
+    DaformEquViewComponent,
+    DaformFacViewFullComponent
     
   ],
   imports: [
@@ -76,7 +74,9 @@ import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard
     MatIconModule,
     MatTabsModule,
     MatDividerModule,
-    MatGridListModule
+    MatGridListModule,
+    MatRadioModule,
+    MatSelectModule
     
   ],
   providers: [],
