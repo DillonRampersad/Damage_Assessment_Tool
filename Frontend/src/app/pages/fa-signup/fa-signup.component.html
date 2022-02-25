@@ -73,11 +73,11 @@
         [pattern]="emailRegex"
         [ngClass]="{ 'invalid-textbox': signUpForm.submitted && !email.valid }"
       />
-      <div *ngIf="signUpForm.submitted && email.errors">
-        <label *ngIf="[email.errors.['required']]" class="validation-message">This field is required.</label>
-        <label *ngIf="email.errors.pattern" class="validation-message">Invalid email address.</label>
-      </div>
     </mat-form-field>
+    <div *ngIf="signUpForm.submitted && email.errors">
+      <label *ngIf="email.errors?.['required']" class="validation-message">This field is required.</label>
+      <label *ngIf="email.errors?.['pattern']" class="validation-message">Invalid email address.</label>
+    </div>
     <br />
     <mat-form-field>
       <input
@@ -94,7 +94,10 @@
         }"
       />
     </mat-form-field>
-
+    <div *ngIf="signUpForm.submitted && password.errors">
+      <label *ngIf="password.errors?.['required']" class="validation-message">This field is required.</label>
+      <label *ngIf="password.errors?.['minlength']" class="validation-message">Enter atleast 4 characters.</label>
+    </div>
     <br />
     <button mat-raised-button type="submit">Sign Up</button>
   </form>

@@ -3,7 +3,13 @@ const fieldAgents = require("../db/models/FieldAgents.model");
 
 exports.FieldAgents_get_all = (req, res, next) => {
   //return an array of all the damage assessments made that is stored on the database.
-  res.send("fa component");
+  fieldAgents.find({})
+    .then((fieldagent) => {
+      res.send(fieldagent);
+    })
+    .catch((e) => {
+      res.send(e);
+    });
 };
 
 exports.FieldAgents_post = (req, res, next) => {
