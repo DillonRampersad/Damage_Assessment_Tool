@@ -12,6 +12,7 @@ import { DaformFacViewComponent } from './pages/daform-fac-view/daform-fac-view.
 import { DaformEquComponent } from './pages/daform-equ/daform-equ.component';
 import { DaformEquViewComponent } from './pages/daform-equ-view/daform-equ-view.component';
 import { DaformFacViewFullComponent } from './pages/daform-fac-view-full/daform-fac-view-full.component';
+import { FaSignupComponent } from './pages/fa-signup/fa-signup.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'daform-equ-view', component: DaformEquViewComponent },
   { path: 'dm-dashboard', component: DmDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'fa-signup', component: FaSignupComponent}
 ];
 
 @NgModule({

@@ -36,6 +36,7 @@ import { DaformFacViewComponent } from './pages/daform-fac-view/daform-fac-view.
 import { DaformEquComponent } from './pages/daform-equ/daform-equ.component';
 import { DaformEquViewComponent } from './pages/daform-equ-view/daform-equ-view.component';
 import { DaformFacViewFullComponent } from './pages/daform-fac-view-full/daform-fac-view-full.component';
+import { FaSignupComponent } from './pages/fa-signup/fa-signup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { DaformFacViewFullComponent } from './pages/daform-fac-view-full/daform-
     DaformFacViewComponent,
     DaformEquComponent,
     DaformEquViewComponent,
-    DaformFacViewFullComponent
+    DaformFacViewFullComponent,
+    FaSignupComponent
     
   ],
   imports: [
