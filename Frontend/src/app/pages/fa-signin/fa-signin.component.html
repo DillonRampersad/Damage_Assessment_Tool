@@ -1,0 +1,61 @@
+<div class="textAlignCenter">
+  <mat-toolbar class="menu" color="primary">
+    <div class="centerNavBar">
+      <span class="headSpacer">Damage Assessment Tool</span>
+    </div>
+  </mat-toolbar>
+  <br />
+  <br />
+  <h1>Field Agent LogIn</h1>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+    <mat-form-field>
+        <input
+        matInput
+        type="test"
+        name="email"
+        #email="ngModel" 
+        [(ngModel)]="model.email"
+        placeholder="Email"
+        [pattern]="emailRegex"
+        [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }"
+        required
+      />
+    </mat-form-field>
+    <div *ngIf="signInForm.submitted && email.errors?.['pattern']">
+        <label class="validation-message">Invalid email address.</label>
+      </div>
+    <br/>
+    <mat-form-field>
+        <input
+        matInput
+        type="password"
+        name="password"
+        #password="ngModel" 
+        [(ngModel)]="model.password"
+        placeholder="Password"
+        minlength="4"
+        [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }"
+        required
+      />
+    </mat-form-field>
+    <div *ngIf="signInForm.submitted && password.errors?.['minlength']">
+        <label class="validation-message">Minimum 4 characters.</label>
+      </div>
+      <br/>
+    <br/>
+    <button mat-raised-button color="basic" [routerLink]="['/fa-signup']">Sign Up</button>
+    &nbsp;
+    &nbsp;
+    <button mat-raised-button color="primary" type="submit" >Log In</button>
+  </form>
+  <!-- Error message -->
+<div class="alert" *ngIf="serverErrorMessages">
+    {{serverErrorMessages}}
+  </div>
+</div>

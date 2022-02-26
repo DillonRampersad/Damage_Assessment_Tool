@@ -4,12 +4,12 @@
       <span class="headSpacer">Damage Assessment Tool</span>
     </div>
   </mat-toolbar>
-  <br/>
-  <br/>
-  <h3>Field Agent SignUp</h3>
-  <br/>
-  <br/>
-  <br/>
+  <br />
+  <br />
+  <h1>Field Agent SignUp</h1>
+  <br />
+  <br />
+  <br />
 
   <form
     #signUpForm="ngForm"
@@ -75,8 +75,12 @@
       />
     </mat-form-field>
     <div *ngIf="signUpForm.submitted && email.errors">
-      <label *ngIf="email.errors?.['required']" class="validation-message">This field is required.</label>
-      <label *ngIf="email.errors?.['pattern']" class="validation-message">Invalid email address.</label>
+      <label *ngIf="email.errors?.['required']" class="validation-message"
+        >This field is required.</label
+      >
+      <label *ngIf="email.errors?.['pattern']" class="validation-message"
+        >Invalid email address.</label
+      >
     </div>
     <br />
     <mat-form-field>
@@ -95,11 +99,18 @@
       />
     </mat-form-field>
     <div *ngIf="signUpForm.submitted && password.errors">
-      <label *ngIf="password.errors?.['required']" class="validation-message">This field is required.</label>
-      <label *ngIf="password.errors?.['minlength']" class="validation-message">Enter atleast 4 characters.</label>
+      <label *ngIf="password.errors?.['required']" class="validation-message"
+        >This field is required.</label
+      >
+      <label *ngIf="password.errors?.['minlength']" class="validation-message"
+        >Enter atleast 4 characters.</label
+      >
     </div>
     <br />
-    <button mat-raised-button type="submit">Sign Up</button>
+    <button mat-raised-button [routerLink]="['/fa-signin']" color="basic">Log In</button>
+    &nbsp;
+    &nbsp;
+    <button mat-raised-button color="primary" type="submit">Sign Up</button>
   </form>
 
   <!-- Success message -->

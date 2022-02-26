@@ -5,7 +5,7 @@
       &nbsp;
       <span class="headSpacer">Damage Assessment Tool</span>
       &nbsp;
-      <a mat-button href="">Logout</a>
+      <a mat-button type="button" (click)="onLogout()">Logout</a>
     </div>
   </mat-toolbar>
 </div>
@@ -39,9 +39,10 @@
       <mat-divider></mat-divider>
       <br/>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content class="textAlignCenter">
       <div class="sect">
         <h1>Field Agent Dashboard</h1>
+        <h3>User: {{faUserDetails.firstName}}</h3>
       </div>
       <mat-grid-list cols="2" rowHeight="2:1">
         <mat-grid-tile>1</mat-grid-tile>

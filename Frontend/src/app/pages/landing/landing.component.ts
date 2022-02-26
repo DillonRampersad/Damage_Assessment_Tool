@@ -10,7 +10,7 @@ export class LandingComponent implements OnInit {
   constructor(private router: Router) { }
 
   onClickFA(){
-    this.router.navigate(['fa-dashboard']);
+    this.router.navigate(['fa-signin']);
   }
   onClickDM(){
     this.router.navigate(['dm-dashboard']);

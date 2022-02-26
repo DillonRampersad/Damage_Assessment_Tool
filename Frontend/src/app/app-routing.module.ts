@@ -13,6 +13,9 @@ import { DaformEquComponent } from './pages/daform-equ/daform-equ.component';
 import { DaformEquViewComponent } from './pages/daform-equ-view/daform-equ-view.component';
 import { DaformFacViewFullComponent } from './pages/daform-fac-view-full/daform-fac-view-full.component';
 import { FaSignupComponent } from './pages/fa-signup/fa-signup.component';
+import { FaSigninComponent } from './pages/fa-signin/fa-signin.component';
+import { FaAuthGuard } from './auth/fa-auth.guard';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -22,7 +25,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'landing', component: LandingComponent },
-  { path: 'fa-dashboard', component: FADashbooardComponent },
+  { path: 'fa-dashboard', component: FADashbooardComponent, canActivate:[FaAuthGuard] },
   { path: 'moc-report', component: MocReportComponent },
   { path: 'moc-report-view', component: MocReportsViewComponent },
   { path: 'message-board', component: MessageBoardComponent },
@@ -33,7 +36,8 @@ const routes: Routes = [
   { path: 'daform-equ-view', component: DaformEquViewComponent },
   { path: 'dm-dashboard', component: DmDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'fa-signup', component: FaSignupComponent}
+  { path: 'fa-signup', component: FaSignupComponent},
+  { path: 'fa-signin', component: FaSigninComponent}
 ];
 
 @NgModule({

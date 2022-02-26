@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const FieldAgentsSchema = new mongoose.Schema({
   firstName: {
@@ -28,6 +29,7 @@ const FieldAgentsSchema = new mongoose.Schema({
   },
   saltSecret: String,
 });
+
 FieldAgentsSchema.path("email").validate((val) => {
   emailRegex =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -43,6 +45,16 @@ FieldAgentsSchema.pre("save", function (next) {
     });
   });
 });
+
+FieldAgentsSchema.methods.verifyPassword = function (password) {
+  return bcrypt.compareSync(password, this.password);
+};
+
+FieldAgentsSchema.methods.generateJwt = function () {
+  return jwt.sign({ _id: this._id }, 'SECRET#123', {
+    expiresIn: '2m',
+  });
+};
 
 const FieldAgents = mongoose.model("FieldAgents", FieldAgentsSchema);
 

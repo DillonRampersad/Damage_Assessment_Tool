@@ -5,8 +5,7 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-fa-signup',
   templateUrl: './fa-signup.component.html',
-  styleUrls: ['./fa-signup.component.css'],
-  providers: [FaSignupService],
+  styleUrls: ['./fa-signup.component.css']
 })
 export class FaSignupComponent implements OnInit {
   emailRegex =
@@ -32,8 +31,9 @@ export class FaSignupComponent implements OnInit {
             'Something went wrong.Please contact admin.';
       }
     );
-    console.log("Successfully Added");
+    console.log('Successfully Added');
   }
+
   resetForm(form: NgForm) {
     this.faSignup.selectedFAUser = {
       firstName: '',

@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router'; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -37,6 +37,11 @@ import { DaformEquComponent } from './pages/daform-equ/daform-equ.component';
 import { DaformEquViewComponent } from './pages/daform-equ-view/daform-equ-view.component';
 import { DaformFacViewFullComponent } from './pages/daform-fac-view-full/daform-fac-view-full.component';
 import { FaSignupComponent } from './pages/fa-signup/fa-signup.component';
+import { FaSigninComponent } from './pages/fa-signin/fa-signin.component';
+import { FaSignupService } from './service/fa-signup.service';
+
+import { FaAuthGuard } from './auth/fa-auth.guard';
+import { AuthInterceptor } from './auth/fa-auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +57,8 @@ import { FaSignupComponent } from './pages/fa-signup/fa-signup.component';
     DaformEquComponent,
     DaformEquViewComponent,
     DaformFacViewFullComponent,
-    FaSignupComponent
+    FaSignupComponent,
+    FaSigninComponent
     
   ],
   imports: [
@@ -81,7 +87,11 @@ import { FaSignupComponent } from './pages/fa-signup/fa-signup.component';
     MatSelectModule
     
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  },FaAuthGuard, FaSignupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

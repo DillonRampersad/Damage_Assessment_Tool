@@ -4,12 +4,15 @@ const { mongoose } = require("./db/mongoose");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const res = require("express/lib/response");
+const passport = require('passport')
+const passportConfig =require('./passportConfig');
 
 /*Load Middleware*/
 app.use("/uploads", express.static("uploads"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
+app.use(passport.initialize());
 
 //Handling CORS errors
 app.use((req, res, next) => {
