@@ -1,0 +1,126 @@
+<div class="textAlignCenter">
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="landing">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button type="button" ></a>
+      </div>
+    </mat-toolbar>
+    <br />
+    <h1>Disaster Manager SignUp</h1>
+    <img class="imgSize" src="assets/img/free-user-signup-icon-3058-thumb.png" alt="Icon"/>
+    
+  
+    <form
+      #signUpForm="ngForm"
+      (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)"
+    >
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          #firstName="ngModel"
+          [(ngModel)]="dmSignup.selectedDMUser.firstName"
+          name="firstName"
+          placeholder="First Name"
+          required
+        />
+      </mat-form-field>
+      <div *ngIf="signUpForm.submitted && !firstName.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          #lastName="ngModel"
+          [(ngModel)]="dmSignup.selectedDMUser.lastName"
+          name="lastName"
+          placeholder="Last Name"
+          required
+        />
+      </mat-form-field>
+      <div *ngIf="signUpForm.submitted && !lastName.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          #employeeID="ngModel"
+          [(ngModel)]="dmSignup.selectedDMUser.employeeID"
+          name="employeeID"
+          placeholder="Employee ID"
+          required
+        />
+      </mat-form-field>
+      <div *ngIf="signUpForm.submitted && !employeeID.valid">
+        <label class="validation-message">This field is required.</label>
+      </div>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          #email="ngModel"
+          [(ngModel)]="dmSignup.selectedDMUser.email"
+          name="email"
+          placeholder="Email"
+          required
+          required
+          [pattern]="emailRegex"
+          [ngClass]="{ 'invalid-textbox': signUpForm.submitted && !email.valid }"
+        />
+      </mat-form-field>
+      <div *ngIf="signUpForm.submitted && email.errors">
+        <label *ngIf="email.errors?.['required']" class="validation-message"
+          >This field is required.</label
+        >
+        <label *ngIf="email.errors?.['pattern']" class="validation-message"
+          >Invalid email address.</label
+        >
+      </div>
+      <br />
+      <mat-form-field>
+        <input
+          matInput
+          type="password"
+          #password="ngModel"
+          [(ngModel)]="dmSignup.selectedDMUser.password"
+          name="password"
+          placeholder="Password"
+          minlength="4"
+          required
+          [ngClass]="{
+            'invalid-textbox': signUpForm.submitted && !password.valid
+          }"
+        />
+      </mat-form-field>
+      <div *ngIf="signUpForm.submitted && password.errors">
+        <label *ngIf="password.errors?.['required']" class="validation-message"
+          >This field is required.</label
+        >
+        <label *ngIf="password.errors?.['minlength']" class="validation-message"
+          >Enter atleast 4 characters.</label
+        >
+      </div>
+      <br />
+      <button mat-raised-button [routerLink]="['/dm-signin']" color="basic">Log In</button>
+      &nbsp;
+      &nbsp;
+      <button mat-raised-button color="primary" type="submit">Sign Up</button>
+    </form>
+  
+    <!-- Success message -->
+    <div class="success" *ngIf="showSucessMessage">Saved successfully</div>
+  
+    <!-- Error message -->
+    <div class="alert" *ngIf="serverErrorMessages">
+      {{ serverErrorMessages }}
+    </div>
+  </div>
+  

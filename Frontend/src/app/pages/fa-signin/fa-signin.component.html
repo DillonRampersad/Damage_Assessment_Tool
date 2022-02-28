@@ -1,16 +1,17 @@
 <div class="textAlignCenter">
   <mat-toolbar class="menu" color="primary">
     <div class="centerNavBar">
+      <a mat-button href="landing">Back</a>
+      &nbsp;
       <span class="headSpacer">Damage Assessment Tool</span>
+      &nbsp;
+      <a mat-button type="button" ></a>
     </div>
   </mat-toolbar>
   <br />
   <br />
   <h1>Field Agent LogIn</h1>
-  <br />
-  <br />
-  <br />
-  <br />
+  <img class="imgSize" src="assets/img/192-1925162_login-icon-png-transparent-png.png" alt="Icon"/>
   <br />
   <br />
   <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">

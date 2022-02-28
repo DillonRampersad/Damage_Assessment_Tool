@@ -36,12 +36,19 @@ const MOCReportRoute = require("./routers/MOCReport.Routes");
 const DAFacilityRoute = require("./routers/DAFacility.route");
 const DAEquipmentRoute = require("./routers/DAEquipment.route");
 const FieldAgentRoute = require("./routers/FieldAgents.Routes");
+const DisasterManagerRoute = require("./routers/DisasterManager.Route");
+const AdministratorRoute = require("./routers/Administrator.Route");
+const MembersOfCommunitiesRoute = require("./routers/MOC.route");
 
 //Register Router
 app.use(MOCReportRoute);
 app.use(DAFacilityRoute);
 app.use(DAEquipmentRoute);
 app.use(FieldAgentRoute);
+app.use(DisasterManagerRoute);
+app.use(AdministratorRoute);
+app.use(MembersOfCommunitiesRoute);
+
 
 //Error Handling
 app.use((req, res, next) => {

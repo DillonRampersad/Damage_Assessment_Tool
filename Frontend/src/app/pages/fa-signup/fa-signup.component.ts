@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FaSignupService } from 'src/app/service/fa-signup.service';
-
 import { NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-fa-signup',
   templateUrl: './fa-signup.component.html',

@@ -42,6 +42,12 @@ import { FaSignupService } from './service/fa-signup.service';
 
 import { FaAuthGuard } from './auth/fa-auth.guard';
 import { AuthInterceptor } from './auth/fa-auth.interceptor';
+import { DmSignupComponent } from './pages/dm-signup/dm-signup.component';
+import { DmSigninComponent } from './pages/dm-signin/dm-signin.component';
+import { ASigninComponent } from './pages/a-signin/a-signin.component';
+import { ASignupComponent } from './pages/a-signup/a-signup.component';
+import { MocSignupComponent } from './pages/moc-signup/moc-signup.component';
+import { MocSigninComponent } from './pages/moc-signin/moc-signin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +64,13 @@ import { AuthInterceptor } from './auth/fa-auth.interceptor';
     DaformEquViewComponent,
     DaformFacViewFullComponent,
     FaSignupComponent,
-    FaSigninComponent
+    FaSigninComponent,
+    DmSignupComponent,
+    DmSigninComponent,
+    ASigninComponent,
+    ASignupComponent,
+    MocSignupComponent,
+    MocSigninComponent
     
   ],
   imports: [

@@ -13,10 +13,10 @@ export class LandingComponent implements OnInit {
     this.router.navigate(['fa-signin']);
   }
   onClickDM(){
-    this.router.navigate(['dm-dashboard']);
+    this.router.navigate(['dm-signin']);
   }
   onClickA(){
-    this.router.navigate(['admin-dashboard']);
+    this.router.navigate(['a-signin']);
   }
   onClickMB(){
     this.router.navigate(['message-board']);
