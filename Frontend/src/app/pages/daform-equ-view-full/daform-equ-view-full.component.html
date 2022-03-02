@@ -1,0 +1,101 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="fa-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="fa-dashboard">Dashboard</a>
+        </div>
+        <div>
+          <a mat-button href="daform">Report</a>
+        </div>
+        <div>
+          <a mat-button href="view-daform">Stored Data</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div>
+        <mat-card>
+            <h2>Report ID : {{daformequi._id}} </h2>
+            <br/>
+            <span>Report Status: {{daformequi.reportStatus}}</span>
+            <br />
+            <mat-tab-group animationDuration="1000ms" mat-align-tabs="center">
+              
+              <mat-tab label="Author">
+                <br/>
+                <h3>Author: {{daformequi.author}}</h3>
+              </mat-tab>
+              <mat-tab label="Event">
+                <br/>
+                <h3>Event: {{daformequi.eventName}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Date: {{daformequi.eventDate | date:'shortDate'}}</h3>
+                <mat-divider></mat-divider>
+              </mat-tab>
+              <mat-tab label="Organization">
+                <br/>
+                <h3>Organization: {{daformequi.organizationName}}</h3>
+              </mat-tab>
+              <mat-tab label="Disaster">
+                <br/>
+                <h3>Nature of Disaster: {{daformequi.disasterNature}}</h3>
+                <mat-divider></mat-divider>
+              </mat-tab>
+              <mat-tab label="Facility">
+                <br/>
+                <h3>Facility Name: {{daformequi.facilityName}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Facility's Operational Status: {{daformequi.facStatus}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+              </mat-tab>
+              <mat-tab label="Equipment">
+                <br/>
+                <h3>Equipment Name: {{daformequi.equipmentName}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Equipment Type: {{daformequi.equipmentType}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Equipment Model Number: {{daformequi.modelNumber}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Equipment Manufacturer: {{daformequi.manufacturer}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Equipment Operational Status: {{daformequi.equipmentStatus}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Parts Required for Equipment Repair: {{daformequi.partsReq}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Damage Done to the Equipment: {{daformequi.equipmentDamage}}</h3>
+                <mat-divider></mat-divider>
+                <br/>
+                <h3>Images:<br/>
+                    <img class="styleImage" src="http://localhost:3000/{{ daformequi.equImage }}" />
+                </h3>
+              </mat-tab>
+              
+            </mat-tab-group>
+            
+    
+        </mat-card>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

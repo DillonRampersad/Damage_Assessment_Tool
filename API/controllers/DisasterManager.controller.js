@@ -37,7 +37,7 @@ exports.disasterManager_post = (req, res, next) => {
 
 exports.authenticate = (req, res, next) => {
   // call for passport authentication
-  passport.authenticate("local", (err, user, info) => {
+  passport.authenticate("disasterManager", (err, user, info) => {
     // error from passport middleware
     if (err) return res.status(400).json(err);
     // registered user

@@ -226,6 +226,17 @@
               </mat-step>
 
               <mat-step>
+                <br />
+                  <mat-form-field>
+                    <mat-label>Status of Report</mat-label>
+                    <mat-select formControlName="reportStatus">
+                      <mat-option value="Unchecked">Unchecked</mat-option>
+                      <mat-option value="Checked">Checked</mat-option>
+                      <mat-option value="Pending">Pending</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br/>
+                  <br/>
                 <ng-template matStepLabel>Submit</ng-template>
                 <p>Review All Content Before Submitting</p>
                 <mat-card-actions>

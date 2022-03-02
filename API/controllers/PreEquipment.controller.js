@@ -1,26 +1,26 @@
 const mongoose = require("mongoose");
 
-const DAEquipment = require("../db/models/DAEquipment.model");
+const PreEquipment = require("../db/models/PreEquipment.model");
 
 //Damage Assessment Form Get
-exports.DAEquipment_get_all = (req, res) => {
+exports.PreEquipment_get_all = (req, res) => {
   //return an array of all the damage assessments made that is stored on the database.
-  DAEquipment.find({})
-    .then((DAEquipment) => {
-      res.send(DAEquipment);
+  PreEquipment.find({})
+    .then((PreEquipment) => {
+      res.send(PreEquipment);
     })
     .catch((e) => {
       res.send(e);
     });
 };
 
-exports.DAEquipment_get_one = (req, res) => {
+exports.PreEquipment_get_one = (req, res) => {
   //return an array of all the damage assessments made that is stored on the database.
-  DAEquipment.findOne({
-    _id: req.params.DAEquipmentID,
+  PreEquipment.findOne({
+    _id: req.params.PreEquipmentID,
   })
-    .then((DAEquipment) => {
-      res.send(DAEquipment);
+    .then((PreEquipment) => {
+      res.send(PreEquipment);
     })
     .catch((e) => {
       res.send(e);
@@ -28,38 +28,33 @@ exports.DAEquipment_get_one = (req, res) => {
 };
 
 //Damage Assessment Form Post
-exports.DAEquipment_post = (req, res, next) => {
+exports.PreEquipment_post = (req, res, next) => {
   //create a damage assessment report and save to the database
   const equImage = req.files;
   console.log(req.files)
-  let newDAEquipment = new DAEquipment({
-    author: req.body.author,
+  let newPreEquipment = new PreEquipment({
     organizationName: req.body.organizationName,
-    eventName: req.body.eventName,
-    eventDate: req.body.eventDate,
-    disasterNature: req.body.disasterNature,
     facilityName: req.body.facilityName,
-    facStatus: req.body.facStatus,
+    facilityContact: req.body.facilityContact,
     equipmentName: req.body.equipmentName,
     equipmentType: req.body.equipmentType,
     modelNumber: req.body.modelNumber,
     manufacturer: req.body.manufacturer,
-    equipmentStatus: req.body.equipmentStatus,
-    partsReq: req.body.partsReq,
-    equipmentDamage: req.body.equipmentDamage,
-    reportStatus: req.body.reportStatus,
-    equImage: req.files.map(equImage => equImage.path)
+    manufacturerContact: req.body.manufacturerContact,
+    cost: req.body.cost,
+    specSheet: req.files.map(specSheet => specSheet.path),
+    //equPreImage: req.files.map(equImage => equImage.path)
   });
-  newDAEquipment.save().then((DAEquipmentDoc) => {
+  newPreEquipment.save().then((PreEquipmentDoc) => {
     //the full Damage Assessment document is returned (including id)
-    res.send(DAEquipmentDoc);
+    res.send(PreEquipmentDoc);
   });
 };
 
 //Damage Assessment Form Update
-exports.DAEquipment_update = (req, res) => {
+exports.PreEquipment_update = (req, res) => {
   //update the Organization specified
-  DAEquipment.findOneAndUpdate(
+  PreEquipment.findOneAndUpdate(
     { _id: req.params.id },
     {
       $set: req.body,
@@ -70,11 +65,11 @@ exports.DAEquipment_update = (req, res) => {
 };
 
 //Damage Assessment Form Delete
-exports.DAEquipment_delete = (req, res) => {
+exports.PreEquipment_delete = (req, res) => {
   //delete the Organization specified
-  DAEquipment.findOneAndRemove({
+  PreEquipment.findOneAndRemove({
     _id: req.params.id,
-  }).then((removeDAEquipmentDoc) => {
-    res.send(removeDAEquipmentDoc);
+  }).then((removePreEquipmentDoc) => {
+    res.send(removePreEquipmentDoc);
   });
 };

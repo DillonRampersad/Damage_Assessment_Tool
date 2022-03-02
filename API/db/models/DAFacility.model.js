@@ -78,6 +78,12 @@ const DAFacilitySchema = new mongoose.Schema({
         minlength:1,
         trim: true
     },
+    reportStatus:{
+        type: String,
+        required: false,
+        minlength:1,
+        trim: true
+    },
     facImage:{
         type: [String],
         required: false

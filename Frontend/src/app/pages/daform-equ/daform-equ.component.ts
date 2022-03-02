@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DaformfacserviceService } from 'src/app/service/daformfacservice.service';
+import { DaformequService } from 'src/app/service/daformequ.service';
 
 @Component({
   selector: 'app-daform-equ',
@@ -13,23 +13,27 @@ export class DaformEquComponent implements OnInit {
   Image = [];
   imageData:any;
 
-  constructor(private router: Router, private daformfacservice: DaformfacserviceService,) { }
+  constructor(private router: Router, private daformequ: DaformequService,) { }
 
   form = new FormGroup({
     author: new FormControl(''),
     organizationName: new FormControl(''),
     eventName: new FormControl(''),
     eventDate: new FormControl(''),
-    area: new FormControl(''),
     disasterNature: new FormControl(''),
-    threatLevel: new FormControl(''),
-    surroundingDamage: new FormControl(''),
     facilityName: new FormControl(''),
     facStatus: new FormControl(''),
-    operEqu: new FormControl(''),
-    inoperEqu: new FormControl(''),
-    facilityDamage: new FormControl(''),
+    equipmentName: new FormControl(''),
+    equipmentType: new FormControl(''),
+    modelNumber: new FormControl(''),
+    manufacturer: new FormControl(''),
+    equipmentStatus: new FormControl(''),
+    partsReq: new FormControl(''),
+    equipmentDamage: new FormControl(''),
+    reportStatus: new FormControl(''),
+
   });
+
 
   onFileSelected(event: any) {
     const file = (event.target as HTMLInputElement).files;
@@ -50,30 +54,31 @@ export class DaformEquComponent implements OnInit {
     this.image = Image;
   }
 
-  addDAFacForm() {
+  addDAEquForm() {
     console.log('adding');
-    //this.daformfacservice.addMOCReport(this.facilityName, this.MoCDescription, this.MoCReportDateTime, this.mocImage);
+    //this.daformequ.addMOCReport(this.facilityName, this.MoCDescription, this.MoCReportDateTime, this.mocImage);
     const formData = new FormData();
     formData.append('author', this.form.value.author);
     formData.append('organizationName', this.form.value.organizationName);
     formData.append('eventName',this.form.value.eventName);
     formData.append('eventDate', this.form.value.eventDate);
-    formData.append('area', this.form.value.area);
     formData.append('disasterNature',this.form.value.disasterNature);
-    formData.append('threatLevel', this.form.value.threatLevel);
-    formData.append('surroundingDamage', this.form.value.surroundingDamage);
     formData.append('facilityName',this.form.value.facilityName);
     formData.append('facStatus',this.form.value.facStatus);
-    formData.append('operEqu', this.form.value.operEqu);
-    formData.append('inoperEqu', this.form.value.inoperEqu);
-    formData.append('facilityDamage',this.form.value.facilityDamage);
-    formData.append('facImage', this.image);
-    this.daformfacservice.postDAFacForm(formData).subscribe((d) => {
+    formData.append('equipmentName',this.form.value.equipmentName);
+    formData.append('equipmentType',this.form.value.equipmentType);
+    formData.append('modelNumber',this.form.value.modelNumber);
+    formData.append('manufacturer',this.form.value.manufacturer);
+    formData.append('equipmentStatus',this.form.value.equipmentStatus);
+    formData.append('partsReq',this.form.value.partsReq);
+    formData.append('equipmentDamage',this.form.value.equipmentDamage);
+    formData.append('reportStatus',this.form.value.reportStatus);
+    formData.append('equImage', this.image);
+    this.daformequ.postDAEquForm(formData).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/fa-dashboard']);
+    //this.router.navigate(['/fa-dashboard']);
   }
-
 
   ngOnInit(): void {
   }

@@ -40,11 +40,11 @@
         >
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{ mocreport.facilityName }}
+              <span>{{ mocreport.facilityName }}</span>
             </mat-panel-title>
             <mat-panel-description>
-              {{ mocreport.facilityName }}
-              <h3>status: </h3>
+              <span>{{ mocreport.facilityName }}</span>
+              <span>status: {{mocreport.reportStatus}}</span>
             </mat-panel-description>
           </mat-expansion-panel-header>
           Author:
@@ -66,14 +66,14 @@
             <button
               mat-button
               color="basic"
-              [routerLink]="['/moc-report', mocreport._id]"
+              [routerLink]="['/updatemoc', mocreport._id]"
             >
               Update Status
             </button>
             <button
               mat-raised-button
               color="warn"
-              [routerLink]="['/moc-report-view', mocreport._id]"
+              (click)="delete(mocreport._id)"
             >
               Delete
             </button>

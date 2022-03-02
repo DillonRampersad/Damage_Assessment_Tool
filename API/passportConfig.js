@@ -8,7 +8,7 @@ var Administrators = require('./db/models/Administrators.model');
 var MOC = require('./db/models/MembersOfCommunities.model');
 
 
-passport.use(
+passport.use( 'fieldAgent',
     new localStrategy({ usernameField: 'email' },
         (username, password, done) => {
             FieldAgents.findOne({ email: username },
@@ -28,7 +28,7 @@ passport.use(
         })
 );
 
-passport.use(
+passport.use( 'disasterManager',
     new localStrategy({ usernameField: 'email' },
         (username, password, done) => {
             DisasterManagers.findOne({ email: username },
@@ -49,7 +49,7 @@ passport.use(
 );
 
 
-passport.use(
+passport.use( 'admin',
     new localStrategy({ usernameField: 'email' },
         (username, password, done) => {
             Administrators.findOne({ email: username },
@@ -69,7 +69,7 @@ passport.use(
         })
 );
 
-passport.use(
+passport.use( 'mocUser',
     new localStrategy({ usernameField: 'email' },
         (username, password, done) => {
             MOC.findOne({ email: username },

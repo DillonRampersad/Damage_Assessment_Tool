@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router'; 
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTableModule } from '@angular/material/table';
@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 ////////////////////////////////////////////////////////////////////////////////
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,9 @@ import { ASigninComponent } from './pages/a-signin/a-signin.component';
 import { ASignupComponent } from './pages/a-signup/a-signup.component';
 import { MocSignupComponent } from './pages/moc-signup/moc-signup.component';
 import { MocSigninComponent } from './pages/moc-signin/moc-signin.component';
+import { UpdateMocComponent } from './pages/update-moc/update-moc.component';
+import { DaformEquViewFullComponent } from './pages/daform-equ-view-full/daform-equ-view-full.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,8 +74,9 @@ import { MocSigninComponent } from './pages/moc-signin/moc-signin.component';
     ASigninComponent,
     ASignupComponent,
     MocSignupComponent,
-    MocSigninComponent
-    
+    MocSigninComponent,
+    UpdateMocComponent,
+    DaformEquViewFullComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,14 +101,18 @@ import { MocSigninComponent } from './pages/moc-signin/moc-signin.component';
     MatDividerModule,
     MatGridListModule,
     MatRadioModule,
-    MatSelectModule
-    
+    MatSelectModule,
+    MatCheckboxModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  },FaAuthGuard, FaSignupService],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    FaAuthGuard,
+    FaSignupService,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

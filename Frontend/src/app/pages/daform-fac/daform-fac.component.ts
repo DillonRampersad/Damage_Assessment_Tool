@@ -30,6 +30,8 @@ export class DaformFacComponent implements OnInit {
     operEqu: new FormControl(''),
     inoperEqu: new FormControl(''),
     facilityDamage: new FormControl(''),
+    reportStatus: new FormControl(''),
+
   });
 
   onFileSelected(event: any) {
@@ -68,6 +70,7 @@ export class DaformFacComponent implements OnInit {
     formData.append('operEqu', this.form.value.operEqu);
     formData.append('inoperEqu', this.form.value.inoperEqu);
     formData.append('facilityDamage',this.form.value.facilityDamage);
+    formData.append('reportStatus',this.form.value.reportStatus);
     formData.append('facImage', this.image);
     this.daformfacservice.postDAFacForm(formData).subscribe((d) => {
       console.log(d);

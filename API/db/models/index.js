@@ -8,6 +8,7 @@ const { MoCReports } = require('./MoCReports.model');
 const { TwitterPosts } = require('./TwitterPosts.model');
 const { DAFacility } =  require('./DAFacility.model');
 const { DAEquipment } =  require('./DAEquipment.model');
+const { PreEquipment } =  require('./PreEquipment.model');
 
 module.exports = {
     Administrators,
@@ -19,5 +20,6 @@ module.exports = {
     MoCReports,
     TwitterPosts,
     DAFacility,
-    DAEquipment
+    DAEquipment,
+    PreEquipment
 }

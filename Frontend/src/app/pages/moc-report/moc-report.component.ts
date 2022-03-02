@@ -9,6 +9,7 @@ import {
 import { HttpClient } from '@angular/common/http';
 
 import { MOCReportService } from 'src/app/service/mocreport.service';
+import { MOCReport } from 'src/app/models/mocreport.interface';
 
 //import * as L from 'leaflet';
 //import { MocMapService } from 'src/app/service/moc-map.service';
@@ -44,6 +45,8 @@ export class MocReportComponent implements OnInit {
   image: any;
   Image = [];
   imageData: any;
+
+  private mocreport : MOCReport;
 
   constructor(
     private mocreportservice: MOCReportService,
@@ -94,6 +97,7 @@ export class MocReportComponent implements OnInit {
   }
 
   addMOCForm() {
+    
     console.log('adding');
     //this.mocreportservice.addMOCReport(this.facilityName, this.MoCDescription, this.MoCReportDateTime, this.mocImage);
     const formData = new FormData();
@@ -108,6 +112,9 @@ export class MocReportComponent implements OnInit {
       console.log(d);
     });
     this.router.navigate(['/message-board']);
+  
+    
+  
   }
   /*
   createMOCForm(

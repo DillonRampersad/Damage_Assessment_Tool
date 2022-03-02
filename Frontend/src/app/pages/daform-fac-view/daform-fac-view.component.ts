@@ -3,6 +3,7 @@ import { MatAccordion } from '@angular/material/expansion';
 import { DAFormFac } from 'src/app/models/daformfac.interface';
 import { Subscription } from 'rxjs';
 import { DaformfacserviceService } from 'src/app/service/daformfacservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-daform-fac-view',
@@ -13,7 +14,7 @@ export class DaformFacViewComponent implements OnInit {
 @ViewChild(MatAccordion) accordion: MatAccordion;
 daformfac: DAFormFac[] = [];
 
-constructor(private daformfacservice: DaformfacserviceService) {}
+constructor(private daformfacservice: DaformfacserviceService, private router: Router) {}
 
 
 step = 0;
@@ -28,6 +29,18 @@ nextStep() {
 
 prevStep() {
   this.step--;
+}
+
+onUpdate(daformfacs)
+{
+}
+
+delete(id){
+  console.log(id);
+  this.daformfacservice.deleteDAFacForm(id).subscribe((res)=>{
+    console.log(res);
+  });
+  window .location.reload();
 }
 
 

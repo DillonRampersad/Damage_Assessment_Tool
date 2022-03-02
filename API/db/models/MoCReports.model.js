@@ -21,6 +21,10 @@ const MoCReportSchema = new mongoose.Schema({
         index: '2d',
         required: false,
     },
+    reportStatus:{
+        type: String,
+        default:"Unchecked"
+    },
     mocImage:{
         type: [String],
         required: false

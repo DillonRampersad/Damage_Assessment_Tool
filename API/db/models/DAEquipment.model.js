@@ -36,10 +36,6 @@ const DAEquipmentSchema = new mongoose.Schema({
     minlength: 1,
     trim: true,
   },
-  facLocation: {
-    type: Array,
-    required: false,
-  },
   facStatus: {
     type: String,
     required: false,
@@ -87,6 +83,10 @@ const DAEquipmentSchema = new mongoose.Schema({
     required: false,
     minlength: 1,
     trim: true,
+  },
+  reportStatus: {
+    type: String,
+    required: false
   },
   equImage: {
     type: [String],

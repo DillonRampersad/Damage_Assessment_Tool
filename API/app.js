@@ -39,6 +39,7 @@ const FieldAgentRoute = require("./routers/FieldAgents.Routes");
 const DisasterManagerRoute = require("./routers/DisasterManager.Route");
 const AdministratorRoute = require("./routers/Administrator.Route");
 const MembersOfCommunitiesRoute = require("./routers/MOC.route");
+const PreEquipmentRoute = require("./routers/PreEquipment.route");
 
 //Register Router
 app.use(MOCReportRoute);
@@ -48,6 +49,7 @@ app.use(FieldAgentRoute);
 app.use(DisasterManagerRoute);
 app.use(AdministratorRoute);
 app.use(MembersOfCommunitiesRoute);
+app.use(PreEquipmentRoute);
 
 
 //Error Handling

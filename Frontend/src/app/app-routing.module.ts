@@ -21,6 +21,8 @@ import { ASigninComponent } from './pages/a-signin/a-signin.component';
 import { ASignupComponent } from './pages/a-signup/a-signup.component';
 import { MocSignupComponent } from './pages/moc-signup/moc-signup.component';
 import { MocSigninComponent } from './pages/moc-signin/moc-signin.component';
+import { UpdateMocComponent } from './pages/update-moc/update-moc.component';
+import { DaformEquViewFullComponent } from './pages/daform-equ-view-full/daform-equ-view-full.component';
 
 
 const routes: Routes = [
@@ -33,13 +35,16 @@ const routes: Routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'fa-dashboard', component: FADashbooardComponent, canActivate:[FaAuthGuard] },
   { path: 'moc-report', component: MocReportComponent },
+  { path: 'updatemoc/:mocID', component: UpdateMocComponent },
   { path: 'moc-report-view', component: MocReportsViewComponent },
   { path: 'message-board', component: MessageBoardComponent },
   { path: 'daform-fac', component: DaformFacComponent },
+  { path: 'daform-fac/:daformfacID', component: DaformFacComponent },
   { path: 'daform-fac-view', component: DaformFacViewComponent },
   { path: 'daform-fac-view-full/:facviewid', component: DaformFacViewFullComponent},
   { path: 'daform-equ', component: DaformEquComponent },
   { path: 'daform-equ-view', component: DaformEquViewComponent },
+  { path: 'daform-equ-view-full/:equviewid', component: DaformEquViewFullComponent},
   { path: 'dm-dashboard', component: DmDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'fa-signup', component: FaSignupComponent},

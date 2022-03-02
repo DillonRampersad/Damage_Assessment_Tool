@@ -17,7 +17,7 @@ exports.MOCReport_get_all = (req, res) => {
 exports.MOCReport_get_one = (req, res) => {
   //return an array of all the damage assessments made that is stored on the database.
   MOCReport.findOne({
-    _id: req.params.mocreportsID,
+    _id: req.params.mocreportID,
   })
     .then((mocreport) => {
       res.send(mocreport);
@@ -44,6 +44,7 @@ exports.MOCReport_post = (req, res, next) => {
     MoCDescription: req.body.MoCDescription,
     MoCReportDateTime: req.body.MoCReportDateTime,
     MoCDisasterLocation: req.body.MoCDisasterLocation,
+    reportStatus: req.body.reportStatus,
     mocImage: req.files.map(mocImage => mocImage.path)
   });
   newMOCReport.save().then((MOCReportDoc) => {

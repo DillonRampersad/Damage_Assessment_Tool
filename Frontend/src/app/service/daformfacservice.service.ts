@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map } from 'rxjs';
+import { DAFormFac } from '../models/daformfac.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -32,14 +33,14 @@ export class DaformfacserviceService {
   }
 
   updateDAFacForm(data: any, id: string){
-    return this.http.put<any>("http://localhost:3000/DAFacility/"+id, data)
+    return this.http.patch<any>("http://localhost:3000/DAFacility/"+id, data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
 
   deleteDAFacForm(id: string){
-    return this.http.delete<any>("http://localhost:3000/DAFacility"+id)
+    return this.http.delete<any>("http://localhost:3000/DAFacility/"+id)
     .pipe(map((res:any)=>{
       return res;
     }))

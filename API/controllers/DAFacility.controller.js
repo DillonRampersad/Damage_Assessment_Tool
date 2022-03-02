@@ -47,6 +47,7 @@ exports.DAFacility_post = (req, res, next) => {
     operEqu: req.body.operEqu,
     inoperEqu: req.body.inoperEqu,
     facilityDamage: req.body.facilityDamage,
+    reportStatus: req.body.reportStatus,
     facImage: req.files.map(facImage => facImage.path)
   });
   newDAFacility.save().then((DAFacilityDoc) => {

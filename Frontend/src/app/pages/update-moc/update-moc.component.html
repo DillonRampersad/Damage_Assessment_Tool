@@ -1,0 +1,102 @@
+<div class="container">
+    <!--Navbar-->
+    <mat-toolbar color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="fa-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container class="MainContainter">
+      <!--SideNav-->
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="">Message Board</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content class="MainContent">
+        <mat-card>
+          <mat-card-header class="sect">Update report:</mat-card-header>
+          <br /><br />
+          <mat-card-content class="centerAlign">
+            <!--Div for form-->
+            <div>
+              <form [formGroup]="form" (submit)="updateMOCForm()">
+                <mat-form-field class="formwidth">
+                  <input
+                    matInput
+                    class="form-control"
+                    formControlName="MoCReportDateTime"
+                    type="Date"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                  <mat-label>Comment</mat-label>
+                  <input
+                    placeholder="--"
+                    matInput
+                    formControlName="MoCDescription"
+                    class="form-control"
+                    type="string"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <mat-form-field>
+                  <mat-label>Facility In Question</mat-label>
+                  <input
+                    placeholder="--"
+                    matInput
+                    formControlName="facilityName"
+                    class="form-control"
+                    type="string"
+                    required
+                  />
+                </mat-form-field>
+                <br/>
+                <mat-radio-group>
+                  <mat-radio-group formControlName="reportStatus">
+                    <mat-radio-button value="Investigated">Investigated</mat-radio-button>
+                  </mat-radio-group>
+                </mat-radio-group>
+                <br/>
+                <mat-card class="centerAlign">
+                  <mat-card-actions>
+                    <!--Div for buttons-->
+                    <div>
+                      <input
+                        style="display: none"
+                        #ImageInput
+                        type="file"
+                        (change)="onFileSelected($event)"
+                      />
+  
+                      <button
+                        mat-raised-button
+                        type="button"
+                        (click)="ImageInput.click()"
+                      >
+                        Upload Images
+                      </button>
+                      &nbsp;
+                      <button mat-raised-button color="primary" type="submit">
+                        Add
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-card>
+              </form>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
