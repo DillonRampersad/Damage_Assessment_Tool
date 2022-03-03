@@ -23,7 +23,9 @@ import { MocSignupComponent } from './pages/moc-signup/moc-signup.component';
 import { MocSigninComponent } from './pages/moc-signin/moc-signin.component';
 import { UpdateMocComponent } from './pages/update-moc/update-moc.component';
 import { DaformEquViewFullComponent } from './pages/daform-equ-view-full/daform-equ-view-full.component';
-
+import { PreEquComponent } from './pages/pre-equ/pre-equ.component';
+import { PreEquViewComponent } from './pages/pre-equ-view/pre-equ-view.component';
+import { PreEquViewFullComponent } from './pages/pre-equ-view-full/pre-equ-view-full.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -33,7 +35,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'landing', component: LandingComponent },
-  { path: 'fa-dashboard', component: FADashbooardComponent, canActivate:[FaAuthGuard] },
+  {
+    path: 'fa-dashboard',
+    component: FADashbooardComponent,
+    canActivate: [FaAuthGuard],
+  },
   { path: 'moc-report', component: MocReportComponent },
   { path: 'updatemoc/:mocID', component: UpdateMocComponent },
   { path: 'moc-report-view', component: MocReportsViewComponent },
@@ -41,20 +47,29 @@ const routes: Routes = [
   { path: 'daform-fac', component: DaformFacComponent },
   { path: 'daform-fac/:daformfacID', component: DaformFacComponent },
   { path: 'daform-fac-view', component: DaformFacViewComponent },
-  { path: 'daform-fac-view-full/:facviewid', component: DaformFacViewFullComponent},
+  {
+    path: 'daform-fac-view-full/:facviewid',
+    component: DaformFacViewFullComponent,
+  },
   { path: 'daform-equ', component: DaformEquComponent },
   { path: 'daform-equ-view', component: DaformEquViewComponent },
-  { path: 'daform-equ-view-full/:equviewid', component: DaformEquViewFullComponent},
+  {
+    path: 'daform-equ-view-full/:equviewid',
+    component: DaformEquViewFullComponent,
+  },
   { path: 'dm-dashboard', component: DmDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'fa-signup', component: FaSignupComponent},
-  { path: 'fa-signin', component: FaSigninComponent},
-  { path: 'dm-signup', component: DmSignupComponent},
-  { path: 'dm-signin', component: DmSigninComponent},
-  { path: 'a-signup', component: ASignupComponent},
-  { path: 'a-signin', component: ASigninComponent},
-  { path: 'moc-signup', component: MocSignupComponent},
-  { path: 'moc-signin', component: MocSigninComponent}
+  { path: 'fa-signup', component: FaSignupComponent },
+  { path: 'fa-signin', component: FaSigninComponent },
+  { path: 'dm-signup', component: DmSignupComponent },
+  { path: 'dm-signin', component: DmSigninComponent },
+  { path: 'a-signup', component: ASignupComponent },
+  { path: 'a-signin', component: ASigninComponent },
+  { path: 'moc-signup', component: MocSignupComponent },
+  { path: 'moc-signin', component: MocSigninComponent },
+  { path: 'preequ', component: PreEquComponent },
+  { path: 'preequ-view', component: PreEquViewComponent },
+  { path: 'preequ-view-full/:preequviewid', component: PreEquViewFullComponent },
 ];
 
 @NgModule({

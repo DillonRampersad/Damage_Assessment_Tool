@@ -9,6 +9,7 @@ const { TwitterPosts } = require('./TwitterPosts.model');
 const { DAFacility } =  require('./DAFacility.model');
 const { DAEquipment } =  require('./DAEquipment.model');
 const { PreEquipment } =  require('./PreEquipment.model');
+const { PreFacility } =  require('./PreFacility.model');
 
 module.exports = {
     Administrators,
@@ -21,5 +22,6 @@ module.exports = {
     TwitterPosts,
     DAFacility,
     DAEquipment,
-    PreEquipment
+    PreEquipment,
+    PreFacility
 }

@@ -20,6 +20,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatSortModule} from '@angular/material/sort';
 ////////////////////////////////////////////////////////////////////////////////
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,6 +52,12 @@ import { MocSignupComponent } from './pages/moc-signup/moc-signup.component';
 import { MocSigninComponent } from './pages/moc-signin/moc-signin.component';
 import { UpdateMocComponent } from './pages/update-moc/update-moc.component';
 import { DaformEquViewFullComponent } from './pages/daform-equ-view-full/daform-equ-view-full.component';
+import { PreEquComponent } from './pages/pre-equ/pre-equ.component';
+import { PreEquViewComponent } from './pages/pre-equ-view/pre-equ-view.component';
+import { PreEquViewFullComponent } from './pages/pre-equ-view-full/pre-equ-view-full.component';
+import { PreFacComponent } from './pages/pre-fac/pre-fac.component';
+import { PreFacViewComponent } from './pages/pre-fac-view/pre-fac-view.component';
+import { PreFacViewFullComponent } from './pages/pre-fac-view-full/pre-fac-view-full.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +84,12 @@ import { DaformEquViewFullComponent } from './pages/daform-equ-view-full/daform-
     MocSigninComponent,
     UpdateMocComponent,
     DaformEquViewFullComponent,
+    PreEquComponent,
+    PreEquViewComponent,
+    PreEquViewFullComponent,
+    PreFacComponent,
+    PreFacViewComponent,
+    PreFacViewFullComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +115,8 @@ import { DaformEquViewFullComponent } from './pages/daform-equ-view-full/daform-
     MatGridListModule,
     MatRadioModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSortModule
   ],
   providers: [
     {

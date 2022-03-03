@@ -1,0 +1,170 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="fa-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="fa-dashboard">Dashboard</a>
+        </div>
+        <div>
+          <a mat-button href="daform">Report</a>
+        </div>
+        <div>
+          <a mat-button href="view-daform">Stored Data</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-card>
+          <mat-card-header>Equipment Pre-Assessment Report</mat-card-header>
+          <br /><br />
+          <form [formGroup]="form" (submit)="addPreEquForm()">
+            <mat-card-content>
+                  <mat-card-actions>
+                      <mat-form-field>
+                        <mat-label>Name of Organization in Which Equipment is Associated</mat-label>
+                        <input
+                          placeholder="Organization Name"
+                          matInput
+                          formControlName="organizationName"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Name of Facility in Which Equipment is Associated</mat-label>
+                        <input
+                          placeholder="Facility Name"
+                          matInput
+                          formControlName="facilityName"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Facility Contact Information</mat-label>
+                        <input
+                          placeholder="Facility Contact Info."
+                          matInput
+                          formControlName="facilityContact"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Name of Equipment</mat-label>
+                        <input
+                          placeholder="Equipment Name"
+                          matInput
+                          formControlName="equipmentName"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Type of Equipment</mat-label>
+                        <input
+                          placeholder="Equipment Type"
+                          matInput
+                          formControlName="equipmentType"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Equipment Model Number</mat-label>
+                        <input
+                          placeholder="Model Number"
+                          matInput
+                          formControlName="modelNumber"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Manufacturer</mat-label>
+                        <input
+                          placeholder="Manufacturer"
+                          matInput
+                          formControlName="manufacturer"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Manufacturer Contact Information</mat-label>
+                        <input
+                          placeholder="Manufacturer Contact Info."
+                          matInput
+                          formControlName="manufacturerContact"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Cost of Equipment</mat-label>
+                        <input
+                          placeholder="Equipment Cost"
+                          matInput
+                          formControlName="cost"
+                          class="form-control"
+                          type="number"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      
+                    <!--Div for buttons-->
+                    <div>
+                      <input
+                        style="display: none"
+                        #ImageInput
+                        type="file"
+                        (change)="onFileSelected($event)"
+                      />
+  
+                      <button
+                        mat-raised-button
+                        type="button"
+                        (click)="ImageInput.click()"
+                      >
+                        Upload Spec Sheet
+                      </button>
+                      &nbsp;
+                      <button mat-raised-button color="primary" type="submit">
+                        Add
+                      </button>
+                    </div>
+                  </mat-card-actions>
+            </mat-card-content>
+          </form>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

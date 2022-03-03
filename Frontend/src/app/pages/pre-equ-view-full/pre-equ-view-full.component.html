@@ -1,0 +1,67 @@
+<div>
+  <mat-toolbar class="menu" color="primary">
+    <div class="centerNavBar">
+      <a mat-button href="fa-dashboard">Back</a>
+      &nbsp;
+      <span class="headSpacer">Damage Assessment Tool</span>
+      &nbsp;
+      <a mat-button href="">Logout</a>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+      <div>
+        <a mat-button href="fa-dashboard">Dashboard</a>
+      </div>
+      <div>
+        <a mat-button href="daform">Report</a>
+      </div>
+      <div>
+        <a mat-button href="view-daform">Stored Data</a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-card>
+        <br /><b>Organization Name:</b
+        ><span> {{ preequip.organizationName }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Facility Name:</b><span> {{ preequip.facilityName }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Facility Contact:</b
+        ><span> {{ preequip.facilityContact }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Equipment Name:</b><span> {{ preequip.equipmentName }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Equipment Type:</b><span> {{ preequip.equipmentType }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Model Number:</b><span> {{ preequip.modelNumber }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Manufacturer:</b><span> {{ preequip.manufacturer }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Manufacturer Contact:</b
+        ><span> {{ preequip.manufacturerContact }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Cost:</b><span> {{ preequip.cost }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Spec Sheet: </b
+        ><a
+          href="http://localhost:3000/{{ preequip.specSheet }}"
+          target="_blank"
+          >Specification Sheet</a
+        >
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

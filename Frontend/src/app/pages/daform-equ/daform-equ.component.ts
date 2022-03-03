@@ -13,7 +13,7 @@ export class DaformEquComponent implements OnInit {
   Image = [];
   imageData:any;
 
-  constructor(private router: Router, private daformequ: DaformequService,) { }
+  constructor(private router: Router, private daformequ: DaformequService) { }
 
   form = new FormGroup({
     author: new FormControl(''),
@@ -77,7 +77,7 @@ export class DaformEquComponent implements OnInit {
     this.daformequ.postDAEquForm(formData).subscribe((d) => {
       console.log(d);
     });
-    //this.router.navigate(['/fa-dashboard']);
+    this.router.navigate(['/fa-dashboard']);
   }
 
   ngOnInit(): void {

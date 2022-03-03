@@ -1,0 +1,53 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="fa-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="fa-dashboard">Dashboard</a>
+        </div>
+        <div>
+          <a mat-button href="daform">Report</a>
+        </div>
+        <div>
+          <a mat-button href="view-daform">Stored Data</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-card>
+            <table>
+                <tr>
+                    <th>Equipment</th>
+                    <th>Type</th>
+                    <th>Organization</th>
+                    <th>Facility</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let preequipment of preequip">
+                    <td>{{preequipment.equipmentName}}</td>
+                    <td>{{preequipment.equipmentType}}</td>
+                    <td>{{preequipment.organizationName}}</td>
+                    <td>{{preequipment.facilityName}}</td>
+                    <td>
+                        <button mat-raised-button color="primary" [routerLink]="['/preequ-view-full', preequipment._id]">View</button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" (click)="delete(preequipment._id)">Delete</button>
+                    </td>
+                    <mat-divider></mat-divider>
+                </tr>
+            </table>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  
