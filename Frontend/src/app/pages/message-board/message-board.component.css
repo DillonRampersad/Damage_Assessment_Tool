@@ -1,0 +1,5 @@
+.borderMessage{
+    text-align: left;
+    border-style: outset;
+    border-color: grey;
+}

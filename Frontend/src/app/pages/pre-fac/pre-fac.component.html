@@ -1,1 +1,194 @@
-<p>pre-fac works!</p>
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="fa-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="fa-dashboard">Dashboard</a>
+        </div>
+        <div>
+          <a mat-button href="daform">Report</a>
+        </div>
+        <div>
+          <a mat-button href="view-daform">Stored Data</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-card>
+          <mat-card-header>Equipment Pre-Assessment Report</mat-card-header>
+          <br /><br />
+          <form [formGroup]="form" (submit)="addprefacForm()">
+            <mat-card-content>
+                  <mat-card-actions>
+                      <mat-form-field>
+                        <mat-label>Name of Organization in Which Facility is Associated</mat-label>
+                        <input
+                          placeholder="Organization Name"
+                          matInput
+                          formControlName="organizationName"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Manager of Facility</mat-label>
+                        <input
+                          placeholder="Manager"
+                          matInput
+                          formControlName="manager"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Name of Facility</mat-label>
+                        <input
+                          placeholder="Facility Name"
+                          matInput
+                          formControlName="facilityName"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Address of Facility</mat-label>
+                        <input
+                          placeholder="Facility Address"
+                          matInput
+                          formControlName="area"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Area Code of Facility</mat-label>
+                        <input
+                          placeholder="Area Code"
+                          matInput
+                          formControlName="areaCode"
+                          class="form-control"
+                          type="number"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Facility Contact Information</mat-label>
+                        <input
+                          placeholder="Contact Info."
+                          matInput
+                          formControlName="facilityContact"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Number of Equipment Housed in the Facility</mat-label>
+                        <input
+                          placeholder="No. of Equipment"
+                          matInput
+                          formControlName="noOfEqu"
+                          class="form-control"
+                          type="number"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Number of Employees at the Facility</mat-label>
+                        <input
+                          placeholder="No. of Employees"
+                          matInput
+                          formControlName="noOfEmployees"
+                          class="form-control"
+                          type="number"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Building Manufacturer</mat-label>
+                        <input
+                          placeholder="Building Manufacturer"
+                          matInput
+                          formControlName="buildingManufacturer"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Building Manufacturer Contact Information</mat-label>
+                        <input
+                          placeholder="Contact Info."
+                          matInput
+                          formControlName="manufacturerContact"
+                          class="form-control"
+                          type="string"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      <mat-form-field>
+                        <mat-label>Facility Cost for Development</mat-label>
+                        <input
+                          placeholder="Cost"
+                          matInput
+                          formControlName="cost"
+                          class="form-control"
+                          type="number"
+                          required
+                        />
+                      </mat-form-field>
+                      <br/>
+                      
+                    <!--Div for buttons-->
+                    <div>
+                      <input
+                        style="display: none"
+                        #ImageInput
+                        type="file"
+                        (change)="onFileSelected($event)"
+                      />
+  
+                      <button
+                        mat-raised-button
+                        type="button"
+                        (click)="ImageInput.click()"
+                      >
+                        Upload Floor Plan
+                      </button>
+                      &nbsp;
+                      <button mat-raised-button color="primary" type="submit">
+                        Add
+                      </button>
+                    </div>
+                  </mat-card-actions>
+            </mat-card-content>
+          </form>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

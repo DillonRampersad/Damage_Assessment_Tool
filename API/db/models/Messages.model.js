@@ -1,20 +1,22 @@
 const mongoose = require('mongoose');
 
 const MessagesSchema = new mongoose.Schema({
+    username:{
+        type: String,
+        required: false,
+        minlength:1,
+        trim: true
+    },
     message:{
         type: String,
-        required: true,
+        required: false,
         minlength:1,
         trim: true
     },
     messageDateTime:{
         type: Date,
-        required: true,
+        required: false,
         default: Date.now
-    },
-    _membersofCommunitiesID:{
-        type: mongoose.Types.ObjectId,
-        required: true
     }
 })
 

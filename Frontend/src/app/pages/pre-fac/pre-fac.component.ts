@@ -16,15 +16,20 @@ export class PreFacComponent implements OnInit {
   constructor(private router: Router, private prefac: PreFacService) { }
   form = new FormGroup({
     organizationName: new FormControl(''),
+    manager: new FormControl(''),
     facilityName: new FormControl(''),
+    area: new FormControl(''),
+    areaCode: new FormControl(''),
     facilityContact: new FormControl(''),
-    equipmentName: new FormControl(''),
-    equipmentType: new FormControl(''),
-    modelNumber: new FormControl(''),
-    manufacturer: new FormControl(''),
+    noOfEqu: new FormControl(''),
+    noOfEmployees: new FormControl(''),
+    buildingManufacturer: new FormControl(''),
     manufacturerContact: new FormControl(''),
     cost: new FormControl(''),
   });
+
+  
+
 
   onFileSelected(event: any) {
     const file = (event.target as HTMLInputElement).files;
@@ -49,19 +54,22 @@ export class PreFacComponent implements OnInit {
     console.log('adding');
     const formData = new FormData();
     formData.append('organizationName', this.form.value.organizationName);
+    formData.append('manager', this.form.value.manager);
     formData.append('facilityName',this.form.value.facilityName);
+    formData.append('area',this.form.value.area);
+    formData.append('areaCode',this.form.value.areaCode);
     formData.append('facilityContact',this.form.value.facilityContact);
-    formData.append('equipmentName',this.form.value.equipmentName);
-    formData.append('equipmentType',this.form.value.equipmentType);
-    formData.append('modelNumber',this.form.value.modelNumber);
-    formData.append('manufacturer',this.form.value.manufacturer);
+    formData.append('noOfEqu',this.form.value.noOfEqu);
+    formData.append('noOfEmployees',this.form.value.noOfEmployees);
+    formData.append('buildingManufacturer',this.form.value.buildingManufacturer);
     formData.append('manufacturerContact',this.form.value.manufacturerContact);
     formData.append('cost',this.form.value.cost);
-    formData.append('specSheet', this.image);
+    formData.append('floorPlan', this.image);
     this.prefac.postPreFacForm(formData).subscribe((d) => {
       console.log(d);
     });
   }
+
 
   ngOnInit(): void {
   }

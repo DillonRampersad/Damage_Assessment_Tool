@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { WebRequestService } from './web-request.service';
 
 
@@ -6,15 +8,42 @@ import { WebRequestService } from './web-request.service';
   providedIn: 'root'
 })
 export class MessageBoardService {
+  constructor(private http: HttpClient) { }
 
-  constructor(private webReqService: WebRequestService) { }
+  getMessage() {
+    return this.http.get<any>("http://localhost:3000/Messages")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
 
-  //createMessage(facilityName: string, MoCDescription: string, MoCReportDateTime: Date){
-  //  send web req to create DA report
-  //  return this.webReqService.post('MOCReport', {facilityName, MoCDescription, MoCReportDateTime})
-  //}
+  getOneMessage(id: string) {
+    return this.http.get<any>("http://localhost:3000/Messages/"+id)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
 
-  //getMessage(){
-  //  return this.webReqService.get('MOCReport');
-  //}
+  postMessage(data: any){
+    return this.http.post<any>("http://localhost:3000/Messages", data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  updateMessage(data: any, id: string){
+    return this.http.patch<any>("http://localhost:3000/Messages/"+id, data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  deleteMessage(id: string){
+    return this.http.delete<any>("http://localhost:3000/Messages/"+id)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
 }
+

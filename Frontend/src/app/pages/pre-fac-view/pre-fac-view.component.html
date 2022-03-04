@@ -1,1 +1,51 @@
-<p>pre-fac-view works!</p>
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="fa-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="fa-dashboard">Dashboard</a>
+        </div>
+        <div>
+          <a mat-button href="daform">Report</a>
+        </div>
+        <div>
+          <a mat-button href="view-daform">Stored Data</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-card>
+            <table>
+                <tr>
+                    <th>Facility</th>
+                    <th>Area Code</th>
+                    <th>Organization</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let prefac of prefacility">
+                    <td>{{prefac.facilityName}}</td>
+                    <td>{{prefac.areaCode}}</td>
+                    <td>{{prefac.organizationName}}</td>
+                    <td>
+                        <button mat-raised-button color="primary" [routerLink]="['/prefac-view-full', prefac._id]">View</button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" (click)="delete(prefac._id)">Delete</button>
+                    </td>
+                    <mat-divider></mat-divider>
+                </tr>
+            </table>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

@@ -41,6 +41,7 @@ const AdministratorRoute = require("./routers/Administrator.Route");
 const MembersOfCommunitiesRoute = require("./routers/MOC.route");
 const PreEquipmentRoute = require("./routers/PreEquipment.route");
 const PreFacilityRoute = require("./routers/PreFacility.route");
+const MessagesRoute = require("./routers/Messages.route");
 
 //Register Router
 app.use(MOCReportRoute);
@@ -52,6 +53,7 @@ app.use(AdministratorRoute);
 app.use(MembersOfCommunitiesRoute);
 app.use(PreEquipmentRoute);
 app.use(PreFacilityRoute);
+app.use(MessagesRoute);
 
 
 //Error Handling

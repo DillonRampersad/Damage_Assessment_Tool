@@ -1,1 +1,83 @@
-<p>pre-fac-view-full works!</p>
+<div>
+  <mat-toolbar class="menu" color="primary">
+    <div class="centerNavBar">
+      <a mat-button href="fa-dashboard">Back</a>
+      &nbsp;
+      <span class="headSpacer">Damage Assessment Tool</span>
+      &nbsp;
+      <a mat-button href="">Logout</a>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+      <div>
+        <a mat-button href="fa-dashboard">Dashboard</a>
+      </div>
+      <div>
+        <a mat-button href="daform">Report</a>
+      </div>
+      <div>
+        <a mat-button href="view-daform">Stored Data</a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-card>
+        <br /><b>Organization Name:</b
+        ><span> {{ prefacili.organizationName }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Facility Name:</b><span> {{ prefacili.facilityName }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Facility Manager:</b><span> {{ prefacili.manager }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Facility Address:</b><span> {{ prefacili.area }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Facility Area Code:</b><span> {{ prefacili.areaCode }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Facility Contact Information:</b
+        ><span> {{ prefacili.facilityContact }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Number of Equipment Housed in the Facility:</b
+        ><span> {{ prefacili.noOfEqu }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Number of Employees Associated with the Facility:</b
+        ><span> {{ prefacili.noOfEmployees }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Site Manufacturer:</b
+        ><span> {{ prefacili.buildingManufacturer }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Manufacturer Contact:</b
+        ><span> {{ prefacili.manufacturerContact }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Development Cost:</b><span> {{ prefacili.cost }}</span
+        ><br /><br />
+        <mat-divider></mat-divider>
+        <br /><b>Floor Plan: </b><a
+          href="http://localhost:3000/{{ prefacili.floorPlan }}"
+          target="_blank"
+          >Floor Plan</a
+        >
+        <br />
+        <br />
+        <span> If Image Does Not Display, Access By Link Above!</span>
+        <br />
+        <img
+          class="styleFloorPlan"
+          src="http://localhost:3000/{{ prefacili.floorPlan }}"
+        />
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
