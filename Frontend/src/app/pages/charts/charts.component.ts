@@ -15,22 +15,24 @@ export class ChartsComponent implements OnInit {
   
   ngOnInit(): void {
     this.chartService.noOfEqu().subscribe(res=>{
-      //console.log(res);
-      //let areaCode = res['DAFacility'].pipe(map((res: {main: {areaCode: any};};)=>res.main.areaCode))
-      let areaCode = res['list'].pipe(map((res: { areaCode: any; }) => res.areaCode))
-      let inoperEqu = res['list'].map(res=>res.inoperEqu)
-      let operEqu = res['list'].map(res=>res.operEqu)
-      let date = res['list'].map(res=>res.eventDate)
+      let areaCode = res.map(res=>res.areaCode)
+      let inoperEqu = res.map(res=>res.inoperEqu)
+      let operEqu = res.map(res=>res.operEqu)
+      let date = res.map(res=>res.eventDate)
       
       let Dates = []
       date.forEach((res) => {
-        let jsdate = new Date(res *1000)
+        let jsdate = new Date(res)
         Dates.push(jsdate.toLocaleTimeString('en', {year: 'numeric', month: 'short', day:'numeric' }))
         
       });
+      console.log(operEqu)
+      console.log(Dates)
       console.log(areaCode)
-      /*
-      this.chart = new Chart('canvas',{
+      console.log(inoperEqu)
+
+/*
+      const chart = new Chart('canvas',{
         type: 'line',
           data: {
             labels: areaCode,
@@ -48,20 +50,28 @@ export class ChartsComponent implements OnInit {
             ]
           },
           options: {
-            legend: {
-              display: false
-            },
-            scales: {
-              xAxes: [{
-                display: true
-              }],
-              yAxes: [{
-                display: true
-              }]
-            }
-          }
-        })
-*/
+                legend: {
+                  display: false
+                },
+                scales: {
+                  xAxes: [
+                    {
+                      ticks: {
+                        display: true
+                       }
+                    }
+                  ],
+                  yAxes: [
+                    {
+                      ticks: {
+                        display: true
+                       }
+                    }
+                  ]
+                 }
+              }
+        })*/
       })
+      
   }
 }

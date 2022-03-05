@@ -20,7 +20,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatSortModule} from '@angular/material/sort';
+import { MatSortModule } from '@angular/material/sort';
 ////////////////////////////////////////////////////////////////////////////////
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -119,7 +119,7 @@ import { ChartsService } from './service/charts.service';
     MatRadioModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatSortModule
+    MatSortModule,
   ],
   providers: [
     {
