@@ -16,14 +16,18 @@ export class MessageBoardComponent implements OnInit {
   form = new FormGroup({
     username: new FormControl(''),
     message: new FormControl(''),
+    messageDateTime: new FormControl(''),
   });
 
 
   addMessage() {
     console.log('adding');
-    const formData = new FormData();
-    formData.append('username', this.form.value.username);
-    formData.append('message',this.form.value.message);
+    
+    let formData: any = {
+      username: this.form.value.username,
+      message: this.form.value.message,
+      //messageDateTime: this.form.value.messageDateTime
+    }
     this.messageService.postMessage(formData).subscribe((d) => {
       console.log(d);
     });

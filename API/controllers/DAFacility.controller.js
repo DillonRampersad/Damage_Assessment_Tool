@@ -38,6 +38,7 @@ exports.DAFacility_post = (req, res, next) => {
     eventName: req.body.eventName,
     eventDate: req.body.eventDate,
     area: req.body.area,
+    areaCode: req.body.areaCode,
     disasterNature: req.body.disasterNature,
     threatLevel: req.body.threatLevel,
     surroundingDamage: req.body.surroundingDamage,

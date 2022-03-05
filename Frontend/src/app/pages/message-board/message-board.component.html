@@ -58,9 +58,10 @@
             <mat-divider></mat-divider>
           </form>
           <br />
+          <div>
           <mat-card>
             <h2>Message Board:</h2>
-            <mat-card-content *ngFor="let message of messages">
+            <mat-card-content *ngFor="let message of messages.slice().reverse()">
               <mat-card class="borderMessage">
                 <span
                   ><i>{{ message.username }}</i
@@ -75,6 +76,7 @@
               </mat-card>
             </mat-card-content>
           </mat-card>
+        </div>
         </mat-card-content>
       </mat-card>
     </mat-sidenav-content>

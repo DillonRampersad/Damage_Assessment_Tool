@@ -30,6 +30,10 @@ const DAFacilitySchema = new mongoose.Schema({
         minlength:1,
         trim: true
     },
+    areaCode:{
+        type: Number,
+        required: false,
+    },
     disasterNature:{
         type: String,
         required: false,

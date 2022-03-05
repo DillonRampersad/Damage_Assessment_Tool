@@ -22,6 +22,7 @@ export class DaformFacComponent implements OnInit {
     eventName: new FormControl(''),
     eventDate: new FormControl(''),
     area: new FormControl(''),
+    areaCode: new FormControl(''),
     disasterNature: new FormControl(''),
     threatLevel: new FormControl(''),
     surroundingDamage: new FormControl(''),
@@ -62,6 +63,7 @@ export class DaformFacComponent implements OnInit {
     formData.append('eventName',this.form.value.eventName);
     formData.append('eventDate', this.form.value.eventDate);
     formData.append('area', this.form.value.area);
+    formData.append('areaCode', this.form.value.areaCode);
     formData.append('disasterNature',this.form.value.disasterNature);
     formData.append('threatLevel', this.form.value.threatLevel);
     formData.append('surroundingDamage', this.form.value.surroundingDamage);

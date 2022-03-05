@@ -4,14 +4,12 @@ const MessagesSchema = new mongoose.Schema({
     username:{
         type: String,
         required: false,
-        minlength:1,
-        trim: true
+        default: "User"
     },
     message:{
         type: String,
         required: false,
-        minlength:1,
-        trim: true
+        default:"Content"
     },
     messageDateTime:{
         type: Date,

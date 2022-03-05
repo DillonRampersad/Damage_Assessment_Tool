@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Subject } from 'rxjs';
+import { Message } from '../models/messages.interface';
 import { WebRequestService } from './web-request.service';
 
 
@@ -8,6 +9,8 @@ import { WebRequestService } from './web-request.service';
   providedIn: 'root'
 })
 export class MessageBoardService {
+  
+  
   constructor(private http: HttpClient) { }
 
   getMessage() {
@@ -23,6 +26,9 @@ export class MessageBoardService {
       return res;
     }))
   }
+
+ 
+
 
   postMessage(data: any){
     return this.http.post<any>("http://localhost:3000/Messages", data)
@@ -47,3 +53,5 @@ export class MessageBoardService {
 
 }
 
+let headers = new Headers();
+headers.append('Content-Type', 'application/json');

@@ -5,6 +5,7 @@ export interface DAFormFac{
     eventName: string;
     eventDate: Date;
     area: string;
+    areaCode: number;
     disasterNature: string;
     threatLevel: string;
     surroundingDamage: string;

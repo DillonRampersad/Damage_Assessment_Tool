@@ -58,6 +58,8 @@ import { PreEquViewFullComponent } from './pages/pre-equ-view-full/pre-equ-view-
 import { PreFacComponent } from './pages/pre-fac/pre-fac.component';
 import { PreFacViewComponent } from './pages/pre-fac-view/pre-fac-view.component';
 import { PreFacViewFullComponent } from './pages/pre-fac-view-full/pre-fac-view-full.component';
+import { ChartsComponent } from './pages/charts/charts.component';
+import { ChartsService } from './service/charts.service';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,7 @@ import { PreFacViewFullComponent } from './pages/pre-fac-view-full/pre-fac-view-
     PreFacComponent,
     PreFacViewComponent,
     PreFacViewFullComponent,
+    ChartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -126,6 +129,7 @@ import { PreFacViewFullComponent } from './pages/pre-fac-view-full/pre-fac-view-
     },
     FaAuthGuard,
     FaSignupService,
+    ChartsService,
   ],
   bootstrap: [AppComponent],
 })
