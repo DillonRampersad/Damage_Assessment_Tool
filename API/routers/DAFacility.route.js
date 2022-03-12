@@ -43,5 +43,9 @@ router.patch('/DAFacility/:id', DAFacilityController.DAFacility_update);
 //Delete for Damage Assessment Form
 router.delete('/DAFacility/:id', DAFacilityController.DAFacility_delete);
 
+//Aggregation
+router.get('/DAFacilityCntRpts', DAFacilityController.DAFacility_count_reports)
+router.get('/DAFacilityCntUnckRpts', DAFacilityController.DAFacility_count_unchecked_reports)
+router.get('/DAFacilityCntCkRpts', DAFacilityController.DAFacility_count_checked_reports)
 
 module.exports = router;

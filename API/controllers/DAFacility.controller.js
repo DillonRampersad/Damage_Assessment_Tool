@@ -79,3 +79,74 @@ exports.DAFacility_delete = (req, res) => {
     res.send(removeDAFacilityDoc);
   });
 };
+
+
+//Aggregation
+exports.DAFacility_count_reports = (req, res) => {
+  //delete the Organization specified
+  DAFacility.aggregate([
+    {
+      '$project': {
+        'eventName': 1, 
+        'reportStatus': 1
+      }
+    }, {
+      '$count': 'NoOfDaFacilityReports'
+    }
+  ]).then((DAFacility) => {
+    res.send(DAFacility);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.DAFacility_count_unchecked_reports = (req, res) => {
+  //delete the Organization specified
+  DAFacility.aggregate([
+    [
+      {
+        '$project': {
+          'eventName': 1, 
+          'reportStatus': 1
+        }
+      }, {
+        '$match': {
+          'reportStatus': 'Unchecked'
+        }
+      }, {
+        '$count': 'noOfUncheckedReports'
+      }
+    ]
+  ]).then((DAFacility) => {
+    res.send(DAFacility);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.DAFacility_count_checked_reports = (req, res) => {
+  //delete the Organization specified
+  DAFacility.aggregate([
+    [
+      {
+        '$project': {
+          'eventName': 1, 
+          'reportStatus': 1
+        }
+      }, {
+        '$match': {
+          'reportStatus': 'Checked'
+        }
+      }, {
+        '$count': 'noOfCheckedReports'
+      }
+    ]
+  ]).then((DAFacility) => {
+    res.send(DAFacility);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};

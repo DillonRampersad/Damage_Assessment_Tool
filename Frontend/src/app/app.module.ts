@@ -60,6 +60,7 @@ import { PreFacViewComponent } from './pages/pre-fac-view/pre-fac-view.component
 import { PreFacViewFullComponent } from './pages/pre-fac-view-full/pre-fac-view-full.component';
 import { ChartsComponent } from './pages/charts/charts.component';
 import { ChartsService } from './service/charts.service';
+import { AggregationComponent } from './pages/aggregation/aggregation.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { ChartsService } from './service/charts.service';
     PreFacViewComponent,
     PreFacViewFullComponent,
     ChartsComponent,
+    AggregationComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,36 +17,73 @@
         <a mat-button href="fa-dashboard">Dashboard</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
       <div>
-        <a mat-button href="daform-fac">Report<br/>Facility Damage</a>
+        <a mat-button href="daform-fac">Report<br />Facility Damage</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
       <div>
-        <a mat-button href="daform-equ">Report<br/>Equipment Damage</a>
+        <a mat-button href="daform-equ">Report<br />Equipment Damage</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
       <div>
-        <a mat-button href="daform-fac">Predisaster<br/>Facility Report</a>
+        <a mat-button href="daform-fac">Predisaster<br />Facility Report</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
       <div>
-        <a mat-button href="daform-equ">Predisaster<br/>Equipment Report</a>
+        <a mat-button href="daform-equ">Predisaster<br />Equipment Report</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
     </mat-sidenav>
     <mat-sidenav-content class="textAlignCenter">
       <div class="sect">
         <h1>Field Agent Dashboard</h1>
-        <h3>User: {{faUserDetails.firstName}}</h3>
+        <h3>User: {{ faUserDetails.firstName }}</h3>
       </div>
       <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile>1</mat-grid-tile>
-        <mat-grid-tile>2</mat-grid-tile>
+        <mat-grid-tile>
+          <mat-card>
+            <mat-card-content>
+              <h3>
+                Number of <b>Facility</b> Damage Assessment Reports Made:
+                {{ aggregationFac[0].NoOfDaFacilityReports }}
+              </h3>
+              <h3>
+                Number of Unchecked Reports:
+                {{ aggregationUnckFac[0].noOfUncheckedReports }}
+              </h3>
+              <h3>
+                Number of Checked Reports:
+                {{ aggregationCkFac[0].noOfCheckedReports }}
+              </h3>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile
+          ><mat-card-content>
+            <br/>
+            <mat-card>
+              <mat-card-content>
+                <h3>
+                  Number of <b>Equipment</b> Damage Assessment Reports Made:
+                  {{ aggregationEqu[0].NoOfDAEquipmentReports }}
+                </h3>
+                <h3>
+                  Number of Unchecked Reports:
+                  {{ aggregationUnckEqu[0].noOfUncheckedEqReports }}
+                </h3>
+                <h3>
+                  Number of Checked Reports:
+                  {{ aggregationCkEqu[0].noOfCheckedEqReports }}
+                </h3>
+              </mat-card-content>
+            </mat-card>
+          </mat-card-content></mat-grid-tile
+        >
         <mat-grid-tile>3</mat-grid-tile>
         <mat-grid-tile>4</mat-grid-tile>
       </mat-grid-list>

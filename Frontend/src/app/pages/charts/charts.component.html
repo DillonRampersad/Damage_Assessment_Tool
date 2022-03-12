@@ -1,2 +1,60 @@
-<canvas id="canvas"></canvas>
-  <p>Charts</p>
+<div>
+  <mat-toolbar class="menu" color="primary">
+    <div class="centerNavBar">
+      <a mat-button href="fa-dashboard">Back</a>
+      &nbsp;
+      <span class="headSpacer">Damage Assessment Tool</span>
+      &nbsp;
+      <a mat-button type="button" >Logout</a>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+      <div>
+        <a mat-button href="fa-dashboard">Dashboard</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br/>
+      <div>
+        <a mat-button href="daform-fac">Report<br/>Facility Damage</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br/>
+      <div>
+        <a mat-button href="daform-equ">Report<br/>Equipment Damage</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br/>
+      <div>
+        <a mat-button href="daform-fac">Predisaster<br/>Facility Report</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br/>
+      <div>
+        <a mat-button href="daform-equ">Predisaster<br/>Equipment Report</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br/>
+    </mat-sidenav>
+    <mat-sidenav-content class="textAlignCenter">
+      <div class="sect">
+        <h1>Charts</h1>
+      </div>
+      <mat-grid-list cols="1" rowHeight="2:1">
+        <mat-grid-tile>
+          <canvas class="chartSize" id="canvas"></canvas>
+        </mat-grid-tile>
+        <mat-divider></mat-divider>
+        <mat-grid-tile><mat-grid-tile>
+          <canvas class="chartSize" id="disasterCanvas"></canvas>
+        </mat-grid-tile>
+        <mat-divider></mat-divider></mat-grid-tile>
+        <mat-grid-tile>3</mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+      </mat-grid-list>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

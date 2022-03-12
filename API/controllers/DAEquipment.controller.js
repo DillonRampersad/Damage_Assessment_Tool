@@ -78,3 +78,73 @@ exports.DAEquipment_delete = (req, res) => {
     res.send(removeDAEquipmentDoc);
   });
 };
+
+//Aggregation
+exports.DAEquipment_count_reports = (req, res) => {
+  //delete the Organization specified
+  DAEquipment.aggregate([
+    {
+      '$project': {
+        'eventName': 1, 
+        'reportStatus': 1
+      }
+    }, {
+      '$count': 'NoOfDAEquipmentReports'
+    }
+  ]).then((DAEquipment) => {
+    res.send(DAEquipment);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.DAEquipment_count_unchecked_reports = (req, res) => {
+  //delete the Organization specified
+  DAEquipment.aggregate([
+    [
+      {
+        '$project': {
+          'eventName': 1, 
+          'reportStatus': 1
+        }
+      }, {
+        '$match': {
+          'reportStatus': 'Unchecked'
+        }
+      }, {
+        '$count': 'noOfUncheckedEqReports'
+      }
+    ]
+  ]).then((DAEquipment) => {
+    res.send(DAEquipment);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.DAEquipment_count_checked_reports = (req, res) => {
+  //delete the Organization specified
+  DAEquipment.aggregate([
+    [
+      {
+        '$project': {
+          'eventName': 1, 
+          'reportStatus': 1
+        }
+      }, {
+        '$match': {
+          'reportStatus': 'Checked'
+        }
+      }, {
+        '$count': 'noOfCheckedEqReports'
+      }
+    ]
+  ]).then((DAEquipment) => {
+    res.send(DAEquipment);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};

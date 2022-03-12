@@ -1,30 +1,56 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AggregationService } from 'src/app/service/aggregation.service';
 import { FaSignupService } from 'src/app/service/fa-signup.service';
+
 @Component({
   selector: 'app-fa-dashbooard',
   templateUrl: './fa-dashbooard.component.html',
-  styleUrls: ['./fa-dashbooard.component.css']
+  styleUrls: ['./fa-dashbooard.component.css'],
 })
 export class FADashbooardComponent implements OnInit {
   faUserDetails;
-  constructor(private faSignUpService : FaSignupService, private router: Router) { }
+  aggregationFac;
+  aggregationUnckFac;
+  aggregationCkFac;
+  aggregationEqu;
+  aggregationUnckEqu;
+  aggregationCkEqu;
+  constructor(
+    private faSignUpService: FaSignupService,
+    private router: Router,
+    private aggregation: AggregationService
+  ) {}
 
   ngOnInit(): void {
-    this.faSignUpService.getUserProfile().subscribe(
-      res => {
-        this.faUserDetails = res['user'];
-      },
-      err => { 
-        console.log(err);
-        
-      }
-    );
+    this.faSignUpService.getUserProfile().subscribe((res) => {
+      this.faUserDetails = res['user'];
+    });
+    //Fac
+    this.aggregation.noOfDAFacReports().subscribe((res) => {
+      this.aggregationFac = res;
+    });
+    this.aggregation.noOfUnckDAFacReports().subscribe((res) => {
+      this.aggregationUnckFac = res;
+    });
+    this.aggregation.noOfCkDAFacReports().subscribe((res) => {
+      this.aggregationCkFac = res;
+    });
+
+    //Equ
+    this.aggregation.noOfDAEquReports().subscribe((res) => {
+      this.aggregationEqu = res;
+    });
+    this.aggregation.noOfUnckDAEquReports().subscribe((res) => {
+      this.aggregationUnckEqu = res;
+    });
+    this.aggregation.noOfCkDAEquReports().subscribe((res) => {
+      this.aggregationCkEqu = res;
+    });
   }
 
-  onLogout(){
+  onLogout() {
     this.faSignUpService.deleteToken();
     this.router.navigate(['/fa-signin']);
   }
-
 }

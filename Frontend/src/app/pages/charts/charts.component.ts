@@ -13,7 +13,9 @@ export class ChartsComponent implements OnInit {
 
   ngOnInit(): void {
     this.chartService.noOfEqu().subscribe((res) => {
-      let areaCode = res.map((res) => res.areaCode);
+      let area = res.map((res) => res.area);
+      let disaster = res.map((res) => res.disasterNature);
+      let facility = res.map((res) => res.facilityName);
       let inoperEqu = res.map((res) => res.inoperEqu);
       let operEqu = res.map((res) => res.operEqu);
       let date = res.map((res) => res.eventDate);
@@ -31,30 +33,33 @@ export class ChartsComponent implements OnInit {
       });
       console.log(operEqu);
       console.log(Dates);
-      console.log(areaCode);
+      console.log(area);
       console.log(inoperEqu);
+      console.log(facility);
+      console.log(disaster);
 
       new Chart('canvas', {
-        type: 'line',
+        type: 'bar',
+
         data: {
-          labels: [],
+          labels: facility,
           datasets: [
             {
-              data: areaCode,
-              borderColor: '#3cba9f',
-              fill: false,
+              data: inoperEqu,
+              label: 'inoperable equ',
+              backgroundColor: '#3cba9f',
             },
             {
               data: operEqu,
-              borderColor: '#ffcc00',
-              fill: false,
+              label: 'operational equ',
+              backgroundColor: '#ffcc00',
             },
           ],
         },
         options: {
           plugins: {
             legend: {
-              display: false,
+              display: true,
             },
           },
           scales: {
@@ -74,3 +79,5 @@ export class ChartsComponent implements OnInit {
     });
   }
 }
+
+//(click)="onLogout()"
