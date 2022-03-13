@@ -43,5 +43,11 @@ router.patch('/MOCReport/:id', MOCReportController.MOCReport_update);
 //Delete for Damage Assessment Form
 router.delete('/MOCReport/:id', MOCReportController.MOCReport_delete);
 
+//Aggregation
+router.get('/MOCReportCntRpts', MOCReportController.MOCReport_count_reports)
+router.get('/MOCReportCntUnckRpts', MOCReportController.MOCReport_count_unchecked_reports)
+router.get('/MOCReportCntCkRpts', MOCReportController.MOCReport_count_checked_reports)
+
+
 
 module.exports = router;

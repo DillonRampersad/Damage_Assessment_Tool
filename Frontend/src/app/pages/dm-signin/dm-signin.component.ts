@@ -30,9 +30,6 @@ export class DmSigninComponent implements OnInit {
       res => {
         this.dmSignUpService.setToken(res['token']);
         this.router.navigateByUrl('/dm-dashboard');
-      },
-      err => {
-        this.serverErrorMessages = err.error.message;
       }
     );
   }

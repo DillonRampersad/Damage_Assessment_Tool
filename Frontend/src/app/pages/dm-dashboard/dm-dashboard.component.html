@@ -1,1 +1,107 @@
-<p>dm-dashboard works!</p>
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="dm-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button type="button" (click)="onLogout()">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="dm-dashboard">Dashboard</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+        <div>
+          <a mat-button href="daform-fac">Report<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+        <div>
+          <a mat-button href="daform-equ">Report<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+        <div>
+          <a mat-button href="daform-fac">Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+        <div>
+          <a mat-button href="daform-equ">Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+      </mat-sidenav>
+      <mat-sidenav-content class="textAlignCenter">
+        <div class="sect">
+          <h1>Disaster Manager Dashboard</h1>
+          <h3>User: {{ dmUserDetails.firstName }}</h3>
+        </div>
+        <mat-grid-list cols="2" rowHeight="3:1">
+          <mat-grid-tile>
+            <mat-card>
+              <mat-card-content>
+                <h3>
+                  Number of <b>Facility</b> Damage Assessment Reports Made:
+                  {{ aggregationFac[0].NoOfDaFacilityReports }}
+                </h3>
+                <h3>
+                  Number of Unchecked Reports:
+                  {{ aggregationUnckFac[0].noOfUncheckedReports }}
+                </h3>
+                <h3>
+                  Number of Checked Reports:
+                  {{ aggregationCkFac[0].noOfCheckedReports }}
+                </h3>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile
+            >
+              <mat-card>
+                <mat-card-content>
+                  <h3>
+                    Number of <b>Equipment</b> Damage Assessment Reports Made:
+                    {{ aggregationEqu[0].NoOfDAEquipmentReports }}
+                  </h3>
+                  <h3>
+                    Number of Unchecked Reports:
+                    {{ aggregationUnckEqu[0].noOfUncheckedEqReports }}
+                  </h3>
+                  <h3>
+                    Number of Checked Reports:
+                    {{ aggregationCkEqu[0].noOfCheckedEqReports }}
+                  </h3>
+                </mat-card-content>
+              </mat-card></mat-grid-tile
+          >
+          <mat-grid-tile><mat-card>
+            <mat-card-content>
+              <h3>
+                Number of <b>Members of Communities</b> Damage Assessment Reports Made:
+                {{ aggregationMoc[0].NoOfMOCReports }}
+              </h3>
+              <h3>
+                Number of Unchecked Reports:
+                {{ aggregationUnckMoc[0].noOfUncheckedMOCReports }}
+              </h3>
+              
+            </mat-card-content>
+          </mat-card></mat-grid-tile>
+          <mat-grid-tile><mat-card>
+              <mat-card-content>
+                <div>{{ time | date: 'hh:mm:ss a' }}</div>
+              </mat-card-content>
+          </mat-card></mat-grid-tile>
+        </mat-grid-list>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

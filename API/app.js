@@ -43,6 +43,8 @@ const PreEquipmentRoute = require("./routers/PreEquipment.route");
 const PreFacilityRoute = require("./routers/PreFacility.route");
 const MessagesRoute = require("./routers/Messages.route");
 
+
+
 //Register Router
 app.use(MOCReportRoute);
 app.use(DAFacilityRoute);
@@ -54,6 +56,11 @@ app.use(MembersOfCommunitiesRoute);
 app.use(PreEquipmentRoute);
 app.use(PreFacilityRoute);
 app.use(MessagesRoute);
+
+
+
+//const TwitterController = require("./controllers/Twitter.controller");
+//app.use(TwitterController);
 
 
 //Error Handling
@@ -80,6 +87,7 @@ app.use((err, req, res, next) => {
     res.status(422).send(valErrors);
   }
 });
+
 
 //Listening to the server on port 3000
 app.listen(3000, () => {

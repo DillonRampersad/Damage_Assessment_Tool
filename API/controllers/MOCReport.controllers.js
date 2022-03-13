@@ -75,3 +75,71 @@ exports.MOCReport_delete = (req, res) => {
     res.send(removeMOCReportDoc);
   });
 };
+
+
+//Aggregation
+exports.MOCReport_count_reports = (req, res) => {
+  //delete the Organization specified
+  MOCReport.aggregate([
+    {
+      '$project': {
+        'reportStatus': 1
+      }
+    }, {
+      '$count': 'NoOfMOCReports'
+    }
+  ]).then((MOCReport) => {
+    res.send(MOCReport);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.MOCReport_count_unchecked_reports = (req, res) => {
+  //delete the Organization specified
+  MOCReport.aggregate([
+    [
+      {
+        '$project': {
+          'reportStatus': 1
+        }
+      }, {
+        '$match': {
+          'reportStatus': 'Unchecked'
+        }
+      }, {
+        '$count': 'noOfUncheckedMOCReports'
+      }
+    ]
+  ]).then((MOCReport) => {
+    res.send(MOCReport);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.MOCReport_count_checked_reports = (req, res) => {
+  //delete the Organization specified
+  MOCReport.aggregate([
+    [
+      {
+        '$project': {
+          'reportStatus': 1
+        }
+      }, {
+        '$match': {
+          'reportStatus': 'Checked'
+        }
+      }, {
+        '$count': 'noOfCheckedMOCReports'
+      }
+    ]
+  ]).then((MOCReport) => {
+    res.send(MOCReport);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};

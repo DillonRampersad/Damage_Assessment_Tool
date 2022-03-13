@@ -150,3 +150,21 @@ exports.DAFacility_count_checked_reports = (req, res) => {
     res.send(e);
   });
 };
+
+exports.DAFacility_author_search = (req, res) => {
+  //delete the Organization specified
+  DAFacility.aggregate([
+    [
+      {
+        '$match': {
+          'author': author
+        }
+      }
+    ]
+  ]).then((DAFacility) => {
+    res.send(DAFacility);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};

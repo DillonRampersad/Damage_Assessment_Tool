@@ -30,9 +30,6 @@ export class ASigninComponent implements OnInit {
       res => {
         this.aSignUpService.setToken(res['token']);
         this.router.navigateByUrl('/admin-dashboard');
-      },
-      err => {
-        this.serverErrorMessages = err.error.message;
       }
     );
   }

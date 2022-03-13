@@ -48,4 +48,6 @@ router.get('/DAFacilityCntRpts', DAFacilityController.DAFacility_count_reports)
 router.get('/DAFacilityCntUnckRpts', DAFacilityController.DAFacility_count_unchecked_reports)
 router.get('/DAFacilityCntCkRpts', DAFacilityController.DAFacility_count_checked_reports)
 
+router.get('/DAFacilityAuthor', DAFacilityController.DAFacility_author_search)
+
 module.exports = router;

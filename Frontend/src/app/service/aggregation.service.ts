@@ -53,4 +53,29 @@ export class AggregationService {
     }))
   }
 
+
+  //MOCReport
+  noOfMocReports() {
+    return this._http.get("http://localhost:3000/MOCReportCntRpts")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  noOfUnckMocReports() {
+    return this._http.get("http://localhost:3000/MOCReportCntUnckRpts")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  noOfCkMocReports() {
+    return this._http.get("http://localhost:3000/MOCReportCntCkRpts")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  //
+
 }
