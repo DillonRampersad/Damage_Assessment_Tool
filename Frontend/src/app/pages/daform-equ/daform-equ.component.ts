@@ -56,7 +56,6 @@ export class DaformEquComponent implements OnInit {
 
   addDAEquForm() {
     console.log('adding');
-    //this.daformequ.addMOCReport(this.facilityName, this.MoCDescription, this.MoCReportDateTime, this.mocImage);
     const formData = new FormData();
     formData.append('author', this.form.value.author);
     formData.append('organizationName', this.form.value.organizationName);

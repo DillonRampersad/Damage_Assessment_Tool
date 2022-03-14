@@ -17,9 +17,8 @@ const MoCReportSchema = new mongoose.Schema({
         default: Date.now
     },
     MoCDisasterLocation:{
-        type: Array,
-        index: '2d',
-        required: false,
+        type: String,
+        required: false
     },
     reportStatus:{
         type: String,

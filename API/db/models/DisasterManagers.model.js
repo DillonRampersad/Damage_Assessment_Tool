@@ -52,7 +52,7 @@ const DisasterManagersSchema = new mongoose.Schema({
     
     DisasterManagersSchema.methods.generateJwt = function () {
       return jwt.sign({ _id: this._id }, 'SECRET#123', {
-        expiresIn: '30s',
+        expiresIn: '2m',
       });
     };
     

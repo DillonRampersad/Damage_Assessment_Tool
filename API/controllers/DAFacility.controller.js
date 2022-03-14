@@ -151,18 +151,26 @@ exports.DAFacility_count_checked_reports = (req, res) => {
   });
 };
 
-exports.DAFacility_author_search = (req, res) => {
+exports.DAFacility_damage_search = (req, res) => {
   //delete the Organization specified
   DAFacility.aggregate([
     [
       {
-        '$match': {
-          'author': author
-        }
+          '$match': {
+              '$or': [
+                  {
+                      'facilityDamage': {
+                          '$regex': req.body.facilityDamage, 
+                          '$options': 'i'
+                      }
+                  }
+              ]
+          }
       }
-    ]
+  ]
   ]).then((DAFacility) => {
     res.send(DAFacility);
+    console.log(DAFacility);
   })
   .catch((e) => {
     res.send(e);

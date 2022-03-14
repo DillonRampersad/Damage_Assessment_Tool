@@ -48,6 +48,8 @@ router.get('/MOCReportCntRpts', MOCReportController.MOCReport_count_reports)
 router.get('/MOCReportCntUnckRpts', MOCReportController.MOCReport_count_unchecked_reports)
 router.get('/MOCReportCntCkRpts', MOCReportController.MOCReport_count_checked_reports)
 
+router.post('/MOCReportDamage', MOCReportController.MOCReport_damage_search)
+
 
 
 module.exports = router;

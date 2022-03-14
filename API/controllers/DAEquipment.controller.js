@@ -148,3 +148,25 @@ exports.DAEquipment_count_checked_reports = (req, res) => {
     res.send(e);
   });
 };
+
+
+exports.DAEquipment_damage_search = (req, res) => {
+  //delete the Organization specified
+  DAEquipment.aggregate([
+    [
+      {
+        '$match': {
+            '$or': [
+               {'equipmentDamage':{ '$regex':'.*' + req.body.equipmentDamage + '.*','$options': 'i' } }
+            ]
+        }
+    }
+  ]
+  ]).then((DAEquipment) => {
+    res.send(DAEquipment);
+    console.log(DAEquipment);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};

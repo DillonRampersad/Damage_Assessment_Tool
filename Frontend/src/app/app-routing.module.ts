@@ -30,6 +30,7 @@ import { PreFacComponent } from './pages/pre-fac/pre-fac.component';
 import { PreFacViewComponent } from './pages/pre-fac-view/pre-fac-view.component';
 import { PreFacViewFullComponent } from './pages/pre-fac-view-full/pre-fac-view-full.component';
 import { ChartsComponent } from './pages/charts/charts.component';
+import { AggregationComponent } from './pages/aggregation/aggregation.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -77,7 +78,8 @@ const routes: Routes = [
   { path: 'prefac', component: PreFacComponent },
   { path: 'prefac-view', component: PreFacViewComponent },
   { path: 'prefac-view-full/:preequviewid', component: PreFacViewFullComponent },
-  { path: 'charts', component: ChartsComponent}
+  { path: 'charts', component: ChartsComponent},
+  { path: 'aggregate', component: AggregationComponent}
 ];
 
 @NgModule({

@@ -143,3 +143,29 @@ exports.MOCReport_count_checked_reports = (req, res) => {
     res.send(e);
   });
 };
+
+exports.MOCReport_damage_search = (req, res) => {
+  //delete the Organization specified
+  MOCReport.aggregate([
+    [
+      {
+          '$match': {
+              '$or': [
+                  {
+                      'MoCDescription': {
+                          '$regex': req.body.MoCDescription, 
+                          '$options': 'i'
+                      }
+                  }
+              ]
+          }
+      }
+  ]
+  ]).then((MOCReport) => {
+    res.send(MOCReport);
+    console.log(MOCReport);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};

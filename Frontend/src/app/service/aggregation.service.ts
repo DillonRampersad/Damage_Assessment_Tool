@@ -76,6 +76,28 @@ export class AggregationService {
     }))
   }
 
-  //
+  //Post for author DAFacilities
+  postDAFacForm(facilityDamage: string){
+    return this._http.post<any>("http://localhost:3000/DAFacilityDamage", {facilityDamage})
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  //Post for author DAEquipment
+  postDAEquForm(equipmentDamage: string){
+    return this._http.post<any>("http://localhost:3000/DAEquipmentDamage", {equipmentDamage})
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  //Post for author DAEquipment
+  postMOCForm(MoCDescription: string){
+    return this._http.post<any>("http://localhost:3000/MOCReportDamage", {MoCDescription})
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
 
 }

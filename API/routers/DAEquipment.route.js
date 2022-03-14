@@ -48,4 +48,7 @@ router.get('/DAEquipmentCntRpts', DAEquipmentController.DAEquipment_count_report
 router.get('/DAEquipmentCntUnckRpts', DAEquipmentController.DAEquipment_count_unchecked_reports)
 router.get('/DAEquipmentCntCkRpts', DAEquipmentController.DAEquipment_count_checked_reports)
 
+
+router.post('/DAEquipmentDamage', DAEquipmentController.DAEquipment_damage_search)
+
 module.exports = router;
