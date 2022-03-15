@@ -1,0 +1,278 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="fa-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="fa-dashboard">Dashboard</a>
+        </div>
+        <div>
+          <a mat-button href="daform">Report</a>
+        </div>
+        <div>
+          <a mat-button href="view-daform">Stored Data</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-card>
+          <mat-card-header>Update Equipment Damage Report</mat-card-header>
+          <br /><br />
+          <form [formGroup]="form" (submit)="updateDAEquForm()">
+            <mat-card-content>
+              <mat-stepper orientation="vertical">
+                <mat-step>
+                  <ng-template matStepLabel>Author</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Full Name</mat-label>
+                      <input
+                        placeholder="First Name, Last Name"
+                        matInput
+                        formControlName="author"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <button mat-button matStepperNext>Next</button>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Organization</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Name of Organization</mat-label>
+                      <input
+                        placeholder="Organization Name"
+                        matInput
+                        formControlName="organizationName"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <button mat-button matStepperNext>Next</button>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Event</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Name of Event</mat-label>
+                      <input
+                        placeholder="Event Name"
+                        matInput
+                        formControlName="eventName"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input
+                        matInput
+                        type="Date"
+                        formControlName="eventDate"
+                        class="form-control"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <button mat-button matStepperNext>Next</button>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Disaster</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Type of Disaster</mat-label>
+                      <input
+                        placeholder="Nature of Disaster"
+                        matInput
+                        formControlName="disasterNature"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <button mat-button matStepperNext>Next</button>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Facility</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Name of Facility</mat-label>
+                      <input
+                        placeholder="Name of Facility"
+                        matInput
+                        formControlName="facilityName"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field>
+                      <mat-label>Operational Status of Facility</mat-label>
+                      <mat-select formControlName="facStatus">
+                        <mat-option value="Operational">Operational</mat-option>
+                        <mat-option value="Inoperable">Inoperable</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <br />
+                    <br/>
+                    <button mat-button matStepperNext>Next</button>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Equipment</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Name of Equipment</mat-label>
+                      <input
+                        placeholder="Name of Equipment"
+                        matInput
+                        formControlName="equipmentName"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field>
+                      <mat-label>Type of Equipment</mat-label>
+                      <input
+                        placeholder="Type of Equipment"
+                        matInput
+                        formControlName="equipmentType"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                      <mat-label>Model Number</mat-label>
+                      <input
+                        placeholder="Model Number"
+                        matInput
+                        formControlName="modelNumber"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                      <mat-label>Manufacturer</mat-label>
+                      <input
+                        placeholder="Manufacturer"
+                        matInput
+                        formControlName="manufacturer"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                      <mat-label>Operational Status of Equipment</mat-label>
+                      <mat-select formControlName="equipmentStatus">
+                        <mat-option value="Operational">Operational</mat-option>
+                        <mat-option value="Inoperable">Inoperable</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                      <mat-label>Parts Required for Equipment</mat-label>
+                      <input
+                        placeholder="Parts Required"
+                        matInput
+                        formControlName="partsReq"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                      <mat-label>Damage Done to the Equipment</mat-label>
+                      <input
+                        placeholder="Equipment Damage"
+                        matInput
+                        formControlName="equipmentDamage"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <button mat-button matStepperNext>Next</button>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <br />
+                    <mat-form-field>
+                      <mat-label>Status of Report</mat-label>
+                      <mat-select formControlName="reportStatus">
+                        <mat-option value="Unchecked">Unchecked</mat-option>
+                        <mat-option value="Checked">Checked</mat-option>
+                        <mat-option value="Pending">Pending</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <br/>
+                    <br/>
+                  <ng-template matStepLabel>Submit</ng-template>
+                  <p>Review All Content Before Submitting</p>
+                  <mat-card-actions>
+                    <!--Div for buttons-->
+                    <div>
+                      <input
+                        style="display: none"
+                        #ImageInput
+                        type="file"
+                        (change)="onFileSelected($event)"
+                      />
+  
+                      <button
+                        mat-raised-button
+                        type="button"
+                        (click)="ImageInput.click()"
+                      >
+                        Upload Images
+                      </button>
+                      &nbsp;
+                      <button mat-raised-button color="primary" type="submit">
+                        Update
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-step>
+              </mat-stepper>
+            </mat-card-content>
+          </form>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

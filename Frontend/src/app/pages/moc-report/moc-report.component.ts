@@ -116,32 +116,6 @@ export class MocReportComponent implements OnInit {
     
   
   }
-  /*
-  createMOCForm(
-    facilityName: string,
-    MoCDescription: string,
-    MoCReportDateTimeString: string
-  ) {
-    //IMAGE POST
-    const formData = new FormData();
-
-    formData.append('mocImage', this.Image);
-
-
-    const MoCReportDateTime = new Date(MoCReportDateTimeString);
-    //const MoCDisasterLocation = Array[MoCDisasterLocationArray];
-    this.mocreportservice
-      .createMOCReport(
-        facilityName,
-        MoCDescription,
-        MoCReportDateTime,
-        this.Image
-      )
-      .subscribe((report: MOCReport) => {
-        console.log(report);
-        this.router.navigate(['/message-board']);
-      });
-  }
-*/
+  
   ngOnInit(): void {}
 }

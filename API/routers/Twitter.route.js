@@ -11,11 +11,6 @@ var client = new Twitter({
     access_token_secret:  'BYaItx8eP1K5tDLEantKl5vKOc5dsonoVsOACarhLgS4y'
 });
 
-//client.get('search/tweets', { q: '#TelecomDisaster'}, function(err, data, response) {
-//    console.log(data)
-//  })
-
-//router.get('/MOCReportCntCkRpts', MOCReportController.MOCReport_count_checked_reports)
 
 
 var stream = client.stream('statuses/filter', { track: '#TelecomDisaster' })

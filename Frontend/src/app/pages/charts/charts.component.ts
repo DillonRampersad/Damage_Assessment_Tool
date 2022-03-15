@@ -37,6 +37,7 @@ export class ChartsComponent implements OnInit {
     })
     this.chartService.noOfEqu().subscribe((res) => {
       let area = res.map((res) => res.area);
+      let areaCode = res.map((res) => res.areaCode);
       let disaster = res.map((res) => res.disasterNature);
       let facility = res.map((res) => res.facilityName);
       let inoperEqu = res.map((res) => res.inoperEqu);
@@ -107,7 +108,7 @@ export class ChartsComponent implements OnInit {
           labels: disaster,
           datasets: [
             {
-              data: operEqu,
+              data: areaCode,
               label: 'area',
               backgroundColor: '#A121D5',
             },

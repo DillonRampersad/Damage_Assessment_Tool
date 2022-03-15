@@ -37,6 +37,8 @@
                     <td>{{prefac.areaCode}}</td>
                     <td>{{prefac.organizationName}}</td>
                     <td>
+                        <button mat-raised-button color="basic" [routerLink]="['/updateprefac', prefac._id]">Update</button>
+                        &nbsp;
                         <button mat-raised-button color="primary" [routerLink]="['/prefac-view-full', prefac._id]">View</button>
                         &nbsp;
                         <button mat-raised-button color="warn" (click)="delete(prefac._id)">Delete</button>

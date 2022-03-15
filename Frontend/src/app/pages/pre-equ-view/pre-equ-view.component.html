@@ -39,6 +39,8 @@
                     <td>{{preequipment.organizationName}}</td>
                     <td>{{preequipment.facilityName}}</td>
                     <td>
+                        <button mat-raised-button color="basic" [routerLink]="['/updatepreequ', preequipment._id]">Update</button>
+                        &nbsp;
                         <button mat-raised-button color="primary" [routerLink]="['/preequ-view-full', preequipment._id]">View</button>
                         &nbsp;
                         <button mat-raised-button color="warn" (click)="delete(preequipment._id)">Delete</button>

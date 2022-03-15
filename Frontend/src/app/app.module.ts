@@ -61,6 +61,10 @@ import { PreFacViewFullComponent } from './pages/pre-fac-view-full/pre-fac-view-
 import { ChartsComponent } from './pages/charts/charts.component';
 import { ChartsService } from './service/charts.service';
 import { AggregationComponent } from './pages/aggregation/aggregation.component';
+import { UpdatedaformfacComponent } from './pages/updatedaformfac/updatedaformfac.component';
+import { UpdatedaformequComponent } from './pages/updatedaformequ/updatedaformequ.component';
+import { UpdateprefacComponent } from './pages/updateprefac/updateprefac.component';
+import { UpdatepreequComponent } from './pages/updatepreequ/updatepreequ.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +99,10 @@ import { AggregationComponent } from './pages/aggregation/aggregation.component'
     PreFacViewFullComponent,
     ChartsComponent,
     AggregationComponent,
+    UpdatedaformfacComponent,
+    UpdatedaformequComponent,
+    UpdateprefacComponent,
+    UpdatepreequComponent,
   ],
   imports: [
     BrowserModule,

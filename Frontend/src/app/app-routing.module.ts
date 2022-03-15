@@ -31,6 +31,10 @@ import { PreFacViewComponent } from './pages/pre-fac-view/pre-fac-view.component
 import { PreFacViewFullComponent } from './pages/pre-fac-view-full/pre-fac-view-full.component';
 import { ChartsComponent } from './pages/charts/charts.component';
 import { AggregationComponent } from './pages/aggregation/aggregation.component';
+import { UpdatedaformfacComponent } from './pages/updatedaformfac/updatedaformfac.component';
+import { UpdatedaformequComponent } from './pages/updatedaformequ/updatedaformequ.component';
+import { UpdateprefacComponent } from './pages/updateprefac/updateprefac.component';
+import { UpdatepreequComponent } from './pages/updatepreequ/updatepreequ.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -43,7 +47,7 @@ const routes: Routes = [
   {
     path: 'fa-dashboard',
     component: FADashbooardComponent,
-    canActivate: [FaAuthGuard],
+    //canActivate: [FaAuthGuard],
   },
   { path: 'moc-report', component: MocReportComponent },
   { path: 'updatemoc/:mocID', component: UpdateMocComponent },
@@ -51,6 +55,7 @@ const routes: Routes = [
   { path: 'message-board', component: MessageBoardComponent },
   { path: 'daform-fac', component: DaformFacComponent },
   { path: 'daform-fac/:daformfacID', component: DaformFacComponent },
+  { path: 'updatedaformfac/:facID', component: UpdatedaformfacComponent},
   { path: 'daform-fac-view', component: DaformFacViewComponent },
   {
     path: 'daform-fac-view-full/:facviewid',
@@ -62,6 +67,8 @@ const routes: Routes = [
     path: 'daform-equ-view-full/:equviewid',
     component: DaformEquViewFullComponent,
   },
+  
+  { path: 'updatedaformequ/:equID', component: UpdatedaformequComponent},
   { path: 'dm-dashboard', component: DmDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'fa-signup', component: FaSignupComponent },
@@ -75,9 +82,11 @@ const routes: Routes = [
   { path: 'preequ', component: PreEquComponent },
   { path: 'preequ-view', component: PreEquViewComponent },
   { path: 'preequ-view-full/:preequviewid', component: PreEquViewFullComponent },
+  { path: 'updatepreequ/:equID', component: UpdatepreequComponent},
   { path: 'prefac', component: PreFacComponent },
   { path: 'prefac-view', component: PreFacViewComponent },
   { path: 'prefac-view-full/:preequviewid', component: PreFacViewFullComponent },
+  { path: 'updateprefac/:facID', component: UpdateprefacComponent},
   { path: 'charts', component: ChartsComponent},
   { path: 'aggregate', component: AggregationComponent}
 ];
