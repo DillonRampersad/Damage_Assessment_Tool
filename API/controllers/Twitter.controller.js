@@ -16,13 +16,13 @@ var client = new Twitter({
 //  console.log(tweet)
 //})
 
-//exports.Twitter_get_all = (req, res) => {
-  //return an array of all the damage assessments made that is stored on the database.
-  //client.get('search/tweets', { q: 'banana since:2011-07-11', count: 100}, function(err, data, response) {
-  //  console.log(data)
-    //res.send(data)
-  //})
-//};
+exports.Twitter_get_all = (req, res) => {
+  client.get('search/tweets', { q: 'banana since:2011-07-11', count: 100}, function(err, data, response) {
+    console.log(data)
+    res.send(data)
+    
+  })
+};
 
 
 

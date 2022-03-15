@@ -65,3 +65,29 @@ exports.Messages_delete = (req, res) => {
     res.send(removeMessagesDoc);
   });
 };
+
+exports.message_search = (req, res) => {
+  Messages.aggregate([
+    [
+      {
+          '$match': {
+              '$or': [
+                  {
+                      'message': {
+                          '$regex': req.body.message, 
+                          '$options': 'i'
+                      }
+                  }
+              ]
+          }
+      }
+  ]
+  ]).then((Messages) => {
+    res.send(Messages);
+    console.log(Messages);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+

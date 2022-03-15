@@ -3,25 +3,20 @@ const mongoose = require('mongoose');
 const TwitterPostsSchema = new mongoose.Schema({
     twitterUsername:{
         type: String,
-        required: true,
+        required: false,
         minlength:1,
         trim: true
     },
     postContent:{
         type: String,
-        required: true,
+        required: false,
         minlength:1,
         trim: true
     },
     postDateTime:{
         type: Date,
-        required: true,
+        required: false,
         default: Date.now
-    },
-    _damageAssessmentsID:{
-        type: mongoose.Types.ObjectId,
-        required: true,
-        ref: 'DamageAssessments'
     }
 })
 

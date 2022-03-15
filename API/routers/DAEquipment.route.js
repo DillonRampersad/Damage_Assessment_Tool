@@ -51,4 +51,9 @@ router.get('/DAEquipmentCntCkRpts', DAEquipmentController.DAEquipment_count_chec
 
 router.post('/DAEquipmentDamage', DAEquipmentController.DAEquipment_damage_search)
 
+router.get('/Huawei', DAEquipmentController.huawei_search)
+router.get('/Cisco', DAEquipmentController.cisco_search)
+router.get('/Tele', DAEquipmentController.TelecomCompany_search)
+router.get('/Juniper', DAEquipmentController.JN_search)
+
 module.exports = router;

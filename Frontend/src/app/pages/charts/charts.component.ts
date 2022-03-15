@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartsService } from 'src/app/service/charts.service';
 import { Chart } from 'chart.js';
 import { map } from 'rxjs';
+import { AggregationService } from 'src/app/service/aggregation.service';
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.component.html',
@@ -9,9 +10,31 @@ import { map } from 'rxjs';
 })
 export class ChartsComponent implements OnInit {
   chart = [];
-  constructor(private chartService: ChartsService) {}
+
+  cisco;
+  huawei;
+  Jn;
+  tele;
+
+  constructor(private chartService: ChartsService, private aggregate: AggregationService) {}
 
   ngOnInit(): void {
+    this.aggregate.Cisco().subscribe((c )=>{
+      this.cisco=c;
+      console.log(this.cisco);
+    })
+    this.aggregate.Huawei().subscribe((c )=>{
+      this.cisco=c;
+      console.log(this.huawei);
+    })
+    this.aggregate.JN().subscribe((c )=>{
+      this.cisco=c;
+      console.log(this.Jn);
+    })
+    this.aggregate.Tele().subscribe((c )=>{
+      this.tele=c;
+      console.log(this.tele);
+    })
     this.chartService.noOfEqu().subscribe((res) => {
       let area = res.map((res) => res.area);
       let disaster = res.map((res) => res.disasterNature);
@@ -76,6 +99,76 @@ export class ChartsComponent implements OnInit {
           },
         },
       });
+
+      new Chart('disasterCanvas', {
+        type: 'bar',
+
+        data: {
+          labels: disaster,
+          datasets: [
+            {
+              data: operEqu,
+              label: 'area',
+              backgroundColor: '#A121D5',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                display: true,
+              },
+            },
+            y: {
+              ticks: {
+                display: true,
+              },
+            },
+          },
+        },
+      });
+      /////////////////////////
+      
+      new Chart('equipment', {
+        type: 'bar',
+
+        data: {
+          labels: ["Huawei", "Cisco", "Telecom Company", "Juniper Networks"],
+          datasets: [
+            {
+              data: [5, 2, 1, 4],
+              label: 'No. of Disasters',
+              backgroundColor: '#FFA3CA',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                display: true,
+              },
+            },
+            y: {
+              ticks: {
+                display: true,
+              },
+            },
+          },
+        },
+      });
+///////////////////
     });
   }
 }

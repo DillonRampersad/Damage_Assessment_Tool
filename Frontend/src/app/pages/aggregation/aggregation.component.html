@@ -232,6 +232,40 @@
         </div>
         </mat-card-content>
       </mat-card>
+      <mat-divider></mat-divider>
+      <mat-card>
+        <mat-card-content>
+          <h3>
+            Search by <b>Message</b> in Message Board
+          </h3>
+          <mat-form-field>
+            <mat-label>Messages</mat-label>
+            <input
+              #MessageInput
+              placeholder="Search by message..."
+              matInput
+              type="string"
+              required
+            />
+          </mat-form-field>
+          <br />
+          <button
+            mat-raised-button
+            color="basic"
+            (click)="searchMessage(MessageInput.value)"
+          >
+            Search
+          </button>
+          <br />
+          <br />
+          <div *ngFor="let message of messages">
+            <h3>Username: {{ message.username }}</h3>
+            <h3>Message: {{message.message}}</h3>
+            <h3>Date: {{ message.messageDateTime | date: "short" }}</h3>
+          <mat-divider></mat-divider>
+        </div>
+        </mat-card-content>
+      </mat-card>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

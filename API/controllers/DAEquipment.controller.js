@@ -170,3 +170,115 @@ exports.DAEquipment_damage_search = (req, res) => {
     res.send(e);
   });
 };
+
+exports.huawei_search = (req, res) => {
+  //delete the Organization specified
+  DAEquipment.aggregate([
+    [
+      {
+        '$match': {
+          '$or': [
+            {
+              'manufacturer': {
+                '$regex': 'h', 
+                '$options': 'i'
+              }
+            }
+          ]
+        }
+      }, {
+        '$count': 'huawei'
+      }
+    ]
+  ]).then((DAEquipment) => {
+    res.send(DAEquipment);
+    console.log(DAEquipment);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.cisco_search = (req, res) => {
+  //delete the Organization specified
+  DAEquipment.aggregate([
+    [
+      {
+        '$match': {
+          '$or': [
+            {
+              'manufacturer': {
+                '$regex': 'ci', 
+                '$options': 'i'
+              }
+            }
+          ]
+        }
+      }, {
+        '$count': 'cisco'
+      }
+    ]
+  ]).then((DAEquipment) => {
+    res.send(DAEquipment);
+    console.log(DAEquipment);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.TelecomCompany_search = (req, res) => {
+  //delete the Organization specified
+  DAEquipment.aggregate([
+    [
+      {
+        '$match': {
+          '$or': [
+            {
+              'manufacturer': {
+                '$regex': 'te', 
+                '$options': 'i'
+              }
+            }
+          ]
+        }
+      }, {
+        '$count': 'telecomco'
+      }
+    ]
+  ]).then((DAEquipment) => {
+    res.send(DAEquipment);
+    console.log(DAEquipment);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};
+
+exports.JN_search = (req, res) => {
+  //delete the Organization specified
+  DAEquipment.aggregate([
+    [
+      {
+        '$match': {
+          '$or': [
+            {
+              'manufacturer': {
+                '$regex': 'j', 
+                '$options': 'i'
+              }
+            }
+          ]
+        }
+      }, {
+        '$count': 'jn'
+      }
+    ]
+  ]).then((DAEquipment) => {
+    res.send(DAEquipment);
+    console.log(DAEquipment);
+  })
+  .catch((e) => {
+    res.send(e);
+  });
+};

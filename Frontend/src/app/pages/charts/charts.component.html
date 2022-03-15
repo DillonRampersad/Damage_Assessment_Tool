@@ -5,7 +5,7 @@
       &nbsp;
       <span class="headSpacer">Damage Assessment Tool</span>
       &nbsp;
-      <a mat-button type="button" >Logout</a>
+      <a mat-button type="button">Logout</a>
     </div>
   </mat-toolbar>
 </div>
@@ -17,44 +17,52 @@
         <a mat-button href="fa-dashboard">Dashboard</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
       <div>
-        <a mat-button href="daform-fac">Report<br/>Facility Damage</a>
+        <a mat-button href="daform-fac">Report<br />Facility Damage</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
       <div>
-        <a mat-button href="daform-equ">Report<br/>Equipment Damage</a>
+        <a mat-button href="daform-equ">Report<br />Equipment Damage</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
       <div>
-        <a mat-button href="daform-fac">Predisaster<br/>Facility Report</a>
+        <a mat-button href="daform-fac">Predisaster<br />Facility Report</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
       <div>
-        <a mat-button href="daform-equ">Predisaster<br/>Equipment Report</a>
+        <a mat-button href="daform-equ">Predisaster<br />Equipment Report</a>
       </div>
       <mat-divider></mat-divider>
-      <br/>
+      <br />
     </mat-sidenav>
     <mat-sidenav-content class="textAlignCenter">
       <div class="sect">
         <h1>Charts</h1>
       </div>
-      <mat-grid-list cols="1" rowHeight="2:1">
-        <mat-grid-tile>
-          <canvas class="chartSize" id="canvas"></canvas>
-        </mat-grid-tile>
-        <mat-divider></mat-divider>
-        <mat-grid-tile><mat-grid-tile>
-          <canvas class="chartSize" id="disasterCanvas"></canvas>
-        </mat-grid-tile>
-        <mat-divider></mat-divider></mat-grid-tile>
-        <mat-grid-tile>3</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
-      </mat-grid-list>
+      <h2>Number of operational and non-operational equipment per facility</h2>
+      <br />
+      <div class="chartSize">
+        <canvas id="canvas"></canvas>
+      </div>
+      <br />
+      <mat-divider></mat-divider>
+      <br />
+      <h2>Area vs. Disaster</h2>
+      <br />
+      <div class="chartSize">
+        <canvas id="disasterCanvas"></canvas>
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+      <h2>No. of Disasters vs. Manufacturers</h2>
+      <br />
+      <div class="chartSize">
+        <canvas id="equipment"></canvas>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

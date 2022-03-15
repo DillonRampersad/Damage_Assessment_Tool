@@ -17,5 +17,8 @@ router.patch('/Messages/:id', MessagesController.Messages_update);
 //Delete for Damage Assessment Form
 router.delete('/Messages/:id', MessagesController.Messages_delete);
 
+router.post('/MessageData', MessagesController.message_search)
+
+
 
 module.exports = router;

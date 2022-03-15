@@ -76,14 +76,14 @@ export class AggregationService {
     }))
   }
 
-  //Post for author DAFacilities
+  //Post for damage DAFacilities
   postDAFacForm(facilityDamage: string){
     return this._http.post<any>("http://localhost:3000/DAFacilityDamage", {facilityDamage})
     .pipe(map((res:any)=>{
       return res;
     }))
   }
-  //Post for author DAEquipment
+  //Post for damage DAEquipment
   postDAEquForm(equipmentDamage: string){
     return this._http.post<any>("http://localhost:3000/DAEquipmentDamage", {equipmentDamage})
     .pipe(map((res:any)=>{
@@ -91,9 +91,44 @@ export class AggregationService {
     }))
   }
 
-  //Post for author DAEquipment
+  //Post for damage MOC
   postMOCForm(MoCDescription: string){
     return this._http.post<any>("http://localhost:3000/MOCReportDamage", {MoCDescription})
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  //Post for damage message
+  postMessageForm(message: string){
+    return this._http.post<any>("http://localhost:3000/MessageData", {message})
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+
+  //Charts
+  Huawei() {
+    return this._http.get("http://localhost:3000/Huawei")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  Cisco() {
+    return this._http.get("http://localhost:3000/Cisco")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  Tele() {
+    return this._http.get("http://localhost:3000/Tele")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+  JN() {
+    return this._http.get("http://localhost:3000/Juniper")
     .pipe(map((res:any)=>{
       return res;
     }))

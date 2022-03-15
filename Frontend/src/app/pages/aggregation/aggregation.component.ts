@@ -22,6 +22,7 @@ export class AggregationComponent implements OnInit {
   fcDamage:any;
   eqDamage:any;
   moc:any;
+  messages:any;
 
   constructor(private aggregation: AggregationService) { }
   
@@ -45,6 +46,13 @@ export class AggregationComponent implements OnInit {
     this.aggregation.postMOCForm(MoCDescription).subscribe((e) => {
       this.moc=e;
       console.log(this.moc);
+    });
+  }
+
+  searchMessage(message) {
+    this.aggregation.postMessageForm(message).subscribe((m) => {
+      this.messages=m;
+      console.log(this.messages);
     });
   }
 
