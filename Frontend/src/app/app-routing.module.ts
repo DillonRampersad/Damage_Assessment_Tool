@@ -35,6 +35,7 @@ import { UpdatedaformfacComponent } from './pages/updatedaformfac/updatedaformfa
 import { UpdatedaformequComponent } from './pages/updatedaformequ/updatedaformequ.component';
 import { UpdateprefacComponent } from './pages/updateprefac/updateprefac.component';
 import { UpdatepreequComponent } from './pages/updatepreequ/updatepreequ.component';
+import { TwitterComponent } from './pages/twitter/twitter.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -88,7 +89,8 @@ const routes: Routes = [
   { path: 'prefac-view-full/:preequviewid', component: PreFacViewFullComponent },
   { path: 'updateprefac/:facID', component: UpdateprefacComponent},
   { path: 'charts', component: ChartsComponent},
-  { path: 'aggregate', component: AggregationComponent}
+  { path: 'aggregate', component: AggregationComponent},
+  { path: 'twitter', component: TwitterComponent}
 ];
 
 @NgModule({

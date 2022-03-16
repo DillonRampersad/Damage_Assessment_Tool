@@ -15,26 +15,177 @@ export class ChartsComponent implements OnInit {
   huawei;
   Jn;
   tele;
+  disasterN: any;
+  equipmentType: any;
 
   constructor(private chartService: ChartsService, private aggregate: AggregationService) {}
 
   ngOnInit(): void {
-    this.aggregate.Cisco().subscribe((c )=>{
-      this.cisco=c;
-      console.log(this.cisco);
+    this.chartService.facCost().subscribe((res)=> {
+      let facility = res.map((res) => res.facilityName);
+      let cost = res.map((res) => res.cost);
+      let noOfEqu = res.map((res) => res.noOfEqu);
+      let noOfEmployees = res.map((res) => res.noOfEmployees);
+
+      console.log(facility);
+      console.log(cost);
+      console.log(noOfEqu);
+      console.log(noOfEmployees);
+
+      new Chart('noOfEquEmp', {
+        type: 'bar',
+
+        data: {
+          labels: facility,
+          datasets: [
+            {
+              data: noOfEqu,
+              label: 'No of Equipment',
+              backgroundColor: '#35D900',
+            },
+            {
+              data: noOfEmployees,
+              label: 'No. of Employees',
+              backgroundColor: '#00CFD9',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                display: true,
+              },
+            },
+            y: {
+              ticks: {
+                display: true,
+              },
+            },
+          },
+        },
+      })
+
+
+      new Chart('costOfFac', {
+        type: 'bar',
+
+        data: {
+          labels: facility,
+          datasets: [
+            {
+              data: cost,
+              label: 'Cost',
+              backgroundColor: '#F9A262',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                display: true,
+              },
+            },
+            y: {
+              ticks: {
+                display: true,
+              },
+            },
+          },
+        },
+      });
     })
-    this.aggregate.Huawei().subscribe((c )=>{
-      this.cisco=c;
-      console.log(this.huawei);
+
+    this.chartService.equCost().subscribe((res)=> {
+      let equipment = res.map((res) => res.equipmentName);
+      let cost = res.map((res) => res.cost);
+
+      console.log(equipment);
+      console.log(cost);
+
+      new Chart('costOfEqu', {
+        type: 'bar',
+
+        data: {
+          labels: equipment,
+          datasets: [
+            {
+              data: cost,
+              label: 'Cost',
+              backgroundColor: '#820037',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+            },
+          },
+          scales: {
+            x: {
+              ticks: {
+                display: true,
+              },
+            },
+            y: {
+              ticks: {
+                display: true,
+              },
+            },
+          },
+        },
+      });
     })
-    this.aggregate.JN().subscribe((c )=>{
-      this.cisco=c;
-      console.log(this.Jn);
+
+    this.chartService.noOfEquDis().subscribe((res)=>{
+      let disasterN = res.map((res) => res.disasterNature);
+      let equipmentType = res.map((res) => res.equipmentType);
+
+      console.log(disasterN);
+      console.log(equipmentType);
+
+      new Chart('equipment', {
+        type: 'line',
+
+        data: {
+          labels: disasterN,
+          datasets: [
+            {
+              data: equipmentType,
+              label: 'Equipment Type',
+              backgroundColor: '#A121D5',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+            },
+          },
+          scales: {
+            y: {
+              type: 'category',
+              reverse: true,
+              labels: equipmentType
+            },
+          },
+        },
+      });
     })
-    this.aggregate.Tele().subscribe((c )=>{
-      this.tele=c;
-      console.log(this.tele);
-    })
+    
     this.chartService.noOfEqu().subscribe((res) => {
       let area = res.map((res) => res.area);
       let areaCode = res.map((res) => res.areaCode);
@@ -58,6 +209,7 @@ export class ChartsComponent implements OnInit {
       console.log(operEqu);
       console.log(Dates);
       console.log(area);
+      console.log(areaCode);
       console.log(inoperEqu);
       console.log(facility);
       console.log(disaster);
@@ -102,15 +254,15 @@ export class ChartsComponent implements OnInit {
       });
 
       new Chart('disasterCanvas', {
-        type: 'bar',
+        type: 'line',
 
         data: {
           labels: disaster,
           datasets: [
             {
-              data: areaCode,
-              label: 'area',
-              backgroundColor: '#A121D5',
+              data: area,
+              label: 'Area',
+              backgroundColor: '#08DDB6',
             },
           ],
         },
@@ -121,54 +273,17 @@ export class ChartsComponent implements OnInit {
             },
           },
           scales: {
-            x: {
-              ticks: {
-                display: true,
-              },
-            },
             y: {
-              ticks: {
-                display: true,
-              },
+              type: 'category',
+              reverse: true,
+              labels: area
             },
           },
         },
       });
       /////////////////////////
       
-      new Chart('equipment', {
-        type: 'bar',
-
-        data: {
-          labels: ["Huawei", "Cisco", "Telecom Company", "Juniper Networks"],
-          datasets: [
-            {
-              data: [5, 2, 1, 4],
-              label: 'No. of Disasters',
-              backgroundColor: '#FFA3CA',
-            },
-          ],
-        },
-        options: {
-          plugins: {
-            legend: {
-              display: true,
-            },
-          },
-          scales: {
-            x: {
-              ticks: {
-                display: true,
-              },
-            },
-            y: {
-              ticks: {
-                display: true,
-              },
-            },
-          },
-        },
-      });
+      
 ///////////////////
     });
   }

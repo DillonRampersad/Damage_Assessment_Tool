@@ -10,11 +10,31 @@ export class ChartsService {
 
   constructor(private _http: HttpClient) {
     Chart.register(...registerables)
-    //Chart.register(ChartDataLabels);
    }
   
   noOfEqu() {
     return this._http.get("http://localhost:3000/DAFacility")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  noOfEquDis() {
+    return this._http.get("http://localhost:3000/DAEquipment")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  facCost() {
+    return this._http.get("http://localhost:3000/PreFacility")
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
+  equCost() {
+    return this._http.get("http://localhost:3000/PreEquipment")
     .pipe(map((res:any)=>{
       return res;
     }))

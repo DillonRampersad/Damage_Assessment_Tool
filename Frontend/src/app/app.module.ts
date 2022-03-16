@@ -65,6 +65,7 @@ import { UpdatedaformfacComponent } from './pages/updatedaformfac/updatedaformfa
 import { UpdatedaformequComponent } from './pages/updatedaformequ/updatedaformequ.component';
 import { UpdateprefacComponent } from './pages/updateprefac/updateprefac.component';
 import { UpdatepreequComponent } from './pages/updatepreequ/updatepreequ.component';
+import { TwitterComponent } from './pages/twitter/twitter.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { UpdatepreequComponent } from './pages/updatepreequ/updatepreequ.compone
     UpdatedaformequComponent,
     UpdateprefacComponent,
     UpdatepreequComponent,
+    TwitterComponent,
   ],
   imports: [
     BrowserModule,

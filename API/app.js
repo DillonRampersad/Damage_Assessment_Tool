@@ -59,8 +59,8 @@ app.use(MessagesRoute);
 
 
 
-const TwitterController = require("./routers/Twitter.route");
-app.use(TwitterController);
+const TwitterRoute = require("./routers/Twitter.route");
+app.use(TwitterRoute);
 
 
 //Error Handling
