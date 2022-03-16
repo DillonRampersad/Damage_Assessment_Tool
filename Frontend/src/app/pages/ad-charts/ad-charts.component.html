@@ -1,0 +1,127 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="admin-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button type="button">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="admin-dashboard">Dashboard</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac">Report<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ">Report<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report">Make a Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac-view">View Reports:<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ-view">View Reports:<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report-view">View Reports:<br />MOC</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-prefac-view">View Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ-view">View Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-aggregate">Data Mining</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-twitter">Twitter Posts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-charts">Charts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-message-board">Message Board</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+      </mat-sidenav>
+      <mat-sidenav-content class="textAlignCenter">
+        <div class="sect">
+          <h1>Charts</h1>
+        </div>
+        <h2>Number of operational and non-operational equipment per facility</h2>
+        <br />
+        <div class="chartSize">
+          <canvas id="canvas"></canvas>
+        </div>
+        <br />
+        <mat-divider></mat-divider>
+        <br />
+        <h2>Area vs. Disaster</h2>
+        <br />
+        <div class="chartSize">
+          <canvas id="disasterCanvas"></canvas>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+        <h2>No. of Disasters vs. Manufacturers</h2>
+        <br />
+        <div class="chartSize">
+          <canvas id="equipment"></canvas>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+        <h2>Cost of Equipment</h2>
+        <br />
+        <div class="chartSize">
+          <canvas id="costOfEqu"></canvas>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+        <h2>Cost of Facility</h2>
+        <br />
+        <div class="chartSize">
+          <canvas id="costOfFac"></canvas>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+        <h2>Number of Employees and Equipment per Facility</h2>
+        <br />
+        <div class="chartSize">
+          <canvas id="noOfEquEmp"></canvas>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

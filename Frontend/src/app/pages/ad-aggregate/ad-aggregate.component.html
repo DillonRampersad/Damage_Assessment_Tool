@@ -1,0 +1,308 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="admin-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button type="button">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="admin-dashboard">Dashboard</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac">Report<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ">Report<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report">Make a Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac-view">View Reports:<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ-view">View Reports:<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report-view">View Reports:<br />MOC</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-prefac-view">View Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ-view">View Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-aggregate">Data Mining</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-twitter">Twitter Posts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-charts">Charts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-message-board">Message Board</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+      </mat-sidenav>
+      <mat-sidenav-content class="textAlignCenter">
+        <div class="sect">
+          <h1>Data Aggregation</h1>
+        </div>
+        <mat-card>
+          <mat-card-content>
+            <h3>
+              Number of <b>Facility</b> Damage Assessment Reports Made:
+              {{ aggregationFac[0].NoOfDaFacilityReports }}
+            </h3>
+            <h3>
+              Number of Unchecked Reports:
+              {{ aggregationUnckFac[0].noOfUncheckedReports }}
+            </h3>
+            <h3>
+              Number of Checked Reports:
+              {{ aggregationCkFac[0].noOfCheckedReports }}
+            </h3>
+          </mat-card-content>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <mat-card>
+          <mat-card-content>
+            <h3>
+              Number of <b>Equipment</b> Damage Assessment Reports Made:
+              {{ aggregationEqu[0].NoOfDAEquipmentReports }}
+            </h3>
+            <h3>
+              Number of Unchecked Reports:
+              {{ aggregationUnckEqu[0].noOfUncheckedEqReports }}
+            </h3>
+            <h3>
+              Number of Checked Reports:
+              {{ aggregationCkEqu[0].noOfCheckedEqReports }}
+            </h3>
+          </mat-card-content>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <mat-card>
+          <mat-card-content>
+            <h3>
+              Number of <b>Members of Communities</b> Damage Assessment Reports
+              Made:
+              {{ aggregationMoc[0].NoOfmocss }}
+            </h3>
+            <h3>
+              Number of Unchecked Reports:
+              {{ aggregationUnckMoc[0].noOfUncheckedmocss }}
+            </h3>
+          </mat-card-content>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <mat-card>
+          <mat-card-content>
+            <h3>
+              Search by <b>Damage</b> for Damage Assessment of <b>Facility</b>
+            </h3>
+            <mat-form-field>
+              <mat-label>Facility Report by Damage</mat-label>
+              <input
+                #facilityDamageInput
+                placeholder="Search by damage..."
+                matInput
+                type="string"
+                required
+              />
+            </mat-form-field>
+            <br />
+            <button
+              mat-raised-button
+              color="basic"
+              (click)="searchFac(facilityDamageInput.value)"
+            >
+              Search
+            </button>
+            <br />
+            <br />
+            <div *ngFor="let facDam of fcDamage">
+              <h2>Report ID : {{ facDam._id }}</h2>
+              <h3>Author: {{ facDam.author }}</h3>
+              <h3>Event: {{ facDam.eventName }}</h3>
+              <h3>Date: {{ facDam.eventDate | date: "shortDate" }}</h3>
+              <h3>Area: {{ facDam.area }}</h3>
+              <h3>Area Code: {{ facDam.areaCode }}</h3>
+              <h3>Organization: {{ facDam.organizationName }}</h3>
+              <h3>Nature of Disaster: {{ facDam.disasterNature }}</h3>
+              <h3>Threat Level: {{ facDam.threatLevel }}</h3>
+              <h3>Damage Done to the Surrounding Area: {{ facDam.surroundingDamage }</h3>
+              <h3>Facility Name: {{ facDam.facilityName }}</h3>
+              <h3>Facility's Operational Status: {{ facDam.facStatus }}</h3>
+              <h3>Number of Operational Equipment in the Facility: {{ facDam.operEqu }}</h3>
+              <h3>Number of Inoperable Equipment in the Facility: {{ facDam.inoperEqu }}</h3>
+              <h3>Damage Done to the Facility's Infrastructure: {{ facDam.facilityDamage }}</h3>
+              <h3>
+                Images:<br />
+                <img
+                  class="styleImage"
+                  src="http://localhost:3000/{{ facDam.facImage }}"/>
+              </h3>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <mat-card>
+          <mat-card-content>
+            <h3>
+              Search by <b>Damage</b> for Damage Assessment of <b>Equipment</b>
+            </h3>
+            <mat-form-field>
+              <mat-label>Equipment Report by Damage:</mat-label>
+              <input
+                #equipmentDamageInput
+                placeholder="Search by damage..."
+                matInput
+                type="string"
+                required
+              />
+            </mat-form-field>
+            <br />
+            <button
+              mat-raised-button
+              color="basic"
+              (click)="searchEqu(equipmentDamageInput.value)"
+            >
+              Search
+            </button>
+            <br />
+            <br />
+            <div *ngFor="let equDam of eqDamage">
+              <h2>Report ID : {{ equDam._id }}</h2>
+              <span>Report Status: {{ equDam.reportStatus }}</span>
+              <h3>Author: {{ equDam.author }}</h3>
+              <h3>Event: {{ equDam.eventName }}</h3>
+              <h3>Date: {{ equDam.eventDate | date: "shortDate" }}</h3>
+              <h3>Organization: {{ equDam.organizationName }}</h3>
+              <h3>Nature of Disaster: {{ equDam.disasterNature }}</h3>
+              <h3>Facility Name: {{ equDam.facilityName }}</h3>
+              <h3>Facility's Operational Status: {{ equDam.facStatus }}</h3>
+              <h3>Equipment Name: {{ equDam.equipmentName }}</h3>
+              <h3>Equipment Type: {{ equDam.equipmentType }}</h3>
+              <h3>Equipment Model Number: {{ equDam.modelNumber }}</h3>
+              <h3>Equipment Manufacturer: {{ equDam.manufacturer }}</h3>
+              <h3>Equipment Operational Status: {{ equDam.equipmentStatus }}</h3>
+              <h3>Parts Required for Equipment Repair: {{ equDam.partsReq }}</h3>
+              <h3>Damage Done to the Equipment: {{ equDam.equipmentDamage }}</h3>
+              <h3>
+                Images:<br />
+                <img
+                  class="styleImage"
+                  src="http://localhost:3000/{{ equDam.equImage }}"
+                />
+              </h3>
+              <mat-divider></mat-divider>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>
+            <h3>
+              Search by <b>Description</b> for Reports by <b>Members of Communities</b>
+            </h3>
+            <mat-form-field>
+              <mat-label>Members of Communities Report</mat-label>
+              <input
+                #MocInput
+                placeholder="Search by description..."
+                matInput
+                type="string"
+                required
+              />
+            </mat-form-field>
+            <br />
+            <button
+              mat-raised-button
+              color="basic"
+              (click)="searchMOC(MocInput.value)"
+            >
+              Search
+            </button>
+            <br />
+            <br />
+            <div *ngFor="let mocs of moc">
+              <h3>Facility Name: {{ mocs.facilityName }}</h3>
+              <h3>Report Status: {{mocs.reportStatus}}</h3>
+              <h3>Date: {{ mocs.mocDateTime | date: "shortDate" }}</h3>
+              <h3>Description: {{ mocs.MoCDescription }}</h3>
+              <h3>Image:</h3>
+            <img class="styleImage" src="http://localhost:3000/{{ mocs.mocImage }}" />
+            <mat-divider></mat-divider>
+          </div>
+          </mat-card-content>
+        </mat-card>
+        <mat-divider></mat-divider>
+        <mat-card>
+          <mat-card-content>
+            <h3>
+              Search by <b>Message</b> in Message Board
+            </h3>
+            <mat-form-field>
+              <mat-label>Messages</mat-label>
+              <input
+                #MessageInput
+                placeholder="Search by message..."
+                matInput
+                type="string"
+                required
+              />
+            </mat-form-field>
+            <br />
+            <button
+              mat-raised-button
+              color="basic"
+              (click)="searchMessage(MessageInput.value)"
+            >
+              Search
+            </button>
+            <br />
+            <br />
+            <div *ngFor="let message of messages">
+              <h3>Username: {{ message.username }}</h3>
+              <h3>Message: {{message.message}}</h3>
+              <h3>Date: {{ message.messageDateTime | date: "short" }}</h3>
+            <mat-divider></mat-divider>
+          </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

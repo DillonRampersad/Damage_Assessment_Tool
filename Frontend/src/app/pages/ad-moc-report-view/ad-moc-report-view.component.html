@@ -1,0 +1,133 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="admin-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="admin-dashboard">Dashboard</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac">Report<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ">Report<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report">Make a Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac-view">View Reports:<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ-view">View Reports:<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report-view">View Reports:<br />MOC</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-prefac-view">View Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ-view">View Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-aggregate">Data Mining</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-twitter">Twitter Posts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-charts">Charts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-message-board">Message Board</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <br />
+        <div class="example-action-buttons">
+          <button mat-button (click)="accordion.openAll()">Expand All</button>
+          <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+        </div>
+        <br />
+        <mat-accordion class="example-headers-align">
+          <mat-expansion-panel
+            [expanded]="step === 0"
+            (opened)="setStep(0)"
+            hideToggle
+            *ngFor="let mocreport of mocreports"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span>{{ mocreport.facilityName }}</span>
+              </mat-panel-title>
+              <mat-panel-description>
+                <span>{{ mocreport.facilityName }}</span>
+                <span>status: {{mocreport.reportStatus}}</span>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            
+            Date: {{ mocreport.MoCReportDateTime | date: "shortDate" }}
+            <br />
+            <br />
+            Description: {{ mocreport.MoCDescription }}
+            
+            <br />
+            <br />
+            Images:
+            <br/>
+            <img class="styleImage" src="http://localhost:3000/{{ mocreport.mocImage }}" />
+            <mat-action-row>
+              <button
+                mat-button
+                color="basic"
+                [routerLink]="['/ad-updatemoc', mocreport._id]"
+              >
+                Update Status
+              </button>
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="delete(mocreport._id)"
+              >
+                Delete
+              </button>
+            </mat-action-row>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

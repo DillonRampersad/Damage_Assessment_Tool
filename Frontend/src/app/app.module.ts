@@ -66,6 +66,29 @@ import { UpdatedaformequComponent } from './pages/updatedaformequ/updatedaformeq
 import { UpdateprefacComponent } from './pages/updateprefac/updateprefac.component';
 import { UpdatepreequComponent } from './pages/updatepreequ/updatepreequ.component';
 import { TwitterComponent } from './pages/twitter/twitter.component';
+import { AdAggregateComponent } from './pages/ad-aggregate/ad-aggregate.component';
+import { AdChartsComponent } from './pages/ad-charts/ad-charts.component';
+import { AdDaformEquComponent } from './pages/ad-daform-equ/ad-daform-equ.component';
+import { AdDaformEquViewComponent } from './pages/ad-daform-equ-view/ad-daform-equ-view.component';
+import { AdDaformEquViewFullComponent } from './pages/ad-daform-equ-view-full/ad-daform-equ-view-full.component';
+import { AdDaformFacComponent } from './pages/ad-daform-fac/ad-daform-fac.component';
+import { AdDaformFacViewComponent } from './pages/ad-daform-fac-view/ad-daform-fac-view.component';
+import { AdDaformFacViewFullComponent } from './pages/ad-daform-fac-view-full/ad-daform-fac-view-full.component';
+import { AdMessageBoardComponent } from './pages/ad-message-board/ad-message-board.component';
+import { AdMocReportComponent } from './pages/ad-moc-report/ad-moc-report.component';
+import { AdMocReportViewComponent } from './pages/ad-moc-report-view/ad-moc-report-view.component';
+import { AdPreEquComponent } from './pages/ad-pre-equ/ad-pre-equ.component';
+import { AdPreEquViewComponent } from './pages/ad-pre-equ-view/ad-pre-equ-view.component';
+import { AdPreEquViewFullComponent } from './pages/ad-pre-equ-view-full/ad-pre-equ-view-full.component';
+import { AdPreFacComponent } from './pages/ad-pre-fac/ad-pre-fac.component';
+import { AdPreFacViewComponent } from './pages/ad-pre-fac-view/ad-pre-fac-view.component';
+import { AdPreFacViewFullComponent } from './pages/ad-pre-fac-view-full/ad-pre-fac-view-full.component';
+import { AdTwitterComponent } from './pages/ad-twitter/ad-twitter.component';
+import { AdUpdateMocComponent } from './pages/ad-update-moc/ad-update-moc.component';
+import { AdUpdatedaformequComponent } from './pages/ad-updatedaformequ/ad-updatedaformequ.component';
+import { AdUpdatedaformfacComponent } from './pages/ad-updatedaformfac/ad-updatedaformfac.component';
+import { AdUpdatepreequComponent } from './pages/ad-updatepreequ/ad-updatepreequ.component';
+import { AdUpdateprefacComponent } from './pages/ad-updateprefac/ad-updateprefac.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +128,29 @@ import { TwitterComponent } from './pages/twitter/twitter.component';
     UpdateprefacComponent,
     UpdatepreequComponent,
     TwitterComponent,
+    AdAggregateComponent,
+    AdChartsComponent,
+    AdDaformEquComponent,
+    AdDaformEquViewComponent,
+    AdDaformEquViewFullComponent,
+    AdDaformFacComponent,
+    AdDaformFacViewComponent,
+    AdDaformFacViewFullComponent,
+    AdMessageBoardComponent,
+    AdMocReportComponent,
+    AdMocReportViewComponent,
+    AdPreEquComponent,
+    AdPreEquViewComponent,
+    AdPreEquViewFullComponent,
+    AdPreFacComponent,
+    AdPreFacViewComponent,
+    AdPreFacViewFullComponent,
+    AdTwitterComponent,
+    AdUpdateMocComponent,
+    AdUpdatedaformequComponent,
+    AdUpdatedaformfacComponent,
+    AdUpdatepreequComponent,
+    AdUpdateprefacComponent,
   ],
   imports: [
     BrowserModule,

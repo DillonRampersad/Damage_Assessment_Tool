@@ -1,0 +1,107 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="admin-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="admin-dashboard">Dashboard</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac">Report<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ">Report<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report">Make a Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac-view">View Reports:<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ-view">View Reports:<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report-view">View Reports:<br />MOC</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-prefac-view">View Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ-view">View Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-aggregate">Data Mining</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-twitter">Twitter Posts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-charts">Charts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-message-board">Message Board</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-card>
+            <table>
+                <tr>
+                    <th>Equipment</th>
+                    <th>Type</th>
+                    <th>Organization</th>
+                    <th>Facility</th>
+                    <th>Actions</th>
+                </tr>
+                <tr *ngFor="let preequipment of preequip">
+                    <td>{{preequipment.equipmentName}}</td>
+                    <td>{{preequipment.equipmentType}}</td>
+                    <td>{{preequipment.organizationName}}</td>
+                    <td>{{preequipment.facilityName}}</td>
+                    <td>
+                        <button mat-raised-button color="basic" [routerLink]="['/ad-updatepreequ', preequipment._id]">Update</button>
+                        &nbsp;
+                        <button mat-raised-button color="primary" [routerLink]="['/ad-preequ-view-full', preequipment._id]">View</button>
+                        &nbsp;
+                        <button mat-raised-button color="warn" (click)="delete(preequipment._id)">Delete</button>
+                    </td>
+                    <mat-divider></mat-divider>
+                </tr>
+            </table>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

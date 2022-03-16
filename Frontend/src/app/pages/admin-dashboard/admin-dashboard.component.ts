@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ASignupService } from 'src/app/service/a-signup.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private adminsignup: ASignupService, private router : Router) { }
 
   ngOnInit(): void {
+  }
+  onLogoutAdmin() {
+    this.adminsignup.deleteToken();
+    //localStorage.clear;
+    this.router.navigate(['/moc-signin']);
   }
 
 }

@@ -1,0 +1,140 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="admin-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="admin-dashboard">Dashboard</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac">Report<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ">Report<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report">Make a Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac-view">View Reports:<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ-view">View Reports:<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report-view">View Reports:<br />MOC</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-prefac-view">View Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ-view">View Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-aggregate">Data Mining</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-twitter">Twitter Posts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-charts">Charts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-message-board">Message Board</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div class="sect">
+          <h1>Message Board</h1>
+        </div>
+        <mat-card>
+          <mat-card-header>Create a message</mat-card-header>
+          <br />
+          <mat-card-content>
+            <form [formGroup]="form" (submit)="addMessage()">
+              <mat-form-field>
+                <mat-label>Username:</mat-label>
+                <input
+                  placeholder="Username"
+                  matInput
+                  formControlName="username"
+                  class="form-control"
+                  type="string"
+                  required
+                />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Message:</mat-label>
+                <input
+                  placeholder="Type Message Here..."
+                  matInput
+                  formControlName="message"
+                  class="form-control"
+                  type="string"
+                  required
+                />
+              </mat-form-field>
+              <br />
+              <button mat-raised-button color="basic" type="submit">Send</button>
+              <br />
+              <mat-divider></mat-divider>
+            </form>
+            <br />
+            <div>
+            <mat-card>
+              <h2>Message Board:</h2>
+              <mat-card-content *ngFor="let message of messages.slice().reverse()">
+                <mat-card class="borderMessage">
+                  <span
+                    ><i>{{ message.username }}</i
+                    >, &nbsp;&nbsp;&nbsp;{{
+                      message.messageDateTime | date: "short"
+                    }}</span
+                  ><br />
+                  <mat-divider></mat-divider>
+                  <br />
+                  <p>{{ message.message }}</p>
+                  <br />
+                </mat-card>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

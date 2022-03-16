@@ -1,0 +1,330 @@
+<div>
+    <mat-toolbar class="menu" color="primary">
+      <div class="centerNavBar">
+        <a mat-button href="admin-dashboard">Back</a>
+        &nbsp;
+        <span class="headSpacer">Damage Assessment Tool</span>
+        &nbsp;
+        <a mat-button href="">Logout</a>
+      </div>
+    </mat-toolbar>
+  </div>
+  
+  <div>
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened>
+        <div>
+          <a mat-button href="admin-dashboard">Dashboard</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac">Report<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ">Report<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ">Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report">Make a Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-fac-view">View Reports:<br />Facility Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-daform-equ-view">View Reports:<br />Equipment Damage</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-moc-report-view">View Reports:<br />MOC</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-prefac-view">View Predisaster<br />Facility Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-preequ-view">View Predisaster<br />Equipment Report</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-aggregate">Data Mining</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-twitter">Twitter Posts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-charts">Charts</a>
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <a mat-button href="ad-message-board">Message Board</a>
+        </div>
+        <mat-divider></mat-divider>
+        <br />
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <mat-card>
+          <mat-card-header>Update Facility Damage Report</mat-card-header>
+          <br /><br />
+          <form [formGroup]="form" (submit)="updateDAFacForm()">
+            <mat-card-content>
+              <mat-stepper orientation="vertical">
+                <mat-step>
+                  <ng-template matStepLabel>Author</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Full Name</mat-label>
+                      <input
+                        placeholder="First Name, Last Name"
+                        matInput
+                        formControlName="author"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Organization</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Name of Organization</mat-label>
+                      <input
+                        placeholder="Organization Name"
+                        matInput
+                        formControlName="organizationName"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Event</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Name of Event</mat-label>
+                      <input
+                        placeholder="Event Name"
+                        matInput
+                        formControlName="eventName"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <input
+                        matInput
+                        type="Date"
+                        formControlName="eventDate"
+                        class="form-control"
+                        required
+                      />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Area of Event</mat-label>
+                      <input
+                        placeholder="Event Area"
+                        matInput
+                        formControlName="area"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                      <mat-label>Area Code of Event</mat-label>
+                      <input
+                        placeholder="Event Area Code"
+                        matInput
+                        formControlName="areaCode"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Disaster</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Type of Disaster</mat-label>
+                      <input
+                        placeholder="Nature of Disaster"
+                        matInput
+                        formControlName="disasterNature"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label>Threat Level of Disaster</mat-label>
+                      <input
+                        placeholder="Threat Level of Disaster"
+                        matInput
+                        formControlName="threatLevel"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <mat-form-field>
+                      <mat-label
+                        >Damage Done to the Surrounding Environment</mat-label
+                      >
+                      <input
+                        placeholder="Surrounding Damage"
+                        matInput
+                        formControlName="surroundingDamage"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Location</ng-template>
+                  <ng-template matStepContent>
+                    <p>Location Placed Here</p>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <ng-template matStepLabel>Facility</ng-template>
+                  <ng-template matStepContent>
+                    <mat-form-field>
+                      <mat-label>Name of Facility</mat-label>
+                      <input
+                        placeholder="Name of Facility"
+                        matInput
+                        formControlName="facilityName"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field>
+                      <mat-label>Operational Status of Facility</mat-label>
+                      <mat-select formControlName="facStatus">
+                        <mat-option value="Operational">Operational</mat-option>
+                        <mat-option value="Inoperable">Inoperable</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field>
+                      <mat-label
+                        >Number of Operational Equipment in the Facility</mat-label
+                      >
+                      <input
+                        placeholder="No. of Operational Equipment"
+                        matInput
+                        formControlName="operEqu"
+                        class="form-control"
+                        type="number"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                      <mat-label
+                        >Number of Inoperational Equipment in the Facility</mat-label
+                      >
+                      <input
+                        placeholder="No. of Inoperational Equipment"
+                        matInput
+                        formControlName="inoperEqu"
+                        class="form-control"
+                        type="number"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                    <mat-form-field>
+                      <mat-label>Damage Done to the Facility's Infrastructure</mat-label>
+                      <input
+                        placeholder="Infratructure Damage"
+                        matInput
+                        formControlName="facilityDamage"
+                        class="form-control"
+                        type="string"
+                        required
+                      />
+                    </mat-form-field>
+                    <br/>
+                  </ng-template>
+                </mat-step>
+  
+                <mat-step>
+                  <br />
+                    <mat-form-field>
+                      <mat-label>Status of Report</mat-label>
+                      <mat-select formControlName="reportStatus">
+                        <mat-option value="Unchecked">Unchecked</mat-option>
+                        <mat-option value="Checked">Checked</mat-option>
+                        <mat-option value="Pending">Pending</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <br/>
+                    <br/>
+                  <ng-template matStepLabel>Submit</ng-template>
+                  <p>Review All Content Before Submitting</p>
+                  <mat-card-actions>
+                    <!--Div for buttons-->
+                    <div>
+                      <input
+                        style="display: none"
+                        #ImageInput
+                        type="file"
+                        (change)="onFileSelected($event)"
+                      />
+  
+                      <button
+                        mat-raised-button
+                        type="button"
+                        (click)="ImageInput.click()"
+                      >
+                        Upload Images
+                      </button>
+                      &nbsp;
+                      <button mat-raised-button color="primary" type="submit">
+                        Update
+                      </button>
+                    </div>
+                  </mat-card-actions>
+                </mat-step>
+              </mat-stepper>
+            </mat-card-content>
+          </form>
+        </mat-card>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

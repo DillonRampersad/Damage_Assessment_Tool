@@ -1,11 +1,11 @@
 <div>
   <mat-toolbar class="menu" color="primary">
     <div class="centerNavBar">
-      <a mat-button href="fa-dashboard">Back</a>
+      <a mat-button href="admin-dashboard">Back</a>
       &nbsp;
       <span class="headSpacer">Damage Assessment Tool</span>
       &nbsp;
-      <a mat-button href="">Logout</a>
+      <a mat-button type="button" (click)="onLogoutAdmin()">Logout</a>
     </div>
   </mat-toolbar>
 </div>
@@ -16,21 +16,64 @@
       <div>
         <a mat-button href="admin-dashboard">Dashboard</a>
       </div>
+      <mat-divider></mat-divider>
       <div>
-        <a mat-button href="daform">Create Field Agent Report</a>
+        <a mat-button href="ad-daform-fac">Report<br />Facility Damage</a>
       </div>
+      <mat-divider></mat-divider>
       <div>
-        <a mat-button href="view-daform">Stored Field Agent Report Data</a>
+        <a mat-button href="ad-daform-equ">Report<br />Equipment Damage</a>
       </div>
+      <mat-divider></mat-divider>
       <div>
-        <a mat-button href="moc-report">Create MoC Report</a>
+        <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
       </div>
+      <mat-divider></mat-divider>
       <div>
-        <a mat-button href="moc-report-view">Stored MoC Report Data</a>
+        <a mat-button href="ad-preequ">Predisaster<br />Equipment Report</a>
       </div>
+      <mat-divider></mat-divider>
       <div>
-        <a mat-button href="message-board">Message Board</a>
+        <a mat-button href="ad-moc-report">Make a Report</a>
       </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-daform-fac-view">View Reports:<br />Facility Damage</a>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-daform-equ-view">View Reports:<br />Equipment Damage</a>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-moc-report-view">View Reports:<br />MOC</a>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-prefac-view">View Predisaster<br />Facility Report</a>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-preequ-view">View Predisaster<br />Equipment Report</a>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-aggregate">Data Mining</a>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-twitter">Twitter Posts</a>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-charts">Charts</a>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <a mat-button href="ad-message-board">Message Board</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br />
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="sect">
