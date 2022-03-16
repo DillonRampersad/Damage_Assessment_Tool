@@ -1,11 +1,11 @@
 <div>
   <mat-toolbar class="menu" color="primary">
     <div class="centerNavBar">
-      <a mat-button href="fa-dashboard">Back</a>
+      <a mat-button href="message-board">Back</a>
       &nbsp;
       <span class="headSpacer">Damage Assessment Tool</span>
       &nbsp;
-      <a mat-button href="">Logout</a>
+      <a mat-button href="onLogoutMoc()">Logout</a>
     </div>
   </mat-toolbar>
 </div>
@@ -13,12 +13,18 @@
 <div>
   <mat-sidenav-container>
     <mat-sidenav mode="side" opened>
+      <br/>
       <div>
-        <a mat-button href="">Message Board</a>
+        <a mat-button href="message-board">Message Board</a>
       </div>
+      <br/>
+      <mat-divider></mat-divider>
+      <br/>
       <div>
         <a mat-button href="moc-report">Make a Report</a>
       </div>
+      <br/>
+      <mat-divider></mat-divider>
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="sect">

@@ -39,11 +39,11 @@ import { TwitterComponent } from './pages/twitter/twitter.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
-  {
-    path: 'detailed-daform',
-    redirectTo: 'detailed-daforms',
-    pathMatch: 'full',
-  },
+  //{
+  //  path: 'detailed-daform',
+  //  redirectTo: 'detailed-daforms',
+  //  pathMatch: 'full',
+  //},
   { path: 'landing', component: LandingComponent },
   {
     path: 'fa-dashboard',
@@ -53,7 +53,9 @@ const routes: Routes = [
   { path: 'moc-report', component: MocReportComponent },
   { path: 'updatemoc/:mocID', component: UpdateMocComponent },
   { path: 'moc-report-view', component: MocReportsViewComponent },
+
   { path: 'message-board', component: MessageBoardComponent },
+
   { path: 'daform-fac', component: DaformFacComponent },
   { path: 'daform-fac/:daformfacID', component: DaformFacComponent },
   { path: 'updatedaformfac/:facID', component: UpdatedaformfacComponent},
@@ -62,6 +64,7 @@ const routes: Routes = [
     path: 'daform-fac-view-full/:facviewid',
     component: DaformFacViewFullComponent,
   },
+
   { path: 'daform-equ', component: DaformEquComponent },
   { path: 'daform-equ-view', component: DaformEquViewComponent },
   {
@@ -70,26 +73,37 @@ const routes: Routes = [
   },
   
   { path: 'updatedaformequ/:equID', component: UpdatedaformequComponent},
+
   { path: 'dm-dashboard', component: DmDashboardComponent },
+
   { path: 'admin-dashboard', component: AdminDashboardComponent },
+
   { path: 'fa-signup', component: FaSignupComponent },
   { path: 'fa-signin', component: FaSigninComponent },
+
   { path: 'dm-signup', component: DmSignupComponent },
   { path: 'dm-signin', component: DmSigninComponent },
+
   { path: 'a-signup', component: ASignupComponent },
   { path: 'a-signin', component: ASigninComponent },
+
   { path: 'moc-signup', component: MocSignupComponent },
   { path: 'moc-signin', component: MocSigninComponent },
+
   { path: 'preequ', component: PreEquComponent },
   { path: 'preequ-view', component: PreEquViewComponent },
   { path: 'preequ-view-full/:preequviewid', component: PreEquViewFullComponent },
   { path: 'updatepreequ/:equID', component: UpdatepreequComponent},
+
   { path: 'prefac', component: PreFacComponent },
   { path: 'prefac-view', component: PreFacViewComponent },
   { path: 'prefac-view-full/:preequviewid', component: PreFacViewFullComponent },
   { path: 'updateprefac/:facID', component: UpdateprefacComponent},
+
   { path: 'charts', component: ChartsComponent},
+
   { path: 'aggregate', component: AggregationComponent},
+  
   { path: 'twitter', component: TwitterComponent}
 ];
 

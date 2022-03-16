@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageBoardService } from 'src/app/service/message-board.service';
 import { Message } from 'src/app/models/messages.interface';
+import { MocSignupService } from 'src/app/service/moc-signup.service';
 
 @Component({
   selector: 'app-message-board',
@@ -12,7 +13,7 @@ import { Message } from 'src/app/models/messages.interface';
 export class MessageBoardComponent implements OnInit {
   messages: Message[] = [];
 
-  constructor(private messageService: MessageBoardService) { }
+  constructor(private messageService: MessageBoardService, private mocsignup: MocSignupService, private router : Router) { }
   form = new FormGroup({
     username: new FormControl(''),
     message: new FormControl(''),
@@ -34,10 +35,17 @@ export class MessageBoardComponent implements OnInit {
     window.location.reload();
   }
 
+  
+
   ngOnInit(): void {
     this.messageService.getMessage().subscribe((M: Message[]) => {
       this.messages = M;
     })
   }
 
+  onLogoutMoc() {
+    this.mocsignup.deleteToken();
+    //localStorage.clear;
+    this.router.navigate(['/moc-signin']);
+  }
 }

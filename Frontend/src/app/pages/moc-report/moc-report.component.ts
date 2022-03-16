@@ -54,7 +54,7 @@ export class MocReportComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private http: HttpClient
-  ) {}
+    ) {}
   form = new FormGroup({
     facilityName: new FormControl(''),
     MoCDescription: new FormControl(''),
@@ -113,9 +113,8 @@ export class MocReportComponent implements OnInit {
     });
     this.router.navigate(['/message-board']);
   
-    
-  
   }
+  
   
   ngOnInit(): void {}
 }
