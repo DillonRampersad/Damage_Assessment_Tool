@@ -76,7 +76,7 @@ export class AdDaformEquComponent implements OnInit {
     this.daformequ.postDAEquForm(formData).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/fa-dashboard']);
+    this.router.navigate(['/admin-dashboard']);
   }
 
   ngOnInit(): void {

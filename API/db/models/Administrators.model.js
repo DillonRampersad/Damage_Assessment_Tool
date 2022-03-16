@@ -46,7 +46,7 @@ const AdministratorsSchema = new mongoose.Schema({
     
     AdministratorsSchema.methods.generateJwt = function () {
       return jwt.sign({ _id: this._id }, 'SECRET#123', {
-        expiresIn: '30s',
+        expiresIn: '60m',
       });
     };
     

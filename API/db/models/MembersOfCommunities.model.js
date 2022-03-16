@@ -42,7 +42,7 @@ MembersOfCommunitiesSchema.methods.verifyPassword = function (password) {
 
 MembersOfCommunitiesSchema.methods.generateJwt = function () {
   return jwt.sign({ _id: this._id }, 'SECRET#123', {
-    expiresIn: '2m',
+    expiresIn: '60m',
   });
 };
     

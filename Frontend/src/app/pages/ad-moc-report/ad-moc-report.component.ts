@@ -76,7 +76,7 @@ export class AdMocReportComponent implements OnInit {
     this.mocreportservice.postMOCForm(formData).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/message-board']);
+    this.router.navigate(['/admin-dashboard']);
   
   }
   

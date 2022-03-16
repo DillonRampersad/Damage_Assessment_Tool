@@ -93,7 +93,7 @@ export class UpdatedaformfacComponent implements OnInit {
       .subscribe((d) => {
         console.log(d);
       });
-    this.router.navigate(['/fa-dashboard']);
+    this.router.navigate(['/dm-dashboard']);
   }
 
   ngOnInit(): void {
