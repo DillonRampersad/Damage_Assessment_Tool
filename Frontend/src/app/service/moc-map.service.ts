@@ -8,15 +8,15 @@ import * as L from 'leaflet'
 })
 export class MocMapService {
 
-  baseURL: string = 'http://localhost:3000/MOCReport';
+  baseURL: string = 'http://localhost:3000/DAFacility';
   constructor(private webReqService: WebRequestService, private http: HttpClient) { }
 
-  getMarkers(map: L.map): void {
+  getMarkers(map: L.Map): void {
     this.http.get(this.baseURL).subscribe((res: any)=> {
 
       for (const c of res){
-        const lat = c.MoCDisasterLocation[0];
-        const lon = c.MoCDisasterLocation[1];
+        const lat = c.latitude;
+        const lon = c.longitude;
         var marker = L.marker([lon, lat], {draggable: true}).addTo(map);
         marker.bindPopup(`<center><p><strong>${c.facilityName}</strong></p></center>`+ marker.getLatLng()).openPopup();
       }

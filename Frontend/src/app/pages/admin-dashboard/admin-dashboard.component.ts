@@ -16,7 +16,7 @@ export class AdminDashboardComponent implements OnInit {
   onLogoutAdmin() {
     this.adminsignup.deleteToken();
     //localStorage.clear;
-    this.router.navigate(['/moc-signin']);
+    this.router.navigate(['/a-signin']);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MOCUser } from '../models/mocSignup.interface';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,10 @@ export class MocSignupService {
   }
 
   getUserProfile() {
-    return this.http.get('http://localhost:3000/userProfileMOC');
+    return this.http.get('http://localhost:3000/userProfileMOC')
+    .pipe(map((res:any)=>{
+      return res;
+    }))
   }
 
   //Helper Methods

@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const MessagesSchema = new mongoose.Schema({
     username:{
         type: String,
-        required: false,
-        default: "User"
+        required: false
+        //default: "User"
     },
     message:{
         type: String,
         required: false,
-        default:"Content"
+        //default:"Content"
     },
     messageDateTime:{
         type: Date,

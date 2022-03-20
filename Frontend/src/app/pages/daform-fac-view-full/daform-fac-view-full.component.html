@@ -112,13 +112,21 @@
                 <br/>
                 <h3>Damage Done to the Facility's Infrastructure: {{daformfacs.facilityDamage}}</h3>
                 <mat-divider></mat-divider>
-                <br/>
-                <h3>Location:<br/></h3>
-                <mat-divider></mat-divider>
+                
                 <br/>
                 <h3>Images:<br/>
                     <img class="styleImage" src="http://localhost:3000/{{ daformfacs.facImage }}" />
                 </h3>
+                <br/>
+                <h3>Location:<br/></h3>
+                <div class="MOCMap">
+                  <div class="map-container">
+                      <div class="map-frame">
+                          <div id="map"></div>
+                      </div>
+                  </div>
+                </div>
+                <mat-divider></mat-divider>
               </mat-tab>
               
             </mat-tab-group>

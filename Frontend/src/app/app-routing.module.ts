@@ -152,9 +152,6 @@ const routes: Routes = [
   { path: 'ad-updatedaformfac/:facID', component: AdUpdatedaformfacComponent},
   { path: 'ad-updatepreequ/:equID', component: AdUpdatepreequComponent},
   { path: 'ad-updateprefac/:facID', component: AdUpdateprefacComponent},
-
-
-
 ];
 
 @NgModule({

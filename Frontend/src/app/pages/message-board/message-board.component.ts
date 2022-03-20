@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MessageBoardService } from 'src/app/service/message-board.service';
 import { Message } from 'src/app/models/messages.interface';
 import { MocSignupService } from 'src/app/service/moc-signup.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-message-board',
@@ -12,6 +13,8 @@ import { MocSignupService } from 'src/app/service/moc-signup.service';
 })
 export class MessageBoardComponent implements OnInit {
   messages: Message[] = [];
+  mocUserDetails;
+  MocUsername;
 
   constructor(private messageService: MessageBoardService, private mocsignup: MocSignupService, private router : Router) { }
   form = new FormGroup({
@@ -23,11 +26,14 @@ export class MessageBoardComponent implements OnInit {
 
   addMessage() {
     console.log('adding');
-    
+    this.mocsignup.getUserProfile().subscribe((res) => {
+      this.mocUserDetails = res['user'];
+    });
+    let userDetail = this.mocUserDetails.username;
+    console.log(userDetail);
     let formData: any = {
-      username: this.form.value.username,
+      username: userDetail,
       message: this.form.value.message,
-      //messageDateTime: this.form.value.messageDateTime
     }
     this.messageService.postMessage(formData).subscribe((d) => {
       console.log(d);
@@ -41,6 +47,9 @@ export class MessageBoardComponent implements OnInit {
     this.messageService.getMessage().subscribe((M: Message[]) => {
       this.messages = M;
     })
+    this.mocsignup.getUserProfile().subscribe((res) => {
+      this.mocUserDetails = res['user'];
+    });
   }
 
   onLogoutMoc() {
@@ -49,3 +58,15 @@ export class MessageBoardComponent implements OnInit {
     this.router.navigate(['/moc-signin']);
   }
 }
+
+
+//<mat-form-field>
+  //            <mat-label>Username:</mat-label>
+    //          <input
+     //           placeholder="Username"
+       //         matInput
+         //       formControlName="username"
+           //     class="form-control"
+             //   type="string"
+              // />
+            //</mat-form-field>

@@ -58,8 +58,12 @@ const DAFacilitySchema = new mongoose.Schema({
         minlength:1,
         trim: true
     },
-    facLocation:{
-        type: Array,
+    latitude:{
+        type: Number,
+        required: false
+    },
+    longitude:{
+        type: Number,
         required: false
     },
     facStatus:{
@@ -85,7 +89,6 @@ const DAFacilitySchema = new mongoose.Schema({
     reportStatus:{
         type: String,
         required: false,
-        minlength:1,
         trim: true
     },
     facImage:{

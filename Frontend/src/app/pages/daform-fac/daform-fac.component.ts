@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DaformfacserviceService } from 'src/app/service/daformfacservice.service';
-
+declare const L: any;
 @Component({
   selector: 'app-daform-fac',
   templateUrl: './daform-fac.component.html',
@@ -13,6 +13,8 @@ export class DaformFacComponent implements OnInit {
   image:any;
   Image = [];
   imageData:any;
+  lat;
+  lon;
 
   constructor(private router: Router, private daformfacservice: DaformfacserviceService,) { }
 
@@ -32,7 +34,8 @@ export class DaformFacComponent implements OnInit {
     inoperEqu: new FormControl(''),
     facilityDamage: new FormControl(''),
     reportStatus: new FormControl(''),
-
+    lat: new FormControl(''),
+    lon: new FormControl(''),
   });
 
   onFileSelected(event: any) {
@@ -73,15 +76,27 @@ export class DaformFacComponent implements OnInit {
     formData.append('inoperEqu', this.form.value.inoperEqu);
     formData.append('facilityDamage',this.form.value.facilityDamage);
     formData.append('reportStatus',this.form.value.reportStatus);
+    formData.append('latitude',this.lat);
+    formData.append('longitude',this.lon);
+
     formData.append('facImage', this.image);
     this.daformfacservice.postDAFacForm(formData).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/fa-dashboard']);
+    //this.router.navigate(['/fa-dashboard']);
   }
 
 
   ngOnInit(): void {
+    if (!navigator.geolocation){
+      console.log("location is not supported");
+    }
+    navigator.geolocation.getCurrentPosition((position)=>
+    {
+      console.log(`lat: ${position.coords.latitude}, lon:${position.coords.longitude}`)
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+    })
   }
 
 }
