@@ -10,7 +10,8 @@ export interface DAFormFac{
     threatLevel: string;
     surroundingDamage: string;
     facilityName: string;
-    //facLocation: array;
+    latitude: Number;
+    longitude: Number;
     facStatus: string;
     operEqu: Number;
     inoperEqu: Number;
