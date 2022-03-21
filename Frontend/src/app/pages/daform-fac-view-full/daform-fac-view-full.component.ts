@@ -19,8 +19,8 @@ export class DaformFacViewFullComponent implements OnInit {
   getparamformid: any;
   daformfacs: any;
 
-  latitude;
-  longitude;
+  latitude: any;
+  longitude: any;
 
   private map: L.Map;
   constructor(
@@ -29,6 +29,10 @@ export class DaformFacViewFullComponent implements OnInit {
     private mapService: MocMapService,
     private http: HttpClient,
   ) {}
+  addMarker() {
+    var marker = L.marker([this.latitude, this.longitude]).addTo(this.map);
+    console.log(this.latitude, this.longitude, "in marker");
+  }
 
   ngOnInit(): void {
     console.log(
@@ -37,16 +41,16 @@ export class DaformFacViewFullComponent implements OnInit {
     );
     this.getparamformid = this.route.snapshot.paramMap.get('facviewid');
     this.daformfacservice
-      .getOneDAFacForm(this.getparamformid)
-      .subscribe((daFormFac: DAFormFac[]) => {
-        this.daformfacs = daFormFac;
-        console.log(daFormFac, 'response of form');
-        //this.latitude =  daFormFac.latitude);
-      //this.longitude = daFormFac.longitude);
-
-        console.log(this.latitude, this.longitude, "cords")
-      });
-    let map = L.map('map').setView([10.536421, -61.311951], 8);
+  .getOneDAFacForm(this.getparamformid)
+  .subscribe((daFormFac: DAFormFac) => {
+    this.daformfacs = daFormFac;
+    console.log(daFormFac, 'response of form');
+    this.latitude =  daFormFac['latitude'];
+    this.longitude = daFormFac['longitude'];
+    console.log(this.latitude, this.longitude, "cords")
+    this.addMarker(); // called marker for map position
+  });
+    this.map = L.map('map').setView([10.536421, -61.311951], 8);
     L.tileLayer(
       'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
       {
@@ -59,7 +63,12 @@ export class DaformFacViewFullComponent implements OnInit {
         accessToken:
           'pk.eyJ1IjoiZGlsbG9uciIsImEiOiJjbDB6MGdlbW8xNnZuM2lqbmJnNWZkNzY0In0.cfAOIAy5foQsoUlHhpYSjQ',
       }
-    ).addTo(map);
-    var marker = L.marker([10.1896062, -61.5282025]).addTo(map);
+    ).addTo(this.map);
+    
+    //var marker = L.marker([10.1896062, -61.5282025]).addTo(map);
+    //console.log(this.latitude, this.longitude, "in marker")
+    //10.1896062, -61.5282025
+    //this.latitude, this.longitude
   }
 }
+
