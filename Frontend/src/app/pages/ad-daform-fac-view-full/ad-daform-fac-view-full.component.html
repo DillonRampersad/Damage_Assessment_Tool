@@ -78,68 +78,79 @@
       <mat-sidenav-content>
         <div>
         <mat-card>
-            <h2>Report ID : {{daformfacs._id}} </h2>
-            <br />
-            <mat-tab-group animationDuration="1000ms" mat-align-tabs="center">
-              
-              <mat-tab label="Author">
-                <br/>
-                <h3>Author: {{daformfacs.author}}</h3>
-              </mat-tab>
-              <mat-tab label="Event">
-                <br/>
-                <h3>Event: {{daformfacs.eventName}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Date: {{daformfacs.eventDate | date:'shortDate'}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Area: {{daformfacs.area}}</h3>
-                <br/>
-                <h3>Area Code: {{daformfacs.areaCode}}</h3>
-              </mat-tab>
-              <mat-tab label="Organization">
-                <br/>
-                <h3>Organization: {{daformfacs.organizationName}}</h3>
-              </mat-tab>
-              <mat-tab label="Disaster">
-                <br/>
-                <h3>Nature of Disaster: {{daformfacs.disasterNature}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Threat Level: {{daformfacs.threatLevel}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Damage Done to the Surrounding Area: {{daformfacs.surroundingDamage}}</h3>
-              </mat-tab>
-              <mat-tab label="Facility">
-                <br/>
-                <h3>Facility Name: {{daformfacs.facilityName}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Facility's Operational Status: {{daformfacs.facStatus}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Number of Operational Equipment in the Facility: {{daformfacs.operEqu}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Number of Inoperable Equipment in the Facility: {{daformfacs.inoperEqu}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Damage Done to the Facility's Infrastructure: {{daformfacs.facilityDamage}}</h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Location:<br/></h3>
-                <mat-divider></mat-divider>
-                <br/>
-                <h3>Images:<br/>
-                    <img class="styleImage" src="http://localhost:3000/{{ daformfacs.facImage }}" />
-                </h3>
-              </mat-tab>
-              
-            </mat-tab-group>
-            
-    
+          <h2>Report ID : {{ daformfacs._id }}</h2>
+          <br />
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Author:</b> {{ daformfacs.author }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Event:</b> {{ daformfacs.eventName }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Date:</b> {{ daformfacs.eventDate | date: "shortDate" }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Area:</b> {{ daformfacs.area }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Area Code:</b> {{ daformfacs.areaCode }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Organization:</b> {{ daformfacs.organizationName }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Nature of Disaster:</b> {{ daformfacs.disasterNature }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Threat Level:</b> {{ daformfacs.threatLevel }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3>
+            <b>Damage Done to the Surrounding Area:</b>
+            {{ daformfacs.surroundingDamage }}
+          </h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Facility Name:</b> {{ daformfacs.facilityName }}</h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3>
+            <b>Facility's Operational Status:</b> {{ daformfacs.facStatus }}
+          </h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3>
+            <b>Number of Operational Equipment in the Facility:</b>
+            {{ daformfacs.operEqu }}
+          </h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3>
+            <b>Number of Inoperable Equipment in the Facility:</b>
+            {{ daformfacs.inoperEqu }}
+          </h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3>
+            <b>Damage Done to the Facility's Infrastructure:</b>
+            {{ daformfacs.facilityDamage }}
+          </h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3>
+            <b>Images:</b><br />
+            <img
+              class="styleImage"
+              src="http://localhost:3000/{{ daformfacs.facImage }}"
+            />
+          </h3>
+          <mat-divider></mat-divider>
+          <br />
+          <h3><b>Location:</b><br /></h3>
+
+          <div id="map"></div>
+          <mat-divider></mat-divider>
         </mat-card>
         </div>
       </mat-sidenav-content>

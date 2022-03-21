@@ -59,6 +59,7 @@ import { AdUpdatedaformequComponent } from './pages/ad-updatedaformequ/ad-update
 import { AdUpdatedaformfacComponent } from './pages/ad-updatedaformfac/ad-updatedaformfac.component';
 import { AdUpdatepreequComponent } from './pages/ad-updatepreequ/ad-updatepreequ.component';
 import { AdUpdateprefacComponent } from './pages/ad-updateprefac/ad-updateprefac.component';
+import { MapComponent } from './pages/map/map.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
@@ -152,6 +153,8 @@ const routes: Routes = [
   { path: 'ad-updatedaformfac/:facID', component: AdUpdatedaformfacComponent},
   { path: 'ad-updatepreequ/:equID', component: AdUpdatepreequComponent},
   { path: 'ad-updateprefac/:facID', component: AdUpdateprefacComponent},
+
+  { path: 'map', component: MapComponent},
 ];
 
 @NgModule({

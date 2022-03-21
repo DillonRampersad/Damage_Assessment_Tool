@@ -89,6 +89,7 @@ import { AdUpdatedaformequComponent } from './pages/ad-updatedaformequ/ad-update
 import { AdUpdatedaformfacComponent } from './pages/ad-updatedaformfac/ad-updatedaformfac.component';
 import { AdUpdatepreequComponent } from './pages/ad-updatepreequ/ad-updatepreequ.component';
 import { AdUpdateprefacComponent } from './pages/ad-updateprefac/ad-updateprefac.component';
+import { MapComponent } from './pages/map/map.component';
 
 @NgModule({
   declarations: [
@@ -151,6 +152,7 @@ import { AdUpdateprefacComponent } from './pages/ad-updateprefac/ad-updateprefac
     AdUpdatedaformfacComponent,
     AdUpdatepreequComponent,
     AdUpdateprefacComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -178,6 +180,7 @@ import { AdUpdateprefacComponent } from './pages/ad-updateprefac/ad-updateprefac
     MatSelectModule,
     MatCheckboxModule,
     MatSortModule,
+    
   ],
   providers: [
     {

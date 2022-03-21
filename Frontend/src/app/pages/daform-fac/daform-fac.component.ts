@@ -78,8 +78,8 @@ export class DaformFacComponent implements OnInit {
     formData.append('reportStatus',this.form.value.reportStatus);
     formData.append('latitude',this.lat);
     formData.append('longitude',this.lon);
-
     formData.append('facImage', this.image);
+    console.log(this.lat, this.lon, "formdata results")
     this.daformfacservice.postDAFacForm(formData).subscribe((d) => {
       console.log(d);
     });
@@ -94,8 +94,8 @@ export class DaformFacComponent implements OnInit {
     navigator.geolocation.getCurrentPosition((position)=>
     {
       console.log(`lat: ${position.coords.latitude}, lon:${position.coords.longitude}`)
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
+      this.lat = position.coords.latitude;
+      this.lon = position.coords.longitude;
     })
   }
 

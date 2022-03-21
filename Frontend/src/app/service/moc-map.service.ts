@@ -13,13 +13,15 @@ export class MocMapService {
 
   getMarkers(map: L.Map): void {
     this.http.get(this.baseURL).subscribe((res: any)=> {
-
       for (const c of res){
         const lat = c.latitude;
         const lon = c.longitude;
         var marker = L.marker([lon, lat], {draggable: true}).addTo(map);
         marker.bindPopup(`<center><p><strong>${c.facilityName}</strong></p></center>`+ marker.getLatLng()).openPopup();
+        console.log(lat, "From services")
       }
+      
+      
     });
   }
 }
