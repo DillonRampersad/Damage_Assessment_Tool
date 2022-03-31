@@ -84,7 +84,6 @@ exports.DAFacility_delete = (req, res) => {
 
 //Aggregation
 exports.DAFacility_count_reports = (req, res) => {
-  //delete the Organization specified
   DAFacility.aggregate([
     {
       '$project': {
@@ -103,7 +102,6 @@ exports.DAFacility_count_reports = (req, res) => {
 };
 
 exports.DAFacility_count_unchecked_reports = (req, res) => {
-  //delete the Organization specified
   DAFacility.aggregate([
     [
       {
@@ -153,7 +151,6 @@ exports.DAFacility_count_checked_reports = (req, res) => {
 };
 
 exports.DAFacility_damage_search = (req, res) => {
-  //delete the Organization specified
   DAFacility.aggregate([
     [
       {

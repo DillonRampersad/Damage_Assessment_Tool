@@ -68,7 +68,6 @@ exports.MOCReport_update = (req, res) => {
 
 //Damage Assessment Form Delete
 exports.MOCReport_delete = (req, res) => {
-  //delete the Organization specified
   MOCReport.findOneAndRemove({
     _id: req.params.id,
   }).then((removeMOCReportDoc) => {

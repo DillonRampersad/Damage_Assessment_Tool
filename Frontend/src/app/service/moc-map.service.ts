@@ -21,7 +21,7 @@ export class MocMapService {
         console.log(lat, "From services")
       }
       
-      
+
     });
   }
 }

@@ -98,5 +98,4 @@ export class DaformFacComponent implements OnInit {
       this.lon = position.coords.longitude;
     })
   }
-
 }

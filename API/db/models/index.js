@@ -1,3 +1,5 @@
+//reference-https://www.youtube.com/watch?v=V-CeWkz1MNQ&list=PLIjdNHWULhPSZFDzQU6AnbVQNNo1NTRpd
+
 const { Administrators } = require('./Administrators.model');
 const { DisasterManagers } = require('./DisasterManagers.model');
 const { Equipment } = require('./Equipment.model');
