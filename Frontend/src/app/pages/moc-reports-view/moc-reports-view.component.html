@@ -79,11 +79,10 @@
               <span>{{ mocreport.facilityName }}</span>
             </mat-panel-title>
             <mat-panel-description>
-              <span>{{ mocreport.facilityName }}</span>
+              <span>{{ mocreport.MoCDisasterLocation }}</span>
               <span>status: {{mocreport.reportStatus}}</span>
             </mat-panel-description>
           </mat-expansion-panel-header>
-          Author:
           <br />
           <br />
           Date: {{ mocreport.MoCReportDateTime | date: "shortDate" }}
@@ -92,7 +91,7 @@
           Description: {{ mocreport.MoCDescription }}
           <br />
           <br />
-          Location:
+          Location: {{ mocreport.MoCDisasterLocation }}
           <br />
           <br />
           Images:

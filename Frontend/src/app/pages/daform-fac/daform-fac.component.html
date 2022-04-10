@@ -29,7 +29,7 @@
       <mat-divider></mat-divider>
       <br />
       <div>
-        <a mat-button href="preequ">Predisaster<br />Facility Report</a>
+        <a mat-button href="prefac">Predisaster<br />Facility Report</a>
       </div>
       <mat-divider></mat-divider>
       <br />
@@ -41,7 +41,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-card>
-        <mat-card-header>Facility Damage Report</mat-card-header>
+        <h2 class="textAlignCenter">Facility Damage Report</h2>
         <br /><br />
         <form [formGroup]="form" (submit)="addDAFacForm()">
           <mat-card-content>
@@ -182,6 +182,10 @@
                 <ng-template matStepLabel>Location</ng-template>
                 <ng-template matStepContent>
                   <p>Location is being added via device's location</p>
+                  <i>
+                  <span>Latitude: {{lat}}</span> &nbsp;
+                  <span>Longitude: {{lon}}</span>
+                </i>
                 </ng-template>
               </mat-step>
 

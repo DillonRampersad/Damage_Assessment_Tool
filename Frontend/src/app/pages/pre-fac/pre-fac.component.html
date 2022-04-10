@@ -29,7 +29,7 @@
         <mat-divider></mat-divider>
         <br />
         <div>
-          <a mat-button href="preequ">Predisaster<br />Facility Report</a>
+          <a mat-button href="prefac">Predisaster<br />Facility Report</a>
         </div>
         <mat-divider></mat-divider>
         <br />
@@ -41,7 +41,7 @@
       </mat-sidenav>
       <mat-sidenav-content>
         <mat-card>
-          <mat-card-header>Facility Pre-Assessment Report</mat-card-header>
+          <h2 class="textAlignCenter">Facility Pre-Assessment Report</h2>
           <br /><br />
           <form [formGroup]="form" (submit)="addprefacForm()">
             <mat-card-content>
@@ -178,7 +178,10 @@
                         />
                       </mat-form-field>
                       <br/>
-                      
+                      <p>The location would be automatically taken.</p>
+                      <i><span>latitude:{{lat}}, longitude:{{lon}}</span></i>
+                      <br/>
+                      <br/>
                     <!--Div for buttons-->
                     <div>
                       <input

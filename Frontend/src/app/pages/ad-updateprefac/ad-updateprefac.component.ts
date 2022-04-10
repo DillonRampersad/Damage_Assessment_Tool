@@ -88,6 +88,7 @@ export class AdUpdateprefacComponent implements OnInit {
       .subscribe((d) => {
         console.log(d);
       });
+      alert("Are you sure you want to submit?")
     this.router.navigate(['/ad-prefac-view']);
   }
 

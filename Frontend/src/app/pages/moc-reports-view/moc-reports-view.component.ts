@@ -42,7 +42,7 @@ export class MocReportsViewComponent implements OnInit {
     this.mocreportservice.deleteMOCForm(id).subscribe((res)=>{
       console.log(res);
     });
-    window .location.reload();
+    window.location.reload();
   }
 
 
@@ -52,7 +52,4 @@ export class MocReportsViewComponent implements OnInit {
     });
   }
 
-  //ngOnDestroy(){
-  //  this.MOCReportSubscription.unsubscribe();
-  //}
 }

@@ -16,6 +16,10 @@ export class MessageBoardComponent implements OnInit {
   mocUserDetails;
   MocUsername;
 
+  image: any;
+  Image = [];
+  imageData: any;
+
   constructor(private messageService: MessageBoardService, private mocsignup: MocSignupService, private router : Router) { }
   form = new FormGroup({
     username: new FormControl(''),
@@ -23,6 +27,24 @@ export class MessageBoardComponent implements OnInit {
     messageDateTime: new FormControl(''),
   });
 
+  onFileSelected(event: any) {
+    const file = (event.target as HTMLInputElement).files;
+    this.form.patchValue({ Image: file });
+    const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+
+    {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageData = reader.result as string;
+      };
+      if (file) {
+        reader.readAsDataURL(file[0]);
+      }
+    }
+    console.log(event.target.files[0]);
+    const Image = event.target.files[0];
+    this.image = Image;
+  }
 
   addMessage() {
     console.log('adding');
@@ -31,13 +53,20 @@ export class MessageBoardComponent implements OnInit {
     });
     let userDetail = this.mocUserDetails.username;
     console.log(userDetail);
-    let formData: any = {
+    /*let formData: any = {
       username: userDetail,
       message: this.form.value.message,
-    }
+      messageImage: this.image,
+      
+    }*/
+    const formData = new FormData();
+    formData.append('username', userDetail);
+    formData.append('message', this.form.value.message);
+    formData.append('messageImage', this.image);
     this.messageService.postMessage(formData).subscribe((d) => {
       console.log(d);
     });
+    alert("Are you sure you want to submit?")
     window.location.reload();
   }
 

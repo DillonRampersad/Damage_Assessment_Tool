@@ -39,6 +39,7 @@ export class AdMocReportComponent implements OnInit {
     facilityName: new FormControl(''),
     MoCDescription: new FormControl(''),
     MoCReportDateTime: new FormControl(''),
+    MoCDisasterLocation: new FormControl(''),
   });
 
 
@@ -68,6 +69,7 @@ export class AdMocReportComponent implements OnInit {
     const formData = new FormData();
     formData.append('facilityName', this.form.value.facilityName);
     formData.append('MoCDescription', this.form.value.MoCDescription);
+    formData.append('MoCDisasterLocation', this.form.value.MoCDisasterLocation);
     formData.append(
       'MoCReportDateTimeString',
       this.form.value.MoCReportDateTimeString
@@ -76,8 +78,8 @@ export class AdMocReportComponent implements OnInit {
     this.mocreportservice.postMOCForm(formData).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/admin-dashboard']);
-  
+    //this.router.navigate(['/admin-dashboard']);
+  alert("Are you sure you want to submit?")
   }
   
   

@@ -1,0 +1,12 @@
+.borderMessage{
+    text-align: left;
+    border-style: outset;
+    border-color: grey;
+}
+
+.styleImage {
+    width: 150px;
+    height: 150px;
+}
+
+  

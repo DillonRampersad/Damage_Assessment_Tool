@@ -17,6 +17,10 @@ const MessagesSchema = new mongoose.Schema({
         type: Date,
         required: false,
         default: Date.now
+    },
+    messageImage:{
+        type: [String],
+        required: false
     }
 })
 

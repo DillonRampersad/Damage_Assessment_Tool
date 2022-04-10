@@ -83,6 +83,7 @@ export class DaformFacComponent implements OnInit {
     this.daformfacservice.postDAFacForm(formData).subscribe((d) => {
       console.log(d);
     });
+    alert("Are you sure you want to submit?")
     //this.router.navigate(['/fa-dashboard']);
   }
 

@@ -26,7 +26,7 @@
         </div>
         <mat-divider></mat-divider>
         <div>
-          <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
+          <a mat-button href="ad-prefac">Predisaster<br />Facility Report</a>
         </div>
         <mat-divider></mat-divider>
         <div>
@@ -80,61 +80,67 @@
           <h1>Message Board</h1>
         </div>
         <mat-card>
-          <mat-card-header>Create a message</mat-card-header>
-          <br />
-          <mat-card-content>
-            <form [formGroup]="form" (submit)="addMessage()">
-              <mat-form-field>
-                <mat-label>Username:</mat-label>
-                <input
-                  placeholder="Username"
-                  matInput
-                  formControlName="username"
-                  class="form-control"
-                  type="string"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field>
-                <mat-label>Message:</mat-label>
-                <input
-                  placeholder="Type Message Here..."
-                  matInput
-                  formControlName="message"
-                  class="form-control"
-                  type="string"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <button mat-raised-button color="basic" type="submit">Send</button>
-              <br />
-              <mat-divider></mat-divider>
-            </form>
+          <h3 class="textAlignCenter">Create a message</h3>
+        <br />
+        <mat-card-content>
+          <form [formGroup]="form" (submit)="addMessage()">
+            
             <br />
-            <div>
-            <mat-card>
-              <h2>Message Board:</h2>
-              <mat-card-content *ngFor="let message of messages.slice().reverse()">
-                <mat-card class="borderMessage">
-                  <span
-                    ><i>{{ message.username }}</i
-                    >, &nbsp;&nbsp;&nbsp;{{
-                      message.messageDateTime | date: "short"
-                    }}</span
-                  ><br />
-                  <mat-divider></mat-divider>
-                  <br />
-                  <p>{{ message.message }}</p>
-                  <br />
-                </mat-card>
-              </mat-card-content>
-            </mat-card>
-          </div>
-          </mat-card-content>
-        </mat-card>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
-  
+            <mat-form-field>
+              <mat-label>Message:</mat-label>
+              <input
+                placeholder="Type Message Here..."
+                matInput
+                formControlName="message"
+                class="form-control"
+                type="string"
+                required
+              />
+            </mat-form-field>
+            <br />
+            <input
+                      style="display: none"
+                      #ImageInput
+                      type="file"
+                      (change)="onFileSelected($event)"
+                    />
+                    <button
+                      mat-raised-button
+                      type="button"
+                      color="basic"
+                      (click)="ImageInput.click()"
+                    >
+                      Upload Images
+                    </button>
+                    &nbsp;
+            <button mat-raised-button color="primary" type="submit">Send</button>
+            <br />
+            <br />
+            <mat-divider></mat-divider>
+          </form>
+          <br />
+          <div>
+          <mat-card>
+            <h2>Message Board:</h2>
+            <mat-card-content *ngFor="let message of messages.slice().reverse()">
+              <mat-card class="borderMessage">
+                <span
+                  ><i>{{ message.username }}</i
+                  >, &nbsp;&nbsp;&nbsp;{{
+                    message.messageDateTime | date: "short"
+                  }}</span
+                ><br />
+                <mat-divider></mat-divider>
+                <br />
+                <p>{{ message.message }}</p>
+                <br />
+                <img class="styleImage" src="http://localhost:3000/{{ message.messageImage }}" />
+              </mat-card>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

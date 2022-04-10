@@ -76,7 +76,8 @@ export class DaformEquComponent implements OnInit {
     this.daformequ.postDAEquForm(formData).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/fa-dashboard']);
+    alert("Are you sure you want to submit?")
+    //this.router.navigate(['/fa-dashboard']);
   }
 
   ngOnInit(): void {

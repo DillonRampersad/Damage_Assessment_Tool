@@ -77,7 +77,8 @@ export class AdDaformFacComponent implements OnInit {
     this.daformfacservice.postDAFacForm(formData).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/admin-dashboard']);
+    //this.router.navigate(['/admin-dashboard']);
+    alert("Are you sure you want to submit?")
   }
 
 

@@ -88,7 +88,8 @@ export class UpdatedaformequComponent implements OnInit {
     this.daformequ.updateDAEquForm(this.form.value, this.route.snapshot.paramMap.get('equID')).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/fa-dashboard']);
+    alert("Are you sure you want to submit?")
+    //this.router.navigate(['/daform-equ-view']);
   }
 
   ngOnInit(): void {

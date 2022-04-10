@@ -59,6 +59,7 @@ export class MocReportComponent implements OnInit {
     facilityName: new FormControl(''),
     MoCDescription: new FormControl(''),
     MoCReportDateTime: new FormControl(''),
+    MoCDisasterLocation: new FormControl(''),
   });
 
   /*
@@ -103,6 +104,7 @@ export class MocReportComponent implements OnInit {
     const formData = new FormData();
     formData.append('facilityName', this.form.value.facilityName);
     formData.append('MoCDescription', this.form.value.MoCDescription);
+    formData.append('MoCDisasterLocation', this.form.value.MoCDisasterLocation);
     formData.append(
       'MoCReportDateTimeString',
       this.form.value.MoCReportDateTimeString
@@ -111,8 +113,9 @@ export class MocReportComponent implements OnInit {
     this.mocreportservice.postMOCForm(formData).subscribe((d) => {
       console.log(d);
     });
+    alert("Are you sure you want to submit?")
     this.router.navigate(['/message-board']);
-  
+ 
   }
   
   

@@ -35,11 +35,14 @@ exports.Messages_get_one = (req, res) => {
 exports.Messages_post = (req, res, next) => {
   //create a damage assessment report and save to the database
   const floorPlan = req.files;
+  const messageImage = req.files;
+  console.log(req.files)
   console.log(req.files)
   let newMessages = new Messages({
     username: req.body.username,
     message: req.body.message,
-    messageDateTime: req.body.messageDateTime
+    messageDateTime: req.body.messageDateTime,
+    messageImage: req.files.map(messageImage => messageImage.path)
   });
   newMessages.save().then((MessagesDoc) => {
     //the full Damage Assessment document is returned (including id)

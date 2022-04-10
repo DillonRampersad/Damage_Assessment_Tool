@@ -1,81 +1,87 @@
 <div>
-    <mat-toolbar class="menu" color="primary">
-      <div class="centerNavBar">
-        <a mat-button href="dm-dashboard">Back</a>
-        &nbsp;
-        <span class="headSpacer">Damage Assessment Tool</span>
-        &nbsp;
-        <a mat-button type="button">Logout</a>
+  <mat-toolbar class="menu" color="primary">
+    <div class="centerNavBar">
+      <a mat-button href="dm-dashboard">Back</a>
+      &nbsp;
+      <span class="headSpacer">Damage Assessment Tool</span>
+      &nbsp;
+      <a mat-button type="button">Logout</a>
+    </div>
+  </mat-toolbar>
+</div>
+
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+      <div>
+        <a mat-button href="dm-dashboard">Dashboard</a>
       </div>
-    </mat-toolbar>
-  </div>
-  
-  <div>
-    <mat-sidenav-container>
-      <mat-sidenav mode="side" opened>
-        <div>
-          <a mat-button href="dm-dashboard">Dashboard</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-        <div>
-          <a mat-button href="daform-fac-view">View Reports:<br />Facility Damage</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-        <div>
-          <a mat-button href="daform-equ-view">View Reports:<br />Equipment Damage</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-        <div>
-          <a mat-button href="moc-report-view">View Reports:<br />MOC</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-        <div>
-          <a mat-button href="prefac-view">View Predisaster<br />Facility Report</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-        <div>
-          <a mat-button href="preequ-view">View Predisaster<br />Equipment Report</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-        <div>
-          <a mat-button href="aggregate">Data Mining</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-        <div>
-          <a mat-button href="twitter">Twitter Posts</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-        <div>
-          <a mat-button href="charts">Charts</a>
-        </div>
-        <mat-divider></mat-divider>
-        <br />
-      </mat-sidenav>
-      <mat-sidenav-content class="textAlignCenter">
-        
-        <h3>Twitter Post <i>"#TelecomDisaster"</i></h3>
-        <mat-card>
-            <mat-card-content>
-                <mat-card *ngFor="let tweets of twit">
-                    <mat-card-content>
-                        <h3><b>User: </b>@{{tweets.twitterUsername}}</h3>
-                    <h3>"{{tweets.postContent}}"</h3>
-                    <h3><b>Date: </b>{{tweets.postDateTime | date: "short"}}</h3>
-                        <br/>
-                    </mat-card-content>
-                    <mat-divider></mat-divider>
-                </mat-card>
+      <mat-divider></mat-divider>
+      <br />
+      <div>
+        <a mat-button href="daform-fac-view"
+          >View Reports:<br />Facility Damage</a
+        >
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+      <div>
+        <a mat-button href="daform-equ-view"
+          >View Reports:<br />Equipment Damage</a
+        >
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+      <div>
+        <a mat-button href="moc-report-view">View Reports:<br />MOC</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+      <div>
+        <a mat-button href="prefac-view"
+          >View Predisaster<br />Facility Report</a
+        >
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+      <div>
+        <a mat-button href="preequ-view"
+          >View Predisaster<br />Equipment Report</a
+        >
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+      <div>
+        <a mat-button href="aggregate">Data Mining</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+      <div>
+        <a mat-button href="twitter">Twitter Posts</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+      <div>
+        <a mat-button href="charts">Charts</a>
+      </div>
+      <mat-divider></mat-divider>
+      <br />
+    </mat-sidenav>
+    <mat-sidenav-content class="textAlignCenter">
+      <h2 class="textAlignCenter">Twitter Post <i>"#TelecomDisaster"</i></h2>
+      <mat-card>
+        <mat-card-content>
+          <mat-card *ngFor="let tweets of twit.slice().reverse()">
+            <mat-card-content class="text">
+              <h3><b>User: </b>@{{ tweets.twitterUsername }}</h3>
+              <h3><b>Date: </b>{{ tweets.postDateTime | date: "short" }}</h3>
+              <h3>"{{ tweets.postContent }}"</h3>
+              <br />
             </mat-card-content>
-        </mat-card>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
-  
+            <mat-divider></mat-divider>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -5,7 +5,8 @@ export interface PreFac{
     facilityName: string;
     area: string;
     areaCode: number;
-    //facLocation: string;
+    latitude: Number;
+    longitude: Number;
     facilityContact: string;
     noOfEqu: number;
     noOfEmployees: number;

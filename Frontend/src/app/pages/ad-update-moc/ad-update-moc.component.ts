@@ -88,6 +88,7 @@ export class AdUpdateMocComponent implements OnInit {
     this.mocreportservice.updateMOCForm(this.form.value, this.route.snapshot.paramMap.get('mocID')).subscribe((d) => {
       console.log(d);
     });
+    alert("Are you sure you want to submit?")
     this.router.navigate(['/ad-moc-report-view']);
   }
 }

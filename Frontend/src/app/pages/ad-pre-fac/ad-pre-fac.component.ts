@@ -12,6 +12,8 @@ export class AdPreFacComponent implements OnInit {
   image:any;
   Image = [];
   imageData:any;
+  lat;
+  lon;
 
   constructor(private router: Router, private prefac: PreFacService) { }
   form = new FormGroup({
@@ -26,6 +28,8 @@ export class AdPreFacComponent implements OnInit {
     buildingManufacturer: new FormControl(''),
     manufacturerContact: new FormControl(''),
     cost: new FormControl(''),
+    lat: new FormControl(''),
+    lon: new FormControl(''),
   });
 
   
@@ -64,14 +68,26 @@ export class AdPreFacComponent implements OnInit {
     formData.append('buildingManufacturer',this.form.value.buildingManufacturer);
     formData.append('manufacturerContact',this.form.value.manufacturerContact);
     formData.append('cost',this.form.value.cost);
+    formData.append('latitude',this.lat);
+    formData.append('longitude',this.lon);
     formData.append('floorPlan', this.image);
     this.prefac.postPreFacForm(formData).subscribe((d) => {
       console.log(d);
     });
+    alert("Are you sure you want to submit?")
   }
 
 
   ngOnInit(): void {
+    if (!navigator.geolocation){
+    console.log("location is not supported");
   }
+  navigator.geolocation.getCurrentPosition((position)=>
+  {
+    console.log(`lat: ${position.coords.latitude}, lon:${position.coords.longitude}`)
+    this.lat = position.coords.latitude;
+    this.lon = position.coords.longitude;
+  })
+}
 
 }

@@ -29,10 +29,14 @@ const PreFacilitySchema = new mongoose.Schema({
   },
   areaCode: {
     type: Number,
-    required: false
+    required: false,
   },
-  facLocation: {
-    type: Array,
+  latitude: {
+    type: Number,
+    required: false,
+  },
+  longitude: {
+    type: Number,
     required: false,
   },
   facilityContact: {

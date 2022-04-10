@@ -29,7 +29,7 @@
     </mat-sidenav>
     <mat-sidenav-content class="MainContent">
       <mat-card>
-        <mat-card-header class="sect">Create report:</mat-card-header>
+        <h2 class="textAlignCenter">Create Report</h2>
         <br /><br />
         <mat-card-content class="centerAlign">
           <!--Div for form-->
@@ -46,11 +46,11 @@
               </mat-form-field>
               <br />
               <mat-form-field>
-                <mat-label>Comment</mat-label>
+                <mat-label>Facility In Question</mat-label>
                 <input
                   placeholder="--"
                   matInput
-                  formControlName="MoCDescription"
+                  formControlName="facilityName"
                   class="form-control"
                   type="string"
                   required
@@ -58,11 +58,23 @@
               </mat-form-field>
               <br />
               <mat-form-field>
-                <mat-label>Facility In Question</mat-label>
+                <mat-label>Facility Area</mat-label>
                 <input
                   placeholder="--"
                   matInput
-                  formControlName="facilityName"
+                  formControlName="MoCDisasterLocation"
+                  class="form-control"
+                  type="string"
+                  required
+                />
+              </mat-form-field>
+              <br />
+              <mat-form-field>
+                <mat-label>Comment</mat-label>
+                <input
+                  placeholder="--"
+                  matInput
+                  formControlName="MoCDescription"
                   class="form-control"
                   type="string"
                   required

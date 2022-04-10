@@ -87,6 +87,7 @@ export class UpdateMocComponent implements OnInit {
     this.mocreportservice.updateMOCForm(this.form.value, this.route.snapshot.paramMap.get('mocID')).subscribe((d) => {
       console.log(d);
     });
-    this.router.navigate(['/moc-report-view']);
+    alert("Are you sure you want to submit?")
+    //this.router.navigate(['/moc-report-view']);
   }
 }

@@ -61,6 +61,7 @@ export class AdPreEquComponent implements OnInit {
     this.preequ.postPreEquForm(formData).subscribe((d) => {
       console.log(d);
     });
+    alert("Are you sure you want to submit?")
   }
 
   ngOnInit(): void {

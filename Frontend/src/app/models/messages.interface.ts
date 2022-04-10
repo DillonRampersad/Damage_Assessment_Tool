@@ -3,4 +3,5 @@ export interface Message{
     username: string;
     message: string;
     messageDateTime: Date;
+    messageImage: string;
 }

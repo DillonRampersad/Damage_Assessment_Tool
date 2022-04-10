@@ -93,7 +93,8 @@ export class UpdatedaformfacComponent implements OnInit {
       .subscribe((d) => {
         console.log(d);
       });
-    this.router.navigate(['/dm-dashboard']);
+      alert("Are you sure you want to submit?")
+    //this.router.navigate(['/dm-dashboard']);
   }
 
   ngOnInit(): void {

@@ -26,7 +26,7 @@
         </div>
         <mat-divider></mat-divider>
         <div>
-          <a mat-button href="ad-preequ">Predisaster<br />Facility Report</a>
+          <a mat-button href="ad-prefac">Predisaster<br />Facility Report</a>
         </div>
         <mat-divider></mat-divider>
         <div>
@@ -94,7 +94,7 @@
                 <span>{{ mocreport.facilityName }}</span>
               </mat-panel-title>
               <mat-panel-description>
-                <span>{{ mocreport.facilityName }}</span>
+                <span>{{ mocreport.MoCDisasterLocation }}</span>
                 <span>status: {{mocreport.reportStatus}}</span>
               </mat-panel-description>
             </mat-expansion-panel-header>
@@ -103,7 +103,9 @@
             <br />
             <br />
             Description: {{ mocreport.MoCDescription }}
-            
+            <br/>
+            <br/>
+            Location: {{ mocreport.MoCDisasterLocation }}
             <br />
             <br />
             Images:
