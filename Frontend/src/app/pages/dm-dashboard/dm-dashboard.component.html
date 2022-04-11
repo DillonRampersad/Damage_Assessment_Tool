@@ -61,13 +61,34 @@
       </mat-sidenav>
       <mat-sidenav-content class="textAlignCenter">
         <div class="textAlignCenter">
-          <h1>Disaster Manager Dashboard</h1>
-          <span>User: {{ dmUserDetails.firstName }}</span>
+          <h1><b>Disaster Manager Dashboard</b></h1>
+          <span><i>User: {{ dmUserDetails.firstName }}</i></span>
         </div>
+        <br/>
+        <mat-card
+        ><mat-card-content
+          ><h2>{{ time | date: "hh:mm:ss a" }}</h2>
+        </mat-card-content></mat-card
+      >
+      <br/>
+      <div>
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/prefac-view']">Pre-Assessment of Facility</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/preequ-view']">Pre-Assessment of Equipment</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/daform-fac-view']">Assessment of Facility</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/daform-equ-view']">Assessment of Equipment</button>&nbsp;&nbsp;
+        <br/>
+        <br/>
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/moc-report-view']">Member of Community Report</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/aggregate']">Data Mining</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/charts']">Charts</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/twitter']">Twitter Post</button>&nbsp;&nbsp;
+      </div>
+      <br/>
+      <mat-divider></mat-divider>
         <mat-grid-list cols="2" rowHeight="3:1">
           <mat-grid-tile>
             <mat-card>
-              <mat-card-content>
+              <mat-card-content class="grid">
                 <h3>
                   Number of <b>Facility</b> Damage Assessment Reports Made:
                   {{ aggregationFac[0].NoOfDaFacilityReports }}
@@ -86,7 +107,7 @@
           <mat-grid-tile
             >
               <mat-card>
-                <mat-card-content>
+                <mat-card-content class="grid">
                   <h3>
                     Number of <b>Equipment</b> Damage Assessment Reports Made:
                     {{ aggregationEqu[0].NoOfDAEquipmentReports }}
@@ -102,24 +123,7 @@
                 </mat-card-content>
               </mat-card></mat-grid-tile
           >
-          <mat-grid-tile><mat-card>
-            <mat-card-content>
-              <h3>
-                Number of <b>Members of Communities</b> Damage Assessment Reports Made:
-                {{ aggregationMoc[0].NoOfMOCReports }}
-              </h3>
-              <h3>
-                Number of Unchecked Reports:
-                {{ aggregationUnckMoc[0].noOfUncheckedMOCReports }}
-              </h3>
-              
-            </mat-card-content>
-          </mat-card></mat-grid-tile>
-          <mat-grid-tile><mat-card>
-              <mat-card-content>
-                <div>{{ time | date: 'hh:mm:ss a' }}</div>
-              </mat-card-content>
-          </mat-card></mat-grid-tile>
+          
         </mat-grid-list>
       </mat-sidenav-content>
     </mat-sidenav-container>

@@ -41,13 +41,29 @@
     </mat-sidenav>
     <mat-sidenav-content class="textAlignCenter">
       <div class="textAlignCenter">
-        <h1>Field Agent Dashboard</h1>
-        <span>User: {{ faUserDetails.firstName }}</span>
+        <h1><b>Field Agent Dashboard</b></h1>
+        <h3>
+          <i>User: {{ faUserDetails.firstName }}</i>
+        </h3>
       </div>
+      <mat-card
+        ><mat-card-content
+          ><h2>{{ time | date: "hh:mm:ss a" }}</h2>
+        </mat-card-content></mat-card
+      >
+      <br>
+      <div>
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/prefac']">Create Pre-Assessment of Facility</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/preequ']">Create Pre-Assessment of Equipment</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/daform-fac']">Create Assessment of Facility</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/daform-equ']">Create Assessment of Equipment</button>&nbsp;&nbsp;
+      </div>
+      <br/>
+      <mat-divider></mat-divider>
       <mat-grid-list cols="2" rowHeight="2:1">
         <mat-grid-tile>
           <mat-card>
-            <mat-card-content>
+            <mat-card-content class="grid">
               <h3>
                 Number of <b>Facility</b> Damage Assessment Reports Made:
                 {{ aggregationFac[0].NoOfDaFacilityReports }}
@@ -65,9 +81,9 @@
         </mat-grid-tile>
         <mat-grid-tile
           ><mat-card-content>
-            <br/>
+            <br />
             <mat-card>
-              <mat-card-content>
+              <mat-card-content class="grid">
                 <h3>
                   Number of <b>Equipment</b> Damage Assessment Reports Made:
                   {{ aggregationEqu[0].NoOfDAEquipmentReports }}
@@ -84,8 +100,6 @@
             </mat-card>
           </mat-card-content></mat-grid-tile
         >
-        <mat-grid-tile>3</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
       </mat-grid-list>
     </mat-sidenav-content>
   </mat-sidenav-container>

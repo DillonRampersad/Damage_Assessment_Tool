@@ -19,4 +19,19 @@ export class AdTwitterComponent implements OnInit {
     })
   }
 
+  /*
+  <mat-card>
+            <mat-card-content>
+              <mat-card *ngFor="let tweets of twit.slice().reverse()">
+                <mat-card-content class="text">
+                    <h3><b>User: </b>@{{tweets.twitterUsername}}</h3>
+                <h3><b>Date: </b>{{tweets.postDateTime | date: "short"}}</h3>
+                <h3>"{{tweets.postContent}}"</h3>
+                    <br/>
+                </mat-card-content>
+                <mat-divider></mat-divider>
+            </mat-card>
+            </mat-card-content>
+        </mat-card>
+        */
 }

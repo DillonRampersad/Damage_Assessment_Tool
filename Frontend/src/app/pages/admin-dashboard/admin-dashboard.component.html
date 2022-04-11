@@ -38,11 +38,15 @@
       </div>
       <mat-divider></mat-divider>
       <div>
-        <a mat-button href="ad-daform-fac-view">View Reports:<br />Facility Damage</a>
+        <a mat-button href="ad-daform-fac-view"
+          >View Reports:<br />Facility Damage</a
+        >
       </div>
       <mat-divider></mat-divider>
       <div>
-        <a mat-button href="ad-daform-equ-view">View Reports:<br />Equipment Damage</a>
+        <a mat-button href="ad-daform-equ-view"
+          >View Reports:<br />Equipment Damage</a
+        >
       </div>
       <mat-divider></mat-divider>
       <div>
@@ -50,11 +54,15 @@
       </div>
       <mat-divider></mat-divider>
       <div>
-        <a mat-button href="ad-prefac-view">View Predisaster<br />Facility Report</a>
+        <a mat-button href="ad-prefac-view"
+          >View Predisaster<br />Facility Report</a
+        >
       </div>
       <mat-divider></mat-divider>
       <div>
-        <a mat-button href="ad-preequ-view">View Predisaster<br />Equipment Report</a>
+        <a mat-button href="ad-preequ-view"
+          >View Predisaster<br />Equipment Report</a
+        >
       </div>
       <mat-divider></mat-divider>
       <div>
@@ -76,15 +84,47 @@
       <br />
     </mat-sidenav>
     <mat-sidenav-content>
-      
-        <h1 class="textAlignCenter">Administrator Dashboard</h1>
-     
-      <mat-grid-list cols="2" rowHeight="2:1">
-        <mat-grid-tile>1</mat-grid-tile>
-        <mat-grid-tile>2</mat-grid-tile>
-        <mat-grid-tile>3</mat-grid-tile>
-        <mat-grid-tile>4</mat-grid-tile>
-      </mat-grid-list>
+      <div class="textAlignCenter">
+        <h1><b>Administrator Dashboard</b></h1>
+      </div>
+      <br/>
+      <br/>
+        <mat-card
+        ><mat-card-content
+          ><h2>{{ time | date: "hh:mm:ss a" }}</h2>
+        </mat-card-content></mat-card
+      >
+      <br/>
+      <br/>
+      <div class="centre">
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-prefac']">Create Pre-Assessment of Facility</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-preequ']">Create Pre-Assessment of Equipment</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-daform-fac']">Create Assessment of Facility</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-daform-equ']">Create Assessment of Equipment</button>&nbsp;&nbsp;
+        <br/>
+        <br/>
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-prefac-view']">Pre-Assessment of Facility</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-preequ-view']">Pre-Assessment of Equipment</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-daform-fac-view']">Assessment of Facility</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-daform-equ-view']">Assessment of Equipment</button>&nbsp;&nbsp;
+        <br/>
+        <br/>
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-moc-report-view']">Member of Community Report</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-aggregate']">Data Mining</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-charts']">Charts</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" class="buttonWidth" [routerLink]="['/ad-twitter']">Twitter Post</button>&nbsp;&nbsp;
+      </div>
+      <br/>
+      <mat-divider></mat-divider>
+      <br/>
+      <mat-card>
+        <mat-card-content class="color">
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        </mat-card-content>
+      </mat-card>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

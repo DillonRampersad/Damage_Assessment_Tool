@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AggregationService } from 'src/app/service/aggregation.service';
 import { FaSignupService } from 'src/app/service/fa-signup.service';
 
@@ -22,7 +23,17 @@ export class FADashbooardComponent implements OnInit {
     private aggregation: AggregationService
   ) {}
 
+  time = new Date();
+  rxTime = new Date();
+  intervalId;
+  subscription: Subscription;
+  
   ngOnInit(): void {
+
+    this.intervalId = setInterval(() => {
+      this.time = new Date();
+    }, 1000);
+    
     this.faSignUpService.getUserProfile().subscribe((res) => {
       this.faUserDetails = res['user'];
     });
